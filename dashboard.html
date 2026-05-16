@@ -55,10 +55,10 @@
 
         body { background-color: var(--bg-color); color: var(--text-color); overflow: hidden; font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
         .dashboard-layout { display: flex; height: 100vh; }
-        .sidebar { width: 280px; background-color: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; z-index: 40; transition: transform 0.3s ease, background-color 0.3s; }
+        .sidebar { width: 280px; background-color: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; z-index: 50; transition: transform 0.3s ease, background-color 0.3s; }
         .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; background-color: var(--bg-color); }
         .topbar { height: 70px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: var(--topbar-bg); backdrop-filter: blur(10px); transition: background-color 0.3s; }
-        .content-area { flex: 1; overflow-y: auto; padding: 2rem; }
+        .content-area { flex: 1; overflow-y: auto; padding: 1.5rem; }
         
         @media (max-width: 640px) {
             .topbar { padding: 0 1rem; }
@@ -110,8 +110,10 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
             <a href="index.html" class="h-[70px] flex items-center px-6 border-b border-slate-200 dark:border-white/5 hover:opacity-80 transition-opacity">
-                <i class="fa-solid fa-eye text-primary text-xl mr-3"></i>
-                <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight text-gray-900 dark:text-white">AuraStudio</span>
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg shadow-lg mr-3">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight text-gray-900 dark:text-white">AuraDesign</span>
             </a>
             
             <div class="py-4 flex-1 overflow-y-auto">
@@ -142,7 +144,14 @@
             <header class="topbar sticky top-0 z-40">
                 <div class="flex items-center gap-4">
                     <button class="text-gray-400 hover:text-white xl:hidden" id="menuToggle"><i class="fa-solid fa-bars text-xl"></i></button>
-                    <h1 class="text-xl font-bold">Theme Overview</h1>
+                    <div class="flex items-center gap-2 xl:hidden">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-base sm:text-lg tracking-tight">AuraDesign</span>
+                    </div>
+                    <div class="h-6 w-px bg-slate-700 mx-2 xl:hidden hidden sm:block"></div>
+                    <h1 class="text-xl font-bold hidden sm:block">Theme Overview</h1>
                 </div>
                 
                 <div class="flex items-center gap-3">
@@ -168,9 +177,9 @@
                 <div class="max-w-7xl mx-auto">
                     
                     <!-- Welcome Header -->
-                    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-8 text-center sm:text-left gap-4" data-aos="fade-in">
+                    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-6 text-center sm:text-left gap-4" data-aos="fade-in">
                         <div>
-                            <h2 class="text-3xl font-bold mb-2">Welcome back, Designer</h2>
+                            <h2 class="text-3xl font-bold mb-1">Welcome back, Designer</h2>
                             <p class="text-gray-400">Here's the accessibility status of your current project.</p>
                         </div>
                         <button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-600 transition-colors shadow-lg shadow-primary/20 w-full sm:w-auto">
@@ -179,7 +188,7 @@
                     </div>
 
                     <!-- Top Analytics Row -->
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
                         <div class="widget-card" data-aos="fade-up" data-aos-delay="50">
                             <div class="flex justify-between items-start mb-4">
                                 <div class="w-10 h-10 rounded-lg bg-green-500/20 text-green-500 flex items-center justify-center"><i class="fa-solid fa-check-double"></i></div>
@@ -216,7 +225,7 @@
                     </div>
 
                     <!-- Complex Layout Grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                         
                         <!-- Col 1: Brand Colors & Contrast -->
                         <div class="lg:col-span-1 space-y-6">
@@ -458,7 +467,11 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 600, once: true });
+        AOS.init({ 
+            duration: 600, 
+            once: true,
+            offset: 50
+        });
         
         // Simple sidebar toggle
         document.getElementById('menuToggle').addEventListener('click', () => {

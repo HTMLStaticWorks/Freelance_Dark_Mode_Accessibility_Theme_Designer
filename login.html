@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - AuraDesign Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6' } } } }</script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6', darkBg: '#0f172a', darkCard: '#1e293b' } } } }</script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -17,7 +17,7 @@
 
         <!-- Main Form -->
         <div class="w-full flex items-center justify-center p-8 sm:p-12 relative">
-            <div class="absolute top-8 right-8 flex gap-3">
+            <div class="absolute top-4 right-4 sm:top-8 sm:right-8 flex gap-2 sm:gap-3 z-50">
                 <button class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-xs font-bold text-gray-700 dark:text-gray-300" aria-label="Toggle RTL">
                     RTL
                 </button>
@@ -27,13 +27,13 @@
                 </button>
             </div>
             
-            <div class="w-full max-w-md" data-aos="fade-up">
+            <div class="w-full max-w-md pt-12 sm:pt-0" data-aos="fade-up">
                 <div class="mb-10 text-center">
                     <a href="index.html" class="inline-flex items-center gap-3 mb-8">
                         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-2xl tracking-tight text-gray-900 dark:text-white">AuraDesign</span>
+                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
                     </a>
                     <h2 class="text-3xl font-bold mb-2">Welcome Back</h2>
                     <p class="text-gray-500">Don't have an account? <a href="signup.html" class="text-primary hover:underline">Sign up</a></p>
@@ -64,15 +64,17 @@
                     <div class="space-y-1 relative">
                         <div class="flex justify-between items-center">
                             <label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="password">Password</label>
-                            <a href="#" class="text-xs text-primary hover:underline">Forgot password?</a>
                         </div>
                         <input type="password" id="password" class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all pr-10 placeholder:text-gray-400" placeholder="••••••••" required aria-required="true">
                         <button type="button" class="absolute right-3 top-9 text-gray-400 hover:text-white" aria-label="Toggle password visibility"><i class="fa-solid fa-eye-slash"></i></button>
                     </div>
 
-                    <div class="flex items-center gap-2">
-                        <input type="checkbox" id="remember" class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary">
-                        <label for="remember" class="text-sm text-gray-600 dark:text-gray-400">Remember me for 30 days</label>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="remember" class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary">
+                            <label for="remember" class="text-sm text-gray-600 dark:text-gray-400">Remember me</label>
+                        </div>
+                        <a href="#" class="text-xs text-primary hover:underline">Forgot password?</a>
                     </div>
                     
                     <button type="submit" class="w-full btn-primary py-3 rounded-lg mt-4 shadow-lg shadow-primary/20">Log In</button>
