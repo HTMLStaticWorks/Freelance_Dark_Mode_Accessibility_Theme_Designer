@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,33 +26,55 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* Cinematic specific overrides */
-        body { background-color: var(--bg-primary); color: var(--text-primary); }
-        .bento-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 1.5rem; 
-            grid-auto-rows: minmax(200px, auto); 
-        }
-        @media (min-width: 768px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 250px; }
-            .bento-large { grid-column: span 2; grid-row: span 2; }
-            .bento-wide { grid-column: span 2; }
-        }
-        @media (min-width: 1024px) {
-            .bento-grid { grid-template-columns: repeat(3, 1fr); }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
         }
 
-        .bento-item { 
-            border-radius: 1.5rem; 
-            overflow: hidden; 
-            position: relative; 
-            background: var(--bg-secondary); 
-            border: 1px solid var(--border-color); 
-            backdrop-filter: blur(10px); 
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            grid-auto-rows: minmax(200px, auto);
+        }
+
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 250px;
+            }
+
+            .bento-large {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .bento-wide {
+                grid-column: span 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .bento-item {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
-        .bento-item:hover { border-color: var(--primary); transform: translateY(-5px); }
-        
+
+        .bento-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
         .horizontal-scroll {
             display: flex;
             overflow-x: auto;
@@ -59,14 +82,29 @@
             gap: 2rem;
             padding-bottom: 2rem;
         }
-        .horizontal-scroll::-webkit-scrollbar { height: 8px; }
-        .horizontal-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
-        .horizontal-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
-        
-        .scroll-card { scroll-snap-align: start; min-width: 350px; }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .scroll-card {
+            scroll-snap-align: start;
+            min-width: 350px;
+        }
     </style>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
+
 <body class="transition-colors duration-300">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass transition-all duration-300">
@@ -74,15 +112,16 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <a href="index.html" class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
                         <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
                     </a>
                 </div>
-                
+
                 <!-- Desktop Menu -->
-                <div class="hidden xl:flex space-x-8 items-center">
+                <div class="hidden xl:flex space-x-6 items-center">
                     <a href="index.html" class="hover:text-primary transition-colors">Home</a>
                     <a href="home-2.html" class="font-semibold text-primary">Home 2</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
@@ -90,28 +129,37 @@
                     <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
                     <a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a>
                     <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
-                    
+
                     <div class="flex items-center gap-4 border-l border-gray-300 dark:border-gray-700 pl-4">
-                        <button class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-sm font-bold" aria-label="Toggle RTL">
+                        <button
+                            class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-sm font-bold"
+                            aria-label="Toggle RTL">
                             RTL
                         </button>
-                        <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                        <button
+                            class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                            aria-label="Toggle Theme">
                             <i class="fa-solid fa-moon dark:hidden"></i>
                             <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
                         </button>
                         <a href="dashboard.html" class="btn-primary">
                             <span>Dashboard</span>
                         </a>
-                        <a href="signup.html" class="btn-secondary px-6 py-2 rounded-lg font-bold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign Up</a>
+                        <a href="signup.html"
+                            class="btn-secondary px-6 py-2 rounded-lg font-bold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign
+                            Up</a>
                     </div>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="xl:hidden flex items-center gap-2 sm:gap-4">
-                    <button class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-xs font-bold" aria-label="Toggle RTL">
+                    <button
+                        class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-xs font-bold"
+                        aria-label="Toggle RTL">
                         RTL
                     </button>
-                    <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
+                    <button
+                        class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
                     </button>
@@ -121,19 +169,30 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
-                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
-                <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">Home 2</a>
-                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
-                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
-                <a href="pricing.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
-                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
-                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
-                <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4 text-center">Dashboard</a>
-                <a href="signup.html" class="block px-3 py-2 rounded-md text-base font-medium border border-primary text-primary mt-2 text-center">Sign Up</a>
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+                <a href="home-2.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">Home
+                    2</a>
+                <a href="about.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="services.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="pricing.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
+                <a href="portfolio.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="dashboard.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4 text-center">Dashboard</a>
+                <a href="signup.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium border border-primary text-primary mt-2 text-center">Sign
+                    Up</a>
             </div>
         </div>
     </nav>
@@ -141,56 +200,82 @@
     <!-- 1. Split Screen Hero -->
     <header class="min-h-screen flex flex-col lg:flex-row">
         <!-- Left Side: Content -->
-        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 pt-32 lg:p-16 lg:pt-40 relative overflow-hidden text-center lg:text-left">
+        <div
+            class="w-full lg:w-1/2 flex items-center justify-center p-8 pt-32 lg:p-16 lg:pt-40 relative overflow-hidden text-center lg:text-left">
             <!-- 4K Background Texture -->
             <div class="absolute inset-0 z-0 opacity-10">
-                <img src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?auto=format&fit=crop&q=80&w=3840" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?auto=format&fit=crop&q=80&w=3840"
+                    class="w-full h-full object-cover">
             </div>
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px] animate-pulse">
+            </div>
             <div class="max-w-xl flex flex-col items-center lg:items-start" data-aos="fade-right">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sky-700 dark:text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sky-700 dark:text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                     <i class="fa-solid fa-bolt"></i> Future of Accessibility
                 </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] text-gray-900 dark:text-white">
+                <h1
+                    class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] text-gray-900 dark:text-white">
                     Dark Mode <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Perfection.</span>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Perfection.</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
-                    Crafting cinematic, deep-contrast interfaces that prioritize accessibility without sacrificing premium visual fidelity.
+                    Crafting cinematic, deep-contrast interfaces that prioritize accessibility without sacrificing
+                    premium visual fidelity.
                 </p>
                 <div class="flex gap-4">
-                    <a href="#bento" class="bg-primary text-slate-900 px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                    <a href="#bento"
+                        class="bg-primary text-slate-900 px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2">
                         View Grid <i class="fa-solid fa-arrow-down"></i>
                     </a>
                 </div>
             </div>
         </div>
-        
+
         <!-- Right Side: Cinematic Visuals -->
         <div class="w-full lg:w-1/2 relative h-[50vh] lg:h-screen overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-50 dark:from-[#020617] to-transparent z-10 lg:block hidden"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#020617] to-transparent z-10 lg:hidden block"></div>
-            
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=3840" alt="Cinematic UI Design" class="absolute inset-0 w-full h-full object-cover transform scale-105">
-            
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-slate-50 dark:from-[#020617] to-transparent z-10 lg:block hidden">
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#020617] to-transparent z-10 lg:hidden block">
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=3840"
+                alt="Cinematic UI Design" class="absolute inset-0 w-full h-full object-cover transform scale-105">
+
             <!-- Interactive Widgets Overlaid -->
-            <div class="absolute top-10 right-4 lg:top-1/4 lg:right-1/4 z-20 glass-card bg-white/80 dark:bg-slate-900/80 p-4 border-slate-200 dark:border-white/10 rounded-2xl w-56 md:w-64 shadow-2xl transform rotate-[-5deg] lg:hover:rotate-0 transition-transform duration-500 scale-90 md:scale-100" data-aos="fade-left" data-aos-delay="200">
+            <div class="absolute top-10 right-4 lg:top-1/4 lg:right-1/4 z-20 glass-card bg-white/80 dark:bg-slate-900/80 p-4 border-slate-200 dark:border-white/10 rounded-2xl w-56 md:w-64 shadow-2xl transform rotate-[-5deg] lg:hover:rotate-0 transition-transform duration-500 scale-90 md:scale-100"
+                data-aos="fade-left" data-aos-delay="200">
                 <div class="flex items-center gap-3 mb-3">
-                    <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-600 dark:text-green-400"><i class="fa-solid fa-check"></i></div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-600 dark:text-green-400">
+                        <i class="fa-solid fa-check"></i></div>
                     <span class="text-sm font-bold text-gray-900 dark:text-white">Contrast AAA</span>
                 </div>
                 <div class="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-green-400 w-[95%]"></div>
                 </div>
             </div>
-            
-            <div class="absolute bottom-10 right-4 lg:bottom-1/3 lg:right-1/3 z-20 glass-card bg-white/80 dark:bg-slate-900/80 p-4 border-slate-200 dark:border-white/10 rounded-2xl w-60 md:w-72 shadow-2xl transform rotate-[5deg] lg:hover:rotate-0 transition-transform duration-500 delay-100 scale-90 md:scale-100" data-aos="fade-left" data-aos-delay="400">
-                <h4 class="text-xs text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest font-bold">Theme Preview</h4>
+
+            <div class="absolute bottom-10 right-4 lg:bottom-1/3 lg:right-1/3 z-20 glass-card bg-white/80 dark:bg-slate-900/80 p-4 border-slate-200 dark:border-white/10 rounded-2xl w-60 md:w-72 shadow-2xl transform rotate-[5deg] lg:hover:rotate-0 transition-transform duration-500 delay-100 scale-90 md:scale-100"
+                data-aos="fade-left" data-aos-delay="400">
+                <h4 class="text-xs text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest font-bold">Theme
+                    Preview</h4>
                 <div class="flex gap-2">
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#0f172a] border border-slate-200 dark:border-white/10"></div>
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1e293b] border border-slate-200 dark:border-white/10"></div>
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#38bdf8] border border-slate-200 dark:border-white/10"></div>
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#818cf8] border border-slate-200 dark:border-white/10"></div>
+                    <div
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#0f172a] border border-slate-200 dark:border-white/10">
+                    </div>
+                    <div
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1e293b] border border-slate-200 dark:border-white/10">
+                    </div>
+                    <div
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#38bdf8] border border-slate-200 dark:border-white/10">
+                    </div>
+                    <div
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#818cf8] border border-slate-200 dark:border-white/10">
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,50 +283,64 @@
 
     <!-- 2. Bento Grid Layout -->
     <section id="bento" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center md:text-left" data-aos="fade-up">Platform Capabilities</h2>
-        
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center md:text-left" data-aos="fade-up">
+            Platform Capabilities</h2>
+
         <div class="bento-grid">
             <!-- Large Card -->
-            <div class="bento-item bento-large group p-8 flex flex-col justify-end items-center text-center md:items-start md:text-left" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500 mix-blend-overlay">
+            <div class="bento-item bento-large group p-8 flex flex-col justify-end items-center text-center md:items-start md:text-left"
+                data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800"
+                    class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500 mix-blend-overlay">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
                 <div class="relative z-10 flex flex-col items-center md:items-start">
-                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-primary text-xl mb-4 border border-primary/30">
+                    <div
+                        class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-primary text-xl mb-4 border border-primary/30">
                         <i class="fa-solid fa-palette"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">Automated Token Generation</h3>
-                    <p class="text-gray-200 dark:text-gray-400 text-sm">Export precise CSS variables tailored for deep dark mode interfaces.</p>
+                    <p class="text-gray-200 dark:text-gray-400 text-sm">Export precise CSS variables tailored for deep
+                        dark mode interfaces.</p>
                 </div>
             </div>
-            
+
             <!-- Standard Cards -->
             <div class="bento-item p-6 group" data-aos="zoom-in" data-aos-delay="200">
                 <div class="relative z-10 h-full flex flex-col items-center text-center md:items-start md:text-left">
                     <i class="fa-solid fa-eye-low-vision text-3xl text-secondary mb-4"></i>
                     <h3 class="text-lg font-bold text-gray-900 dark:text-white mt-auto">Colorblind Safe</h3>
                 </div>
-                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-eye-low-vision"></i></div>
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-eye-low-vision"></i></div>
             </div>
-            
-            <div class="bento-item p-6 bg-gradient-to-br from-primary/20 to-secondary/20 border-primary/30" data-aos="zoom-in" data-aos-delay="300">
+
+            <div class="bento-item p-6 bg-gradient-to-br from-primary/20 to-secondary/20 border-primary/30"
+                data-aos="zoom-in" data-aos-delay="300">
                 <div class="relative z-10 h-full flex flex-col items-center justify-center text-center">
                     <div class="text-5xl font-black text-gray-900 dark:text-white mb-2">4.5:1</div>
-                    <p class="text-xs text-sky-700 dark:text-primary font-bold uppercase tracking-widest">Min Contrast Ratio</p>
+                    <p class="text-xs text-sky-700 dark:text-primary font-bold uppercase tracking-widest">Min Contrast
+                        Ratio</p>
                 </div>
             </div>
-            
+
             <!-- Wide Card -->
-            <div class="bento-item bento-wide p-8 flex flex-col md:flex-row items-center justify-between group overflow-hidden text-center md:text-left gap-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="bento-item bento-wide p-8 flex flex-col md:flex-row items-center justify-between group overflow-hidden text-center md:text-left gap-6"
+                data-aos="zoom-in" data-aos-delay="400">
                 <div class="relative z-10 max-w-sm flex flex-col items-center md:items-start">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">WCAG Analyzer</h3>
-                    <p class="text-gray-700 dark:text-gray-300 text-sm">Real-time code analysis to prevent accessibility regressions.</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">Real-time code analysis to prevent accessibility
+                        regressions.</p>
                 </div>
                 <div class="relative z-10 w-32 h-32">
                     <!-- Circular Progress SVG -->
                     <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90 text-slate-900 dark:text-white">
-                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3" />
-                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="100, 100" class="animate-pulse" />
-                        <text x="18" y="22" font-family="Outfit" font-size="10" font-weight="bold" fill="currentColor" text-anchor="middle">100%</text>
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                            fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3" />
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                            fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="100, 100"
+                            class="animate-pulse" />
+                        <text x="18" y="22" font-family="Outfit" font-size="10" font-weight="bold" fill="currentColor"
+                            text-anchor="middle">100%</text>
                     </svg>
                 </div>
             </div>
@@ -250,19 +349,22 @@
 
     <!-- 3. Horizontal Scrolling Cards: Theme Marketplace -->
     <section class="py-24 pl-4 sm:pl-6 lg:pl-8">
-        <div class="max-w-7xl mx-auto pr-4 sm:pr-6 lg:pr-8 flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left gap-4" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto pr-4 sm:pr-6 lg:pr-8 flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left gap-4"
+            data-aos="fade-up">
             <div>
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Curated Dark Themes</h2>
                 <p class="text-gray-600 dark:text-gray-400">Swipe to explore highly-accessible preset systems.</p>
             </div>
         </div>
-        
+
         <div class="horizontal-scroll pb-12" data-aos="fade-left">
             <!-- Card 1 -->
             <div class="scroll-card glass-card bg-slate-900 border-white/10 overflow-hidden group">
                 <div class="h-48 bg-[#0f172a] relative border-b border-white/10 p-4">
                     <!-- Fake UI Mockup -->
-                    <div class="w-full h-8 bg-slate-800 rounded mb-2 flex items-center px-2"><div class="w-4 h-4 rounded-full bg-red-500"></div></div>
+                    <div class="w-full h-8 bg-slate-800 rounded mb-2 flex items-center px-2">
+                        <div class="w-4 h-4 rounded-full bg-red-500"></div>
+                    </div>
                     <div class="flex gap-2">
                         <div class="w-1/3 h-24 bg-slate-800 rounded"></div>
                         <div class="w-2/3 h-24 bg-slate-800 rounded"></div>
@@ -278,10 +380,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Card 2 -->
-            <div class="scroll-card glass-card bg-white dark:bg-slate-900 border-slate-200 dark:border-white/10 overflow-hidden group">
-                <div class="h-48 bg-slate-50 dark:bg-[#18181b] relative border-b border-slate-200 dark:border-white/10 p-4">
+            <div
+                class="scroll-card glass-card bg-white dark:bg-slate-900 border-slate-200 dark:border-white/10 overflow-hidden group">
+                <div
+                    class="h-48 bg-slate-50 dark:bg-[#18181b] relative border-b border-slate-200 dark:border-white/10 p-4">
                     <div class="w-full h-8 bg-slate-200 dark:bg-zinc-800 rounded mb-2"></div>
                     <div class="w-full h-24 bg-slate-200 dark:bg-zinc-800 rounded flex items-center justify-center">
                         <div class="w-12 h-12 rounded-full bg-violet-500"></div>
@@ -289,7 +393,8 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-1">Zinc Violet</h3>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Soft neutral grays with vibrant accents.</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Soft neutral grays with vibrant accents.
+                    </p>
                     <div class="flex gap-2">
                         <span class="w-4 h-4 rounded-full bg-[#18181b] border border-white/20"></span>
                         <span class="w-4 h-4 rounded-full bg-[#27272a] border border-white/20"></span>
@@ -297,10 +402,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Card 3 -->
-            <div class="scroll-card glass-card bg-white dark:bg-slate-900 border-slate-200 dark:border-white/10 overflow-hidden group">
-                <div class="h-48 bg-slate-50 dark:bg-[#171717] relative border-b border-slate-200 dark:border-white/10 p-4">
+            <div
+                class="scroll-card glass-card bg-white dark:bg-slate-900 border-slate-200 dark:border-white/10 overflow-hidden group">
+                <div
+                    class="h-48 bg-slate-50 dark:bg-[#171717] relative border-b border-slate-200 dark:border-white/10 p-4">
                     <div class="grid grid-cols-2 gap-2 h-full">
                         <div class="bg-slate-200 dark:bg-neutral-800 rounded h-full"></div>
                         <div class="bg-slate-200 dark:bg-neutral-800 rounded h-full"></div>
@@ -308,7 +415,8 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-1">Carbon Neutral</h3>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">High-contrast accessibility-first theme.</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">High-contrast accessibility-first theme.
+                    </p>
                     <div class="flex gap-2">
                         <span class="w-4 h-4 rounded-full bg-[#171717] border border-white/20"></span>
                         <span class="w-4 h-4 rounded-full bg-[#262626] border border-white/20"></span>
@@ -316,10 +424,13 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="scroll-card flex items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-white/10 rounded-2xl cursor-pointer hover:border-primary/50 transition-colors bg-white dark:bg-transparent">
+
+            <div
+                class="scroll-card flex items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-white/10 rounded-2xl cursor-pointer hover:border-primary/50 transition-colors bg-white dark:bg-transparent">
                 <div class="text-center">
-                    <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-gray-600 dark:text-white mx-auto mb-4"><i class="fa-solid fa-plus"></i></div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-gray-600 dark:text-white mx-auto mb-4">
+                        <i class="fa-solid fa-plus"></i></div>
                     <span class="text-gray-900 dark:text-white font-bold">View All 50+ Themes</span>
                 </div>
             </div>
@@ -328,26 +439,36 @@
 
     <!-- 4. Animated Timeline -->
     <section class="py-24 max-w-3xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-16 text-center" data-aos="fade-up">Our Methodology</h2>
-        
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-16 text-center" data-aos="fade-up">Our
+            Methodology</h2>
+
         <div class="relative border-l-2 border-slate-200 dark:border-slate-800 pl-8 space-y-12">
             <!-- Timeline Item 1 -->
             <div class="relative" data-aos="fade-left">
-                <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900"></div>
+                <div
+                    class="absolute -left-[41px] w-5 h-5 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900">
+                </div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">1. Contrast Auditing</h3>
-                <p class="text-gray-700 dark:text-gray-300">We analyze existing brand colors and mathematically derive accessible dark mode variants that meet WCAG AAA standards.</p>
+                <p class="text-gray-700 dark:text-gray-300">We analyze existing brand colors and mathematically derive
+                    accessible dark mode variants that meet WCAG AAA standards.</p>
             </div>
             <!-- Timeline Item 2 -->
             <div class="relative" data-aos="fade-left" data-aos-delay="100">
-                <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-secondary ring-4 ring-white dark:ring-slate-900"></div>
+                <div
+                    class="absolute -left-[41px] w-5 h-5 rounded-full bg-secondary ring-4 ring-white dark:ring-slate-900">
+                </div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">2. Token Architecture</h3>
-                <p class="text-gray-700 dark:text-gray-300">Establishing semantic CSS variables to ensure seamless theming across complex React/Vue/Vanilla ecosystems.</p>
+                <p class="text-gray-700 dark:text-gray-300">Establishing semantic CSS variables to ensure seamless
+                    theming across complex React/Vue/Vanilla ecosystems.</p>
             </div>
             <!-- Timeline Item 3 -->
             <div class="relative" data-aos="fade-left" data-aos-delay="200">
-                <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-purple-500 ring-4 ring-white dark:ring-slate-900"></div>
+                <div
+                    class="absolute -left-[41px] w-5 h-5 rounded-full bg-purple-500 ring-4 ring-white dark:ring-slate-900">
+                </div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">3. Simulator Testing</h3>
-                <p class="text-gray-600 dark:text-gray-400">Running the UI through colorblindness simulators (Protanopia, Deuteranopia) to guarantee universal readability.</p>
+                <p class="text-gray-600 dark:text-gray-400">Running the UI through colorblindness simulators
+                    (Protanopia, Deuteranopia) to guarantee universal readability.</p>
             </div>
         </div>
     </section>
@@ -355,8 +476,10 @@
     <!-- 5. Logo Cloud Section -->
     <section class="py-16 bg-white dark:bg-slate-950 border-y border-gray-100 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-gray-500 dark:text-gray-400 text-sm font-bold uppercase tracking-[0.2em] mb-10">Powering Accessibility for</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 dark:opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+            <p class="text-center text-gray-500 dark:text-gray-400 text-sm font-bold uppercase tracking-[0.2em] mb-10">
+                Powering Accessibility for</p>
+            <div
+                class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 dark:opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
                 <i class="fa-brands fa-google text-4xl"></i>
                 <i class="fa-brands fa-microsoft text-4xl"></i>
                 <i class="fa-brands fa-amazon text-4xl"></i>
@@ -373,20 +496,26 @@
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Testimonials</h2>
                 <h3 class="heading-lg mb-4 text-gray-900 dark:text-white">What Our Clients Say</h3>
-                <p class="text-gray-600 dark:text-gray-400">Join 2,000+ companies that have transformed their user experience with our accessibility-first approach.</p>
+                <p class="text-gray-600 dark:text-gray-400">Join 2,000+ companies that have transformed their user
+                    experience with our accessibility-first approach.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="glass-card p-8 group hover:bg-primary/5 transition-colors duration-500" data-aos="fade-right">
+                <div class="glass-card p-8 group hover:bg-primary/5 transition-colors duration-500"
+                    data-aos="fade-right">
                     <div class="flex gap-1 text-primary mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 font-medium">
-                        "The bento-grid layout they designed for our analytics platform is not only beautiful but fully keyboard accessible. A rare combination in modern design."
+                        "The bento-grid layout they designed for our analytics platform is not only beautiful but fully
+                        keyboard accessible. A rare combination in modern design."
                     </p>
                     <div class="flex items-center gap-4">
-                        <img src="https://i.pravatar.cc/150?u=4" alt="Client" class="w-14 h-14 rounded-2xl object-cover border-2 border-primary/20">
+                        <img src="https://i.pravatar.cc/150?u=4" alt="Client"
+                            class="w-14 h-14 rounded-2xl object-cover border-2 border-primary/20">
                         <div>
                             <h4 class="font-bold text-gray-900 dark:text-white">David Miller</h4>
                             <p class="text-sm text-gray-500">Product Manager, DataVibe</p>
@@ -395,15 +524,20 @@
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="glass-card p-8 group hover:bg-secondary/5 transition-colors duration-500" data-aos="fade-left">
+                <div class="glass-card p-8 group hover:bg-secondary/5 transition-colors duration-500"
+                    data-aos="fade-left">
                     <div class="flex gap-1 text-secondary mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 font-medium">
-                        "Implementing their theme architecture saved our engineering team months of work. The dark mode is pixel-perfect and hits all contrast targets."
+                        "Implementing their theme architecture saved our engineering team months of work. The dark mode
+                        is pixel-perfect and hits all contrast targets."
                     </p>
                     <div class="flex items-center gap-4">
-                        <img src="https://i.pravatar.cc/150?u=5" alt="Client" class="w-14 h-14 rounded-2xl object-cover border-2 border-secondary/20">
+                        <img src="https://i.pravatar.cc/150?u=5" alt="Client"
+                            class="w-14 h-14 rounded-2xl object-cover border-2 border-secondary/20">
                         <div>
                             <h4 class="font-bold text-gray-900 dark:text-white">Sophia Williams</h4>
                             <p class="text-sm text-gray-500">VP Engineering, SaaSify</p>
@@ -420,7 +554,8 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
                         <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
@@ -429,12 +564,18 @@
                         Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"><i class="fa-brands fa-dribbble"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"><i
+                                class="fa-brands fa-dribbble"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"><i
+                                class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
@@ -445,34 +586,43 @@
                         <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="font-bold mb-6">Services</h4>
                     <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
-                        <li><a href="services.html" class="hover:text-primary transition-colors">Dark Mode Systems</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Dark Mode Systems</a>
+                        </li>
                         <li><a href="services.html" class="hover:text-primary transition-colors">WCAG Audits</a></li>
-                        <li><a href="accessibility-lab.html" class="hover:text-primary transition-colors">Accessibility Lab</a></li>
-                        <li><a href="services.html" class="hover:text-primary transition-colors">Testing Services</a></li>
+                        <li><a href="accessibility-lab.html" class="hover:text-primary transition-colors">Accessibility
+                                Lab</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Testing Services</a>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="font-bold mb-6">Newsletter</h4>
                     <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
                         Get the latest accessibility tips.
                     </p>
                     <form class="flex gap-2">
-                        <input type="email" placeholder="Email" class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
-                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold hover:bg-secondary hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-300" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        <input type="email" placeholder="Email"
+                            class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
+                        <button
+                            class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold hover:bg-secondary hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-300"
+                            aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
                     </form>
-                    <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
+                    <div
+                        class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
                         <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated
                     </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 AuraDesign Accessibility Studio. All rights reserved.</p>
+
+            <div
+                class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 AuraDesign Accessibility Studio. All
+                    rights reserved.</p>
                 <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400">
                     <button class="theme-toggle hover:text-primary transition-colors">Toggle Theme</button>
                     <a href="#" class="hover:text-primary">Privacy Policy</a>
@@ -485,4 +635,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
