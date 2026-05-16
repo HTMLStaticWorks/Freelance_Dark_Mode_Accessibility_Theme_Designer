@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Lab - AuraDesign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6' } } } }</script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="transition-colors duration-300 dark bg-[#0f172a] text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight hidden sm:block">AuraDesign</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="services.html" class="hover:text-primary transition-colors">Services</a>
+                    <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
+                    <a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    
+                    <div class="flex items-center gap-4 border-l border-gray-300 dark:border-gray-700 pl-4">
+                        <button class="rtl-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL">
+                            <i class="fa-solid fa-language text-lg"></i>
+                        </button>
+                        <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                        </button>
+                        <a href="dashboard.html" class="btn-primary">
+                            <span>Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 dark:border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+                <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home 2</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="pricing.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
+                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4 text-center">Dashboard</a>
+                <a href="signup.html" class="block px-3 py-2 rounded-md text-base font-medium border border-primary text-primary mt-2 text-center">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 relative text-center border-b border-white/10 px-4">
+        <h1 class="heading-xl mb-4">Accessibility <span class="text-gradient">Lab.</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto">Interactive tools to test contrast, focus states, and readability.</p>
+    </header>
+
+    <section class="py-12 max-w-7xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-8">
+            
+            <!-- Live Contrast Testing -->
+            <div class="glass-card bg-[#1e293b] p-8 border-white/5" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-circle-half-stroke text-primary"></i> Live Contrast Testing</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="flex-1 space-y-2">
+                            <label class="text-xs font-bold text-gray-400 uppercase">Text Color</label>
+                            <input type="color" value="#ffffff" class="w-full h-10 rounded cursor-pointer border-0 p-0 bg-transparent" id="fgColor">
+                        </div>
+                        <div class="flex-1 space-y-2">
+                            <label class="text-xs font-bold text-gray-400 uppercase">Background</label>
+                            <input type="color" value="#6366f1" class="w-full h-10 rounded cursor-pointer border-0 p-0 bg-transparent" id="bgColor">
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 rounded-xl text-center transition-colors" id="contrastPreview" style="color: #ffffff; background-color: #6366f1;">
+                        <span class="text-2xl font-bold">Preview Text</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-center p-4 bg-slate-900 rounded-lg border border-slate-700">
+                        <div>
+                            <span class="text-sm text-gray-400">Contrast Ratio</span>
+                            <div class="text-2xl font-black text-green-400" id="ratioResult">4.8:1</div>
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block px-2 py-1 bg-green-900/50 text-green-400 text-xs font-bold rounded mb-1">WCAG AA Pass</span><br>
+                            <span class="inline-block px-2 py-1 bg-green-900/50 text-green-400 text-xs font-bold rounded">WCAG AAA Pass (Large)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Ring & Keyboard -->
+            <div class="glass-card bg-[#1e293b] p-8 border-white/5 flex flex-col items-center text-center lg:items-start lg:text-left" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-regular fa-keyboard text-secondary"></i> Keyboard Navigation</h3>
+                <p class="text-sm text-gray-400 mb-6">Press <kbd class="px-2 py-1 bg-slate-800 rounded border border-slate-700 font-mono text-xs">Tab</kbd> to navigate through the accessible components below.</p>
+                
+                <div class="space-y-4 w-full">
+                    <button class="w-full py-3 bg-slate-800 text-white rounded hover:bg-slate-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e293b] transition-all">Accessible Button</button>
+                    
+                    <a href="#" class="block w-full py-3 bg-slate-800 text-center text-primary rounded hover:bg-slate-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e293b] transition-all underline">Accessible Link</a>
+                    
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Accessible Input" class="w-full p-3 bg-slate-900 border border-slate-700 rounded text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-gray-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typography Readability -->
+            <div class="glass-card bg-[#1e293b] p-8 border-white/5 lg:col-span-2" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-font text-pink-500"></i> Typography Readability</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="col-span-1 space-y-4">
+                        <div>
+                            <label class="text-xs font-bold text-gray-400">Line Height (em)</label>
+                            <input type="range" min="1" max="2" step="0.1" value="1.5" class="w-full accent-pink-500" id="lhRange">
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-gray-400">Letter Spacing (em)</label>
+                            <input type="range" min="-0.05" max="0.2" step="0.01" value="0" class="w-full accent-pink-500" id="lsRange">
+                        </div>
+                    </div>
+                    <div class="col-span-2 bg-slate-900 p-6 rounded-lg border border-slate-700">
+                        <p id="typoPreview" style="line-height: 1.5; letter-spacing: 0em;" class="text-gray-300">
+                            "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect." - Tim Berners-Lee. <br><br>
+                            Good typography isn't just about choosing a pretty font; it's about ensuring the text is legible and readable for users with cognitive or visual impairments. Proper line height and letter spacing play a crucial role.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">AuraDesign</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
+                        Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-dribbble"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Dark Mode Systems</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">WCAG Audits</a></li>
+                        <li><a href="accessibility-lab.html" class="hover:text-primary transition-colors">Accessibility Lab</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Testing Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Newsletter</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Get the latest accessibility tips.
+                    </p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Email" class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
+                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                    <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
+                        <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 AuraDesign Accessibility Studio. All rights reserved.</p>
+                <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <button class="theme-toggle hover:text-primary transition-colors">Toggle Theme</button>
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="index.html" class="hover:text-primary">AuraDesign</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+        
+        // Simple JS for Typography Tool
+        const typoPreview = document.getElementById('typoPreview');
+        document.getElementById('lhRange').addEventListener('input', (e) => {
+            typoPreview.style.lineHeight = e.target.value;
+        });
+        document.getElementById('lsRange').addEventListener('input', (e) => {
+            typoPreview.style.letterSpacing = e.target.value + 'em';
+        });
+
+        // Contrast calculation mock
+        const fgColor = document.getElementById('fgColor');
+        const bgColor = document.getElementById('bgColor');
+        const preview = document.getElementById('contrastPreview');
+        const ratioResult = document.getElementById('ratioResult');
+
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : null;
+        }
+
+        function luminance(r, g, b) {
+            const a = [r, g, b].map(function (v) {
+                v /= 255;
+                return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+            });
+            return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+        }
+
+        function updateContrast() {
+            preview.style.color = fgColor.value;
+            preview.style.backgroundColor = bgColor.value;
+            
+            const rgb1 = hexToRgb(fgColor.value);
+            const rgb2 = hexToRgb(bgColor.value);
+            const lum1 = luminance(rgb1.r, rgb1.g, rgb1.b);
+            const lum2 = luminance(rgb2.r, rgb2.g, rgb2.b);
+            const brightest = Math.max(lum1, lum2);
+            const darkest = Math.min(lum1, lum2);
+            const contrast = (brightest + 0.05) / (darkest + 0.05);
+            
+            ratioResult.innerText = contrast.toFixed(2) + ':1';
+            if(contrast >= 7) ratioResult.className = 'text-2xl font-black text-green-400';
+            else if(contrast >= 4.5) ratioResult.className = 'text-2xl font-black text-yellow-400';
+            else ratioResult.className = 'text-2xl font-black text-red-400';
+        }
+
+        fgColor.addEventListener('input', updateContrast);
+        bgColor.addEventListener('input', updateContrast);
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - AuraDesign Accessibility Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6', darkBg: '#0f172a', darkCard: '#1e293b' } } } }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .timeline-container::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: rgba(99,102,241,0.2); transform: translateX(-50%); }
+        @media (max-width: 768px) { .timeline-container::before { left: 20px; } }
+        .card-3d { transition: transform 0.5s; transform-style: preserve-3d; }
+        .card-3d:hover { transform: rotateY(10deg) rotateX(5deg); }
+    </style>
+</head>
+<body class="transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight hidden sm:block">AuraDesign</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="font-semibold text-primary">About</a>
+                    <a href="services.html" class="hover:text-primary transition-colors">Services</a>
+                    <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
+                    <a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    
+                    <div class="flex items-center gap-4 border-l border-gray-300 dark:border-gray-700 pl-4">
+                        <button class="rtl-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL">
+                            <i class="fa-solid fa-language text-lg"></i>
+                        </button>
+                        <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                        </button>
+                        <a href="dashboard.html" class="btn-primary">
+                            <span>Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 dark:border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+                <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home 2</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">About</a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="pricing.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
+                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4 text-center">Dashboard</a>
+                <a href="signup.html" class="block px-3 py-2 rounded-md text-base font-medium border border-primary text-primary mt-2 text-center">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="fade-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4">Our Story</span>
+            <h1 class="heading-xl mb-6">Designing for <span class="text-gradient">Everyone.</span></h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                We believe that premium aesthetics and deep accessibility are not mutually exclusive. We build experiences that welcome every user.
+            </p>
+        </div>
+    </header>
+
+    <!-- Mission & 3D Cards -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h2 class="heading-lg mb-6">Accessibility is not a checklist. It's a mindset.</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        For over 5 years, we've specialized in converting complex SaaS applications into fully WCAG-compliant masterpieces without losing their premium startup feel.
+                    </p>
+                    <div class="space-y-4 w-full flex flex-col items-center md:items-start">
+                        <div class="flex items-start gap-4 text-left">
+                            <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex justify-center items-center shrink-0"><i class="fa-solid fa-check"></i></div>
+                            <div><h4 class="font-bold">WCAG 2.2 AAA Certified</h4><p class="text-sm text-gray-500">Highest standard of compliance.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4 text-left">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex justify-center items-center shrink-0"><i class="fa-solid fa-earth-americas"></i></div>
+                            <div><h4 class="font-bold">Global Inclusive Design</h4><p class="text-sm text-gray-500">Optimized for RTL, localized nuances.</p></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative perspective-1000" data-aos="fade-left">
+                    <div class="card-3d glass-card p-8 bg-gradient-to-br from-slate-800 to-slate-900 text-white border-slate-700 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/30 rounded-full blur-3xl"></div>
+                        <h3 class="text-2xl font-bold mb-4 z-10 relative">Our Vision</h3>
+                        <p class="text-slate-300 z-10 relative mb-8">To eradicate digital exclusion by arming designers and developers with beautifully accessible theme architectures.</p>
+                        <div class="flex justify-between items-center pt-6 border-t border-slate-700 z-10 relative">
+                            <div>
+                                <div class="text-3xl font-black text-primary">100+</div>
+                                <div class="text-xs text-slate-400">Enterprise Audits</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-black text-secondary">5M+</div>
+                                <div class="text-xs text-slate-400">Users Impacted</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Timeline -->
+    <section class="py-24 bg-gray-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center heading-lg mb-16" data-aos="fade-up">Our Design Process</h2>
+            
+            <div class="relative timeline-container max-w-4xl mx-auto">
+                
+                <!-- Timeline Item 1 -->
+                <div class="flex flex-col md:flex-row justify-between items-center w-full mb-12 relative" data-aos="fade-up">
+                    <div class="md:w-5/12 mb-4 md:mb-0 md:text-right px-4 order-2 md:order-1 hidden md:block">
+                        <h3 class="text-xl font-bold mb-2">Discovery & Audit</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Deep dive into existing UI components to identify contrast failures and semantic HTML errors.</p>
+                    </div>
+                    <div class="absolute left-[20px] md:left-1/2 w-8 h-8 bg-primary rounded-full transform -translate-x-1/2 border-4 border-white dark:border-slate-900 z-10 flex items-center justify-center text-white text-xs font-bold">1</div>
+                    <div class="md:w-5/12 pl-12 md:pl-0 px-4 order-1 md:order-2">
+                        <!-- Mobile Text -->
+                        <div class="md:hidden">
+                            <h3 class="text-xl font-bold mb-2">Discovery & Audit</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Deep dive into existing UI components to identify contrast failures and semantic HTML errors.</p>
+                        </div>
+                        <div class="glass p-4 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" class="rounded-lg w-full h-32 object-cover"></div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="flex flex-col md:flex-row justify-between items-center w-full mb-12 relative" data-aos="fade-up">
+                    <div class="md:w-5/12 pl-12 md:pl-0 px-4 md:text-right order-2 md:order-1">
+                        <div class="glass p-4 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800"><img src="https://images.unsplash.com/photo-1542744094-24638ea0b3b5?auto=format&fit=crop&w=400&q=80" class="rounded-lg w-full h-32 object-cover"></div>
+                    </div>
+                    <div class="absolute left-[20px] md:left-1/2 w-8 h-8 bg-secondary rounded-full transform -translate-x-1/2 border-4 border-white dark:border-slate-900 z-10 flex items-center justify-center text-white text-xs font-bold">2</div>
+                    <div class="md:w-5/12 pl-12 md:pl-4 px-4 order-1 md:order-2">
+                        <h3 class="text-xl font-bold mb-2">Token Generation</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Building scalable CSS variables that automatically adapt to light/dark modes and user preferences.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">AuraDesign</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
+                        Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-dribbble"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Dark Mode Systems</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">WCAG Audits</a></li>
+                        <li><a href="accessibility-lab.html" class="hover:text-primary transition-colors">Accessibility Lab</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Testing Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Newsletter</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Get the latest accessibility tips.
+                    </p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Email" class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
+                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                    <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
+                        <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 AuraDesign Accessibility Studio. All rights reserved.</p>
+                <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <button class="theme-toggle hover:text-primary transition-colors">Toggle Theme</button>
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="index.html" class="hover:text-primary">AuraDesign</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

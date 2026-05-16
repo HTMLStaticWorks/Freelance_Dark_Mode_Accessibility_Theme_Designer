@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - AuraDesign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6' } } } }</script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight hidden sm:block">AuraDesign</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="services.html" class="hover:text-primary transition-colors">Services</a>
+                    <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
+                    <a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    
+                    <div class="flex items-center gap-4 border-l border-gray-300 dark:border-gray-700 pl-4">
+                        <button class="rtl-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL">
+                            <i class="fa-solid fa-language text-lg"></i>
+                        </button>
+                        <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                        </button>
+                        <a href="dashboard.html" class="btn-primary">
+                            <span>Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 dark:border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+                <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home 2</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="pricing.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
+                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4 text-center">Dashboard</a>
+                <a href="signup.html" class="block px-3 py-2 rounded-md text-base font-medium border border-primary text-primary mt-2 text-center">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Case Study #01</span>
+            <h1 class="text-4xl md:text-5xl font-black mb-6">FinTech Dashboard Redesign</h1>
+            <p class="text-xl text-gray-400">How we brought a legacy banking app up to WCAG 2.1 AAA compliance while modernizing its dark mode aesthetic.</p>
+        </div>
+    </header>
+
+    <article class="py-16 max-w-4xl mx-auto px-4">
+        
+        <div class="grid md:grid-cols-3 gap-8 mb-16 border-b border-gray-200 dark:border-slate-800 pb-12 text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Client</h4>
+                <p class="font-semibold">NovaBank Global</p>
+            </div>
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Role</h4>
+                <p class="font-semibold">Accessibility & Theme Architecture</p>
+            </div>
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Impact</h4>
+                <p class="font-semibold text-green-500">100% WCAG AA Pass Rate</p>
+            </div>
+        </div>
+
+        <div class="prose dark:prose-invert max-w-none">
+            <h2 class="text-2xl font-bold mb-4">The Challenge</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+                NovaBank's enterprise dashboard was heavily reliant on color to convey critical financial states (e.g., red for loss, green for profit). Furthermore, their "dark mode" was a simple CSS invert that resulted in eye-straining contrast ratios (as low as 2.1:1 in some data tables), making it unusable for users with visual impairments.
+            </p>
+
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" class="w-full rounded-2xl shadow-lg mb-12" alt="Dashboard Before/After">
+
+            <h2 class="text-2xl font-bold mb-4">Solution Architecture</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                We completely refactored their CSS variables into a semantic token system. Instead of hardcoding colors, we created contextual tokens like <code>--color-status-error-bg</code>. 
+            </p>
+            
+            <div class="bg-slate-900 text-gray-300 p-6 rounded-lg font-mono text-sm mb-8 overflow-x-auto border border-slate-800">
+                <span class="text-pink-500">/* Refactored Token System */</span><br>
+                :root {<br>
+                &nbsp;&nbsp;<span class="text-blue-400">--surface-base</span>: <span class="text-orange-300">#ffffff</span>;<br>
+                &nbsp;&nbsp;<span class="text-blue-400">--text-critical</span>: <span class="text-orange-300">#d92d20</span>; <span class="text-gray-500">/* Ratio: 5.1:1 */</span><br>
+                }<br>
+                <br>
+                [data-theme="dark"] {<br>
+                &nbsp;&nbsp;<span class="text-blue-400">--surface-base</span>: <span class="text-orange-300">#0f172a</span>;<br>
+                &nbsp;&nbsp;<span class="text-blue-400">--text-critical</span>: <span class="text-orange-300">#fca5a5</span>; <span class="text-gray-500">/* Ratio: 7.2:1 */</span><br>
+                }
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Colorblindness & Semantics</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+                To solve the color-reliance issue, we introduced iconography and pattern fills to financial charts. Positive trends were accompanied by an upward arrow icon <code>aria-hidden="true"</code>, and negative trends utilized a textured fill alongside the color red, ensuring Deuteranopia users could distinguish the data points immediately.
+            </p>
+
+            <div class="glass-card bg-primary/5 border-primary/20 p-8 rounded-2xl mb-12 italic text-gray-700 dark:text-gray-300">
+                "The redesign didn't just prevent compliance lawsuits; our internal customer support tickets regarding 'hard to read charts' dropped by 84% in the first month."
+                <div class="mt-4 font-bold not-italic text-sm text-gray-900 dark:text-white">— Sarah Jenkins, VP of Product at NovaBank</div>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">AuraDesign</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
+                        Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-dribbble"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Dark Mode Systems</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">WCAG Audits</a></li>
+                        <li><a href="accessibility-lab.html" class="hover:text-primary transition-colors">Accessibility Lab</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Testing Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Newsletter</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Get the latest accessibility tips.
+                    </p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Email" class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
+                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                    <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
+                        <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 AuraDesign Accessibility Studio. All rights reserved.</p>
+                <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <button class="theme-toggle hover:text-primary transition-colors">Toggle Theme</button>
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="index.html" class="hover:text-primary">AuraDesign</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

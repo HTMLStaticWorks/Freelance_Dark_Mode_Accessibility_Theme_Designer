@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6' } } } }</script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="transition-colors duration-300 bg-gray-50 dark:bg-[#020617] h-screen flex flex-col items-center justify-center relative overflow-hidden">
+
+    <!-- Abstract Elements -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl mix-blend-multiply animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl mix-blend-multiply animate-pulse" style="animation-delay: 2s;"></div>
+
+    <div class="text-center relative z-10 p-8 glass-card max-w-lg w-full mx-4" data-aos="zoom-in">
+        <div class="w-20 h-20 bg-gray-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 text-3xl mx-auto mb-6">
+            <i class="fa-solid fa-compass"></i>
+        </div>
+        
+        <h1 class="text-6xl font-black mb-2 text-gradient">404</h1>
+        <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Page Not Found</h2>
+        
+        <p class="text-gray-500 mb-8 text-sm">
+            The page you are looking for doesn't exist or has been moved. But don't worry, even a lost page can be an accessible experience.
+        </p>
+
+        <a href="index.html" class="btn-primary w-full text-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Return to Home
+        </a>
+    </div>
+
+    <!-- Theme Toggle at bottom corner -->
+    <div class="absolute bottom-8 right-8">
+        <button class="theme-toggle w-12 h-12 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary transition-colors shadow-lg">
+            <i class="fa-solid fa-moon dark:hidden"></i>
+            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

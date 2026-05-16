@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - AuraDesign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6' } } } }</script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="transition-colors duration-300 bg-gray-50 dark:bg-slate-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight hidden sm:block">AuraDesign</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="services.html" class="hover:text-primary transition-colors">Services</a>
+                    <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
+                    <a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    
+                    <div class="flex items-center gap-4 border-l border-gray-300 dark:border-gray-700 pl-4">
+                        <button class="rtl-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL">
+                            <i class="fa-solid fa-language text-lg"></i>
+                        </button>
+                        <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                        </button>
+                        <a href="dashboard.html" class="btn-primary">
+                            <span>Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 dark:border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+                <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home 2</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="pricing.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
+                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4 text-center">Dashboard</a>
+                <a href="signup.html" class="block px-3 py-2 rounded-md text-base font-medium border border-primary text-primary mt-2 text-center">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 text-center">
+        <h1 class="heading-xl mb-4">Frequently Asked <span class="text-gradient">Questions.</span></h1>
+    </header>
+
+    <section class="py-12 max-w-3xl mx-auto px-4">
+        <div class="space-y-4">
+            
+            <!-- Accordion Item 1 -->
+            <div class="glass-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700" data-aos="fade-up">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg">
+                        <span>Why can't I just use a Tailwind plugin for dark mode?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 dark:text-gray-400 mt-4 text-sm leading-relaxed">
+                        Plugins are great for prototypes, but enterprise SaaS requires semantic token mapping. A generic plugin might invert a warning button to a color that no longer looks like a warning, or create text-on-background combinations that fail WCAG contrast requirements. We design perceptual dark modes that maintain brand identity and pass accessibility standards mathematically.
+                    </div>
+                </details>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="glass-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700" data-aos="fade-up" data-aos-delay="100">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg">
+                        <span>What is WCAG AA vs AAA?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 dark:text-gray-400 mt-4 text-sm leading-relaxed">
+                        The Web Content Accessibility Guidelines (WCAG) have levels of conformance. Level AA is the standard required by most accessibility laws (like the ADA in the US or EAA in Europe). It requires a contrast ratio of 4.5:1 for normal text. Level AAA is the gold standard, requiring 7.1:1 contrast and stricter structural rules.
+                    </div>
+                </details>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="glass-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700" data-aos="fade-up" data-aos-delay="200">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg">
+                        <span>Do you provide code or just design?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 dark:text-gray-400 mt-4 text-sm leading-relaxed">
+                        We provide both. We map out the design system in Figma using proper accessibility plugins, and then our engineering team translates that into a robust CSS Custom Property (Variable) architecture, Tailwind configs, or SCSS files that you can drop directly into your React/Vue/Angular codebase.
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">AuraDesign</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
+                        Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-dribbble"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Dark Mode Systems</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">WCAG Audits</a></li>
+                        <li><a href="accessibility-lab.html" class="hover:text-primary transition-colors">Accessibility Lab</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Testing Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6">Newsletter</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Get the latest accessibility tips.
+                    </p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Email" class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
+                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                    <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
+                        <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 AuraDesign Accessibility Studio. All rights reserved.</p>
+                <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <button class="theme-toggle hover:text-primary transition-colors">Toggle Theme</button>
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="index.html" class="hover:text-primary">AuraDesign</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
