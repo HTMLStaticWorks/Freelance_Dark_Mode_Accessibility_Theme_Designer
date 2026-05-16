@@ -29,7 +29,7 @@
                         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-2xl tracking-tight hidden sm:block">AuraDesign</span>
+                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
                     </a>
                 </div>
                 
@@ -54,11 +54,12 @@
                         <a href="dashboard.html" class="btn-primary">
                             <span>Dashboard</span>
                         </a>
+                        <a href="signup.html" class="btn-secondary px-6 py-2 rounded-lg font-bold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign Up</a>
                     </div>
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center gap-4">
+                <div class="lg:hidden flex items-center gap-2 sm:gap-4">
                     <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
@@ -101,12 +102,12 @@
     <section class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right" class="flex flex-col items-center md:items-start text-center md:text-left">
+                <div data-aos="fade-right" class="flex flex-col items-center lg:items-start text-center lg:text-left">
                     <h2 class="heading-lg mb-6">Accessibility is not a checklist. It's a mindset.</h2>
                     <p class="text-gray-600 dark:text-gray-400 mb-6">
                         For over 5 years, we've specialized in converting complex SaaS applications into fully WCAG-compliant masterpieces without losing their premium startup feel.
                     </p>
-                    <div class="space-y-4 w-full flex flex-col items-center md:items-start">
+                    <div class="space-y-4 w-full flex flex-col items-center lg:items-start">
                         <div class="flex items-start gap-4 text-left">
                             <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex justify-center items-center shrink-0"><i class="fa-solid fa-check"></i></div>
                             <div><h4 class="font-bold">WCAG 2.2 AAA Certified</h4><p class="text-sm text-gray-500">Highest standard of compliance.</p></div>
@@ -182,13 +183,13 @@
     <!-- New Section 1: Global Impact -->
     <section class="py-24 relative overflow-hidden bg-white dark:bg-[#020617]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left" data-aos="fade-right">
                     <h2 class="heading-lg mb-6">Global Impact. <br><span class="text-gradient">Local Excellence.</span></h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
                         Our accessibility frameworks are utilized by companies in over 40 countries, helping them reach an additional 1.3 billion users worldwide who rely on inclusive design.
                     </p>
-                    <div class="grid grid-cols-2 gap-8">
+                    <div class="grid grid-cols-2 gap-8 max-w-md mx-auto lg:mx-0">
                         <div>
                             <div class="text-4xl font-black text-primary mb-1">40+</div>
                             <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Countries</div>
@@ -212,24 +213,33 @@
     <section class="py-24 bg-gray-50 dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="heading-lg mb-16" data-aos="fade-up">Trusted by <span class="text-gradient">Industry Leaders.</span></h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 flex flex-col items-center text-center h-full" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://i.pravatar.cc/150?u=1" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
                     <p class="italic text-gray-600 dark:text-gray-400 mb-6">"AuraDesign transformed our dashboard from a liability into our biggest competitive advantage. Accessibility is now our core strength."</p>
-                    <h4 class="font-bold">Sarah Jenkins</h4>
-                    <span class="text-xs text-primary font-bold uppercase">CTO, FinStream</span>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-gray-900 dark:text-white">Sarah Jenkins</h4>
+                        <span class="text-xs text-primary font-bold uppercase tracking-wider">CTO, FinStream</span>
+                    </div>
                 </div>
-                <div class="glass-card p-8 flex flex-col items-center text-center scale-105 border-primary bg-white/10" data-aos="fade-up" data-aos-delay="200">
+                <!-- Testimonial 2 (Featured) -->
+                <div class="glass-card p-8 flex flex-col items-center text-center h-full scale-105 border-primary bg-white/5 z-10 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://i.pravatar.cc/150?u=2" class="w-20 h-20 rounded-full mb-6 border-4 border-secondary/20 p-1">
                     <p class="italic text-gray-600 dark:text-gray-400 mb-6">"The most professional accessibility audit we've ever received. The implementation support was world-class and immediate."</p>
-                    <h4 class="font-bold">Marcus Thorne</h4>
-                    <span class="text-xs text-secondary font-bold uppercase">Product Lead, HealthGate</span>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-gray-900 dark:text-white">Marcus Thorne</h4>
+                        <span class="text-xs text-secondary font-bold uppercase tracking-wider">Product Lead, HealthGate</span>
+                    </div>
                 </div>
-                <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 flex flex-col items-center text-center h-full md:col-span-2 lg:col-span-1 md:max-w-md lg:max-w-none mx-auto lg:mx-0" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://i.pravatar.cc/150?u=3" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
                     <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Finally, a dark mode system that doesn't just invert colors but actually considers the user's perceptual comfort. Remarkable work."</p>
-                    <h4 class="font-bold">Elena Rodriguez</h4>
-                    <span class="text-xs text-primary font-bold uppercase">UX Director, RetailHub</span>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-gray-900 dark:text-white">Elena Rodriguez</h4>
+                        <span class="text-xs text-primary font-bold uppercase tracking-wider">UX Director, RetailHub</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -238,8 +248,8 @@
     <!-- New Section 3: Featured Insights -->
     <section class="py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 text-center md:text-left">
-                <div>
+            <div class="flex flex-col lg:flex-row justify-between items-center mb-16 gap-6 text-center lg:text-left">
+                <div class="flex flex-col items-center lg:items-start">
                     <h2 class="heading-lg mb-2">Design <span class="text-gradient">Insights.</span></h2>
                     <p class="text-gray-500">Stay updated with the latest in WCAG 2.2 and inclusive UI trends.</p>
                 </div>
@@ -265,9 +275,9 @@
                     <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors">Semantic Tokens vs. Hardcoded hex colors</h3>
                     <p class="text-sm text-gray-500">Why your dark mode architecture is failing without semantic mapping.</p>
                 </div>
-                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                <div class="group cursor-pointer md:col-span-2 lg:col-span-1 md:max-w-md lg:max-w-none mx-auto lg:mx-0" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
-                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-xs font-bold bg-pink-500 px-2 py-1 rounded text-white uppercase">Design</span>
                     </div>
@@ -284,10 +294,10 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-xl tracking-tight">AuraDesign</span>
+                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
                     </div>
                     <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
                         Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
@@ -327,7 +337,7 @@
                     </p>
                     <form class="flex gap-2">
                         <input type="email" placeholder="Email" class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
-                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold"><i class="fa-solid fa-paper-plane"></i></button>
+                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold hover:bg-secondary hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-300" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
                     </form>
                     <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
                         <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated

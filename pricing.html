@@ -21,7 +21,7 @@
                         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-2xl tracking-tight hidden sm:block">AuraDesign</span>
+                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
                     </a>
                 </div>
                 
@@ -46,11 +46,12 @@
                         <a href="dashboard.html" class="btn-primary">
                             <span>Dashboard</span>
                         </a>
+                        <a href="signup.html" class="btn-secondary px-6 py-2 rounded-lg font-bold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign Up</a>
                     </div>
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center gap-4">
+                <div class="lg:hidden flex items-center gap-2 sm:gap-4">
                     <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
@@ -93,10 +94,10 @@
 
     <section class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
                 
                 <!-- Basic Plan -->
-                <div class="glass-card p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform" data-aos="fade-up">
+                <div class="glass-card p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform h-full" data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-2">Audit Only</h3>
                     <p class="text-gray-500 text-sm mb-6">For teams who implement their own fixes.</p>
                     <div class="text-4xl font-black mb-6">$999<span class="text-sm font-normal text-gray-500">/project</span></div>
@@ -109,7 +110,7 @@
                 </div>
 
                 <!-- Pro Plan -->
-                <div class="glass-card p-8 flex flex-col items-center text-center relative transform md:-translate-y-4 border-primary shadow-xl shadow-primary/10" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card p-8 flex flex-col items-center text-center relative border-primary shadow-xl shadow-primary/10 h-full" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Most Popular</div>
                     <h3 class="text-xl font-bold mb-2">Theme Architecture</h3>
                     <p class="text-gray-500 text-sm mb-6">Full dark mode & accessibility integration.</p>
@@ -124,7 +125,7 @@
                 </div>
 
                 <!-- Enterprise Plan -->
-                <div class="glass-card p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform h-full" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-xl font-bold mb-2">Enterprise Retainer</h3>
                     <p class="text-gray-500 text-sm mb-6">Continuous monitoring for large SaaS.</p>
                     <div class="text-4xl font-black mb-6">Custom</div>
@@ -152,6 +153,14 @@
                 <summary class="font-bold text-lg outline-none">Do you implement the fixes?</summary>
                 <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">Yes! While the Audit Only plan just provides a report, our Theme Architecture plan includes us pushing PRs directly to your codebase to fix CSS and HTML structural issues.</p>
             </details>
+            <details class="glass-card p-4 cursor-pointer">
+                <summary class="font-bold text-lg outline-none">How long does a typical audit take?</summary>
+                <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">For standard SaaS dashboards, an initial audit typically takes 5-7 business days. Complex enterprise platforms may take up to 2 weeks for a comprehensive sweep.</p>
+            </details>
+            <details class="glass-card p-4 cursor-pointer">
+                <summary class="font-bold text-lg outline-none">Is there a discount for annual billing?</summary>
+                <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">Yes, we offer a 20% discount on all plans when billed annually. This allows for continuous accessibility monitoring and theme maintenance at a reduced cost.</p>
+            </details>
         </div>
     </section>
 
@@ -159,12 +168,12 @@
     <section class="py-24 relative overflow-hidden bg-white dark:bg-[#020617]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
+                <div class="text-center lg:text-left" data-aos="fade-right">
                     <h2 class="heading-lg mb-6">Investment. <br><span class="text-gradient">With Returns.</span></h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
                         Our pricing plans are designed to scale with your project needs, ensuring that accessibility becomes a value-add rather than a cost center.
                     </p>
-                    <div class="grid grid-cols-2 gap-8">
+                    <div class="grid grid-cols-2 gap-8 max-w-md mx-auto lg:mx-0">
                         <div>
                             <div class="text-4xl font-black text-primary mb-1">3.5x</div>
                             <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Avg. ROI</div>
@@ -188,24 +197,33 @@
     <section class="py-24 bg-gray-50 dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="heading-lg mb-16" data-aos="fade-up">Trusted by <span class="text-gradient">Industry Leaders.</span></h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 flex flex-col items-center text-center h-full" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://i.pravatar.cc/150?u=21" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
                     <p class="italic text-gray-600 dark:text-gray-400 mb-6">"The ROI was immediate. Within 3 months of implementing their accessibility suggestions, our mobile conversion increased by 22%."</p>
-                    <h4 class="font-bold">David Chen</h4>
-                    <span class="text-xs text-primary font-bold uppercase">VP of Product, ShopSmart</span>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-gray-900 dark:text-white">David Chen</h4>
+                        <span class="text-xs text-primary font-bold uppercase tracking-wider">VP of Product, ShopSmart</span>
+                    </div>
                 </div>
-                <div class="glass-card p-8 flex flex-col items-center text-center scale-105 border-primary bg-white/10" data-aos="fade-up" data-aos-delay="200">
+                <!-- Testimonial 2 (Featured) -->
+                <div class="glass-card p-8 flex flex-col items-center text-center h-full scale-105 border-primary bg-white/5 z-10 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://i.pravatar.cc/150?u=22" class="w-20 h-20 rounded-full mb-6 border-4 border-secondary/20 p-1">
                     <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Finally a pricing model that makes sense for startups. We got enterprise-level audit results at a scale we could afford."</p>
-                    <h4 class="font-bold">Sofia Martinez</h4>
-                    <span class="text-xs text-secondary font-bold uppercase">Founder, GreenPath</span>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-gray-900 dark:text-white">Sofia Martinez</h4>
+                        <span class="text-xs text-secondary font-bold uppercase tracking-wider">Founder, GreenPath</span>
+                    </div>
                 </div>
-                <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 flex flex-col items-center text-center h-full md:col-span-2 lg:col-span-1 md:max-w-md lg:max-w-none mx-auto lg:mx-0" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://i.pravatar.cc/150?u=23" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
                     <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Worth every penny. The time saved in development rework alone paid for the entire audit process."</p>
-                    <h4 class="font-bold">Liam O'Connor</h4>
-                    <span class="text-xs text-primary font-bold uppercase">Lead Developer, TechNode</span>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-gray-900 dark:text-white">Liam O'Connor</h4>
+                        <span class="text-xs text-primary font-bold uppercase tracking-wider">Lead Developer, TechNode</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -214,12 +232,12 @@
     <!-- New Section 3: Featured Insights -->
     <section class="py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 text-center md:text-left">
-                <div>
+            <div class="flex flex-col lg:flex-row justify-between items-center mb-16 gap-6 text-center lg:text-left">
+                <div class="flex flex-col items-center lg:items-start">
                     <h2 class="heading-lg mb-2">Financial <span class="text-gradient">Insights.</span></h2>
                     <p class="text-gray-500">Understanding the economic impact of inclusive design.</p>
                 </div>
-                <a href="#" class="btn-secondary">Read More</a>
+                <a href="#" class="btn-secondary">Explore Reports</a>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -241,7 +259,7 @@
                     <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors">Tapping into a $13 Trillion Market</h3>
                     <p class="text-sm text-gray-500">The global purchasing power of people with disabilities and their families.</p>
                 </div>
-                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                <div class="group cursor-pointer md:col-span-2 lg:col-span-1 md:max-w-md lg:max-w-none mx-auto lg:mx-0" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
                         <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -260,10 +278,10 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-xl tracking-tight">AuraDesign</span>
+                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
                     </div>
                     <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
                         Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
@@ -303,7 +321,7 @@
                     </p>
                     <form class="flex gap-2">
                         <input type="email" placeholder="Email" class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
-                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold"><i class="fa-solid fa-paper-plane"></i></button>
+                        <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold hover:bg-secondary hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-300" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
                     </form>
                     <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
                         <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated

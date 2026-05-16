@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Accessibility Theme Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // Immediate Theme Detection
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        const root = document.documentElement;
+        if (savedTheme === 'dark' || (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            root.classList.add('dark');
+            root.setAttribute('data-theme', 'dark');
+        } else {
+            root.classList.remove('dark');
+            root.setAttribute('data-theme', 'light');
+        }
+
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -48,6 +59,12 @@
         .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; background-color: var(--bg-color); }
         .topbar { height: 70px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: var(--topbar-bg); backdrop-filter: blur(10px); transition: background-color 0.3s; }
         .content-area { flex: 1; overflow-y: auto; padding: 2rem; }
+        
+        @media (max-width: 640px) {
+            .topbar { padding: 0 1rem; }
+            .content-area { padding: 1rem; }
+            .topbar h1 { font-size: 1rem; }
+        }
         
         .nav-item { padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 1rem; color: var(--nav-text); transition: all 0.2s; border-left: 3px solid transparent; cursor: pointer; }
         .nav-item:hover, .nav-item.active { background: rgba(99,102,241,0.1); color: #6366f1; border-left-color: #6366f1; }
@@ -92,10 +109,10 @@
     <div class="dashboard-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
-            <div class="h-[70px] flex items-center px-6 border-b border-slate-200 dark:border-white/5">
+            <a href="index.html" class="h-[70px] flex items-center px-6 border-b border-slate-200 dark:border-white/5 hover:opacity-80 transition-opacity">
                 <i class="fa-solid fa-eye text-primary text-xl mr-3"></i>
-                <span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white">AuraStudio</span>
-            </div>
+                <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight text-gray-900 dark:text-white">AuraStudio</span>
+            </a>
             
             <div class="py-4 flex-1 overflow-y-auto">
                 <div class="px-6 mb-2 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Main</div>
@@ -129,7 +146,7 @@
                 </div>
                 
                 <div class="flex items-center gap-3">
-                    <button class="rtl-toggle px-3 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors text-xs font-bold text-gray-700 dark:text-gray-300" aria-label="Toggle RTL">
+                    <button class="rtl-toggle px-3 h-10 rounded-full bg-slate-200 dark:bg-slate-800 hidden sm:flex items-center justify-center hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors text-xs font-bold text-gray-700 dark:text-gray-300" aria-label="Toggle RTL">
                         RTL
                     </button>
                     <button class="theme-toggle w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" aria-label="Toggle Theme">
@@ -209,21 +226,21 @@
                                     Base Colors <button class="text-primary text-sm hover:underline">Edit</button>
                                 </h3>
                                 <div class="space-y-3">
-                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-700">
+                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
                                         <div class="w-8 h-8 rounded-full bg-[#6366f1] shadow-inner border border-white/10"></div>
                                         <div class="flex-1">
                                             <div class="text-sm font-bold">Primary</div>
                                             <div class="text-xs text-gray-500">#6366f1</div>
                                         </div>
                                     </div>
-                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-700">
+                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
                                         <div class="w-8 h-8 rounded-full bg-[#0f172a] shadow-inner border border-white/10"></div>
                                         <div class="flex-1">
                                             <div class="text-sm font-bold">Background</div>
                                             <div class="text-xs text-gray-500">#0f172a</div>
                                         </div>
                                     </div>
-                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-700">
+                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
                                         <div class="w-8 h-8 rounded-full bg-[#f8fafc] shadow-inner border border-white/10"></div>
                                         <div class="flex-1">
                                             <div class="text-sm font-bold">Text Base</div>
@@ -264,13 +281,13 @@
                             <div class="widget-card h-auto" data-aos="fade-up">
                                 <div class="flex justify-between items-center mb-6">
                                     <h3 class="font-bold text-lg">Theme Preview Engine</h3>
-                                    <div class="flex bg-slate-800 rounded-lg p-1">
-                                        <button class="px-3 py-1 rounded text-sm bg-slate-700 shadow font-medium">Dark</button>
-                                        <button class="px-3 py-1 rounded text-sm text-gray-400 hover:text-white">Light</button>
+                                    <div class="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
+                                        <button class="px-3 py-1 rounded text-sm bg-white dark:bg-slate-700 shadow font-medium text-gray-900 dark:text-white">Dark</button>
+                                        <button class="px-3 py-1 rounded text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Light</button>
                                     </div>
                                 </div>
                                 
-                                <div class="border border-slate-700 rounded-xl overflow-hidden bg-[#0f172a] shadow-inner p-6 h-64 relative flex flex-col justify-between">
+                                <div class="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-[#0f172a] shadow-inner p-6 h-64 relative flex flex-col justify-between">
                                     <!-- Preview UI Mockup -->
                                     <nav class="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
                                         <div class="w-24 h-6 bg-white/10 rounded"></div>
@@ -325,13 +342,7 @@
                                 <div class="widget-card flex flex-col" data-aos="fade-up">
                                     <h3 class="font-bold text-lg mb-4">CSS Export</h3>
                                     <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs text-gray-400 overflow-hidden flex-1 border border-slate-800 mb-3 relative">
-<pre>
-:root {
-  --primary: #6366f1;
-  --bg-dark: #0f172a;
-  --text-main: #f8fafc;
-}
-</pre>
+
                                         <div class="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent"></div>
                                     </div>
                                     <div class="flex gap-2 mt-auto">
@@ -340,15 +351,13 @@
                                     </div>
                                 </div>
                                 
-                            </div>
                         </div>
                     </div>
-                    
                 </div>
-                
+
                 <!-- New Section 1: System Health -->
-                <div class="mt-12">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i class="fa-solid fa-heart-pulse text-primary"></i>
                         System <span class="text-gradient">Integrity</span>
                     </h3>
@@ -377,10 +386,10 @@
                 </div>
 
                 <!-- New Section 2: User Activity -->
-                <div class="mt-12">
+                <div class="mt-8">
                     <div class="grid lg:grid-cols-2 gap-12 items-center">
                         <div data-aos="fade-right">
-                            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
                                 <i class="fa-solid fa-users text-secondary"></i>
                                 Collaborative <span class="text-gradient">Insights</span>
                             </h3>
@@ -413,8 +422,8 @@
                 </div>
 
                 <!-- New Section 3: Platform Intelligence -->
-                <div class="mt-12 mb-12">
-                    <div class="flex justify-between items-center mb-6">
+                <div class="mt-8 mb-8">
+                    <div class="flex justify-between items-center mb-4">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-brain text-pink-500"></i>
                             Platform <span class="text-gradient">Intelligence</span>
@@ -446,8 +455,9 @@
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
+</div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
