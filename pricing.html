@@ -9,6 +9,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body class="transition-colors duration-300">
     <!-- Navigation -->
@@ -25,7 +26,7 @@
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
+                <div class="hidden lg:flex space-x-8 items-center">
                     <a href="index.html" class="hover:text-primary transition-colors">Home</a>
                     <a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
@@ -49,7 +50,7 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center gap-4">
+                <div class="lg:hidden flex items-center gap-4">
                     <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
@@ -62,7 +63,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 dark:border-gray-800">
+        <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 dark:border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
                 <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
                 <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home 2</a>
@@ -151,6 +152,105 @@
                 <summary class="font-bold text-lg outline-none">Do you implement the fixes?</summary>
                 <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">Yes! While the Audit Only plan just provides a report, our Theme Architecture plan includes us pushing PRs directly to your codebase to fix CSS and HTML structural issues.</p>
             </details>
+        </div>
+    </section>
+
+    <!-- New Section 1: Pricing Impact -->
+    <section class="py-24 relative overflow-hidden bg-white dark:bg-[#020617]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="heading-lg mb-6">Investment. <br><span class="text-gradient">With Returns.</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                        Our pricing plans are designed to scale with your project needs, ensuring that accessibility becomes a value-add rather than a cost center.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <div class="text-4xl font-black text-primary mb-1">3.5x</div>
+                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Avg. ROI</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black text-secondary mb-1">0%</div>
+                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Legal Risk After Audit</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" data-aos="zoom-in">
+                    <div class="glass-card p-2 rounded-3xl rotate-3 hover:rotate-0 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200" alt="Financial Growth" class="rounded-2xl w-full h-[400px] object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 2: Premium Testimonials -->
+    <section class="py-24 bg-gray-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="heading-lg mb-16" data-aos="fade-up">Trusted by <span class="text-gradient">Industry Leaders.</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://i.pravatar.cc/150?u=21" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
+                    <p class="italic text-gray-600 dark:text-gray-400 mb-6">"The ROI was immediate. Within 3 months of implementing their accessibility suggestions, our mobile conversion increased by 22%."</p>
+                    <h4 class="font-bold">David Chen</h4>
+                    <span class="text-xs text-primary font-bold uppercase">VP of Product, ShopSmart</span>
+                </div>
+                <div class="glass-card p-8 flex flex-col items-center text-center scale-105 border-primary bg-white/10" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://i.pravatar.cc/150?u=22" class="w-20 h-20 rounded-full mb-6 border-4 border-secondary/20 p-1">
+                    <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Finally a pricing model that makes sense for startups. We got enterprise-level audit results at a scale we could afford."</p>
+                    <h4 class="font-bold">Sofia Martinez</h4>
+                    <span class="text-xs text-secondary font-bold uppercase">Founder, GreenPath</span>
+                </div>
+                <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://i.pravatar.cc/150?u=23" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
+                    <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Worth every penny. The time saved in development rework alone paid for the entire audit process."</p>
+                    <h4 class="font-bold">Liam O'Connor</h4>
+                    <span class="text-xs text-primary font-bold uppercase">Lead Developer, TechNode</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 3: Featured Insights -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 text-center md:text-left">
+                <div>
+                    <h2 class="heading-lg mb-2">Financial <span class="text-gradient">Insights.</span></h2>
+                    <p class="text-gray-500">Understanding the economic impact of inclusive design.</p>
+                </div>
+                <a href="#" class="btn-secondary">Read More</a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group cursor-pointer" data-aos="fade-up">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span class="absolute bottom-4 left-4 text-xs font-bold bg-primary px-2 py-1 rounded text-white uppercase">Economics</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">The Cost of Non-Compliance</h3>
+                    <p class="text-sm text-gray-500">How ADA and WCAG 2.2 legal actions are affecting the tech bottom line.</p>
+                </div>
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span class="absolute bottom-4 left-4 text-xs font-bold bg-secondary px-2 py-1 rounded text-white uppercase">Market</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors">Tapping into a $13 Trillion Market</h3>
+                    <p class="text-sm text-gray-500">The global purchasing power of people with disabilities and their families.</p>
+                </div>
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+                        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span class="absolute bottom-4 left-4 text-xs font-bold bg-pink-500 px-2 py-1 rounded text-white uppercase">Growth</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-pink-500 transition-colors">Scaling Accessibility Efficiently</h3>
+                    <p class="text-sm text-gray-500">How to plan your accessibility budget for 2026 and beyond.</p>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -44,6 +44,7 @@
         
         .scroll-card { scroll-snap-align: start; min-width: 350px; }
     </style>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body class="transition-colors duration-300 dark">
     <!-- Navigation -->
@@ -60,7 +61,7 @@
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
+                <div class="hidden lg:flex space-x-8 items-center">
                     <a href="index.html" class="hover:text-primary transition-colors">Home</a>
                     <a href="home-2.html" class="font-semibold text-primary">Home 2</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
@@ -84,7 +85,7 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center gap-4">
+                <div class="lg:hidden flex items-center gap-4">
                     <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
@@ -97,7 +98,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 dark:border-gray-800">
+        <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 dark:border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
                 <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
                 <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">Home 2</a>
@@ -115,7 +116,12 @@
     <!-- 1. Split Screen Hero -->
     <header class="min-h-screen flex flex-col md:flex-row">
         <!-- Left Side: Content -->
-        <div class="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 relative z-10 text-center md:text-left">
+        <div class="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 relative overflow-hidden text-center md:text-left">
+            <!-- 4K Background Texture -->
+            <div class="absolute inset-0 z-0 opacity-10">
+                <img src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?auto=format&fit=crop&q=80&w=3840" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
             <div class="max-w-xl flex flex-col items-center md:items-start" data-aos="fade-right">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                     <i class="fa-solid fa-bolt"></i> Future of Accessibility
@@ -140,7 +146,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-[#020617] to-transparent z-10 md:block hidden"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent z-10 md:hidden block"></div>
             
-            <img src="https://images.unsplash.com/photo-1607799279861-4dddf96556b6?auto=format&fit=crop&q=80&w=1200" alt="Cinematic UI Design" class="absolute inset-0 w-full h-full object-cover transform scale-105">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=3840" alt="Cinematic UI Design" class="absolute inset-0 w-full h-full object-cover transform scale-105">
             
             <!-- Interactive Widgets Overlaid -->
             <div class="absolute top-1/4 right-1/4 z-20 glass-card bg-slate-900/80 p-4 border-white/10 rounded-2xl w-64 shadow-2xl transform rotate-[-5deg] hover:rotate-0 transition-transform duration-500" data-aos="fade-left" data-aos-delay="200">

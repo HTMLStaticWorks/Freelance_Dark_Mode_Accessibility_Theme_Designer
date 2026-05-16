@@ -44,6 +44,7 @@
             .sidebar.open { transform: translateX(0); }
         }
     </style>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body>
     <div class="dashboard-layout">
@@ -295,7 +296,108 @@
                     </div>
                     
                 </div>
-            </div>
+                
+                <!-- New Section 1: System Health -->
+                <div class="mt-12">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-heart-pulse text-primary"></i>
+                        System <span class="text-gradient">Integrity</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="glass-card p-4 border-l-4 border-green-500">
+                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">API Status</div>
+                            <div class="text-lg font-black">Operational</div>
+                            <div class="text-[10px] text-green-500 font-bold">99.99% Uptime</div>
+                        </div>
+                        <div class="glass-card p-4 border-l-4 border-primary">
+                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Compute Load</div>
+                            <div class="text-lg font-black">24%</div>
+                            <div class="text-[10px] text-primary font-bold">Stable Architecture</div>
+                        </div>
+                        <div class="glass-card p-4 border-l-4 border-secondary">
+                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Audit Queue</div>
+                            <div class="text-lg font-black">Empty</div>
+                            <div class="text-[10px] text-secondary font-bold">Real-time Processing</div>
+                        </div>
+                        <div class="glass-card p-4 border-l-4 border-orange-500">
+                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Global Latency</div>
+                            <div class="text-lg font-black">42ms</div>
+                            <div class="text-[10px] text-orange-500 font-bold">Optimized CDN</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Section 2: User Activity -->
+                <div class="mt-12">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div data-aos="fade-right">
+                            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-users text-secondary"></i>
+                                Collaborative <span class="text-gradient">Insights</span>
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-6">Connect with other designers and accessibility experts directly from your dashboard to share patterns and compliance strategies.</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 shadow-sm border border-slate-700">
+                                    <img src="https://i.pravatar.cc/150?u=81" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Alex Rivera <span class="text-[10px] font-normal text-gray-400">just published a new palette</span></div>
+                                        <div class="text-[10px] text-primary font-bold">"High Contrast Ocean"</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 shadow-sm border border-slate-700">
+                                    <img src="https://i.pravatar.cc/150?u=82" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Sarah Kong <span class="text-[10px] font-normal text-gray-400">verified a new RTL component</span></div>
+                                        <div class="text-[10px] text-secondary font-bold">"Mirror Navigation v2.1"</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative" data-aos="zoom-in">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" class="rounded-2xl shadow-2xl border border-slate-700 grayscale hover:grayscale-0 transition-all duration-700">
+                            <div class="absolute -bottom-4 -right-4 glass-card p-3 animate-pulse border-primary">
+                                <div class="text-[10px] font-bold text-primary">Live Activity</div>
+                                <div class="text-[10px] text-gray-500">124 Users Online</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Section 3: Platform Intelligence -->
+                <div class="mt-12 mb-12">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-brain text-pink-500"></i>
+                            Platform <span class="text-gradient">Intelligence</span>
+                        </h3>
+                        <a href="#" class="text-[10px] font-bold text-primary uppercase tracking-widest">Full Analytics <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="group cursor-pointer">
+                            <div class="aspect-video rounded-xl overflow-hidden mb-3 border border-slate-800">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 group-hover:opacity-100">
+                            </div>
+                            <h4 class="font-bold text-xs mb-1 text-white">Optimizing Render Performance</h4>
+                            <p class="text-[10px] text-gray-500">How to maintain 60fps while applying complex SVG filters.</p>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="aspect-video rounded-xl overflow-hidden mb-3 border border-slate-800">
+                                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 group-hover:opacity-100">
+                            </div>
+                            <h4 class="font-bold text-xs mb-1 text-white">Security in Theme Generation</h4>
+                            <p class="text-[10px] text-gray-500">Protecting your design tokens from CSS injection.</p>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="aspect-video rounded-xl overflow-hidden mb-3 border border-slate-800">
+                                <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 group-hover:opacity-100">
+                            </div>
+                            <h4 class="font-bold text-xs mb-1 text-white">User Feedback Loops</h4>
+                            <p class="text-[10px] text-gray-500">Integrating direct feedback into automated pipelines.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </main>
         </main>
     </div>
 

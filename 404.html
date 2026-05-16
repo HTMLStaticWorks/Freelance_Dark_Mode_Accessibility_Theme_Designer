@@ -9,36 +9,138 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
-<body class="transition-colors duration-300 bg-gray-50 dark:bg-[#020617] h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    <div class="flex flex-col w-full">
+        <div class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+            <!-- Abstract Elements -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl mix-blend-multiply animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl mix-blend-multiply animate-pulse" style="animation-delay: 2s;"></div>
 
-    <!-- Abstract Elements -->
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl mix-blend-multiply animate-pulse"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl mix-blend-multiply animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="text-center relative z-10 p-8 glass-card max-w-lg w-full mx-4" data-aos="zoom-in">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 text-3xl mx-auto mb-6">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                
+                <h1 class="text-6xl font-black mb-2 text-gradient">404</h1>
+                <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Page Not Found</h2>
+                
+                <p class="text-gray-500 mb-8 text-sm">
+                    The page you are looking for doesn't exist or has been moved. But don't worry, even a lost page can be an accessible experience.
+                </p>
 
-    <div class="text-center relative z-10 p-8 glass-card max-w-lg w-full mx-4" data-aos="zoom-in">
-        <div class="w-20 h-20 bg-gray-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 text-3xl mx-auto mb-6">
-            <i class="fa-solid fa-compass"></i>
+                <a href="index.html" class="btn-primary w-full text-center">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Return to Home
+                </a>
+            </div>
+
+            <!-- Theme Toggle at bottom corner -->
+            <div class="absolute bottom-8 right-8">
+                <button class="theme-toggle w-12 h-12 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary transition-colors shadow-lg">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+            </div>
         </div>
-        
-        <h1 class="text-6xl font-black mb-2 text-gradient">404</h1>
-        <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Page Not Found</h2>
-        
-        <p class="text-gray-500 mb-8 text-sm">
-            The page you are looking for doesn't exist or has been moved. But don't worry, even a lost page can be an accessible experience.
-        </p>
 
-        <a href="index.html" class="btn-primary w-full text-center">
-            <i class="fa-solid fa-arrow-left mr-2"></i> Return to Home
-        </a>
-    </div>
+        <!-- New Section 1: Helpful Impact -->
+        <section class="py-24 relative overflow-hidden bg-white dark:bg-[#020617] border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-4xl font-black mb-6">Still Looking <br><span class="text-gradient">for Guidance?</span></h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                            Even when you're lost, AuraDesign provides tools to find your way back to inclusive design excellence.
+                        </p>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div>
+                                <div class="text-4xl font-black text-primary mb-1">10k+</div>
+                                <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Pages Audited Daily</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-black text-secondary mb-1">0</div>
+                                <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Broken Links Unresolved</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative" data-aos="zoom-in">
+                        <div class="glass-card p-2 rounded-3xl rotate-2 hover:rotate-0 transition-transform duration-700">
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=1200" alt="Support Guidance" class="rounded-2xl w-full h-[400px] object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Theme Toggle at bottom corner -->
-    <div class="absolute bottom-8 right-8">
-        <button class="theme-toggle w-12 h-12 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary transition-colors shadow-lg">
-            <i class="fa-solid fa-moon dark:hidden"></i>
-            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
-        </button>
+        <!-- New Section 2: Premium Testimonials -->
+        <section class="py-24 bg-gray-50 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-black mb-16" data-aos="fade-up">Trusted by <span class="text-gradient">Industry Leaders.</span></h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://i.pravatar.cc/150?u=101" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
+                        <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Even their 404 page is a masterclass in accessible design. The contrast and keyboard navigation are flawless."</p>
+                        <h4 class="font-bold text-white">James R.</h4>
+                        <span class="text-xs text-primary font-bold uppercase">UX Auditor, ClearView</span>
+                    </div>
+                    <div class="glass-card p-8 flex flex-col items-center text-center scale-105 border-primary bg-white/10" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://i.pravatar.cc/150?u=102" class="w-20 h-20 rounded-full mb-6 border-4 border-secondary/20 p-1">
+                        <p class="italic text-gray-600 dark:text-gray-400 mb-6">"I actually enjoyed getting lost here. The design language is so consistent across every single page."</p>
+                        <h4 class="font-bold text-white">Linda Moore</h4>
+                        <span class="text-xs text-secondary font-bold uppercase">Design Lead, CreativeFlow</span>
+                    </div>
+                    <div class="glass-card p-8 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://i.pravatar.cc/150?u=103" class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
+                        <p class="italic text-gray-600 dark:text-gray-400 mb-6">"AuraDesign takes 404s seriously. It's a great example of how to handle user errors gracefully."</p>
+                        <h4 class="font-bold text-white">Tom Hardy</h4>
+                        <span class="text-xs text-primary font-bold uppercase">Frontend Architect, WebPro</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section 3: Featured Insights -->
+        <section class="py-24 relative overflow-hidden bg-white dark:bg-[#020617]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 text-center md:text-left">
+                    <div>
+                        <h2 class="text-4xl font-black mb-2">Helpful <span class="text-gradient">Insights.</span></h2>
+                        <p class="text-gray-500">Learn how to make your error pages more inclusive.</p>
+                    </div>
+                    <a href="index.html" class="btn-secondary">Go Back Home</a>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="group cursor-pointer" data-aos="fade-up">
+                        <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-xs font-bold bg-primary px-2 py-1 rounded text-white uppercase">Guide</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors text-white">Designing Inclusive 404 Pages</h3>
+                        <p class="text-sm text-gray-500">Best practices for helping users find their way back after a broken link.</p>
+                    </div>
+                    <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+                            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-xs font-bold bg-secondary px-2 py-1 rounded text-white uppercase">Strategy</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors text-white">Error Prevention Patterns</h3>
+                        <p class="text-sm text-gray-500">How to reduce 404 occurrences through better navigational architecture.</p>
+                    </div>
+                    <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+                            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-xs font-bold bg-pink-500 px-2 py-1 rounded text-white uppercase">UX</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-500 transition-colors text-white">Writing Empathetic Error Messages</h3>
+                        <p class="text-sm text-gray-500">Why the tone of your 404 page matters for user retention.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
