@@ -89,7 +89,7 @@
         .content-area::-webkit-scrollbar-track { background: transparent; }
         .content-area::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1279px) {
             .sidebar { position: absolute; height: 100%; transform: translateX(-100%); }
             .sidebar.open { transform: translateX(0); }
             [dir="rtl"] .sidebar { transform: translateX(100%); }
@@ -139,15 +139,15 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Topbar -->
-            <header class="topbar z-30">
+            <header class="topbar sticky top-0 z-40">
                 <div class="flex items-center gap-4">
-                    <button class="text-gray-400 hover:text-white lg:hidden" id="menuToggle"><i class="fa-solid fa-bars text-xl"></i></button>
+                    <button class="text-gray-400 hover:text-white xl:hidden" id="menuToggle"><i class="fa-solid fa-bars text-xl"></i></button>
                     <h1 class="text-xl font-bold">Theme Overview</h1>
                 </div>
                 
                 <div class="flex items-center gap-3">
-                    <button class="rtl-toggle px-3 h-10 rounded-full bg-slate-200 dark:bg-slate-800 hidden sm:flex items-center justify-center hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors text-xs font-bold text-gray-700 dark:text-gray-300" aria-label="Toggle RTL">
-                        RTL
+                    <button class="rtl-toggle w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" aria-label="Toggle RTL">
+                        <i class="fa-solid fa-right-to-left"></i>
                     </button>
                     <button class="theme-toggle w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" aria-label="Toggle Theme">
                         <i class="fa-solid fa-moon dark:hidden"></i>
@@ -223,7 +223,7 @@
                             <!-- Brand Colors Submission Tool -->
                             <div class="widget-card" data-aos="fade-up">
                                 <h3 class="font-bold text-lg mb-4 flex items-center justify-between">
-                                    Base Colors <button class="text-primary text-sm hover:underline">Edit</button>
+                                    Base Colors <button class="text-primary font-bold text-sm hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors px-2 py-0.5 hover:bg-primary/5 dark:hover:bg-primary/10 rounded">Edit</button>
                                 </h3>
                                 <div class="space-y-3">
                                     <div class="flex items-center gap-3 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
@@ -247,14 +247,14 @@
                                             <div class="text-xs text-gray-500">#f8fafc</div>
                                         </div>
                                     </div>
-                                    <button class="w-full py-2 border border-dashed border-slate-700 rounded-lg text-sm text-gray-400 hover:text-white hover:border-slate-500 transition-colors">
+                                    <button class="w-full py-2 border border-dashed border-slate-300 dark:border-slate-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white hover:border-primary transition-all">
                                         <i class="fa-solid fa-plus mr-1"></i> Add Color
                                     </button>
                                 </div>
                             </div>
                             
                             <!-- Contrast Checker -->
-                            <div class="widget-card" data-aos="fade-up">
+                            <div class="widget-card" data-aos="fade-up" data-aos-delay="50">
                                 <h3 class="font-bold text-lg mb-4">Live Contrast Checker</h3>
                                 <div class="p-4 rounded-lg bg-[#6366f1] text-[#f8fafc] mb-4 text-center border border-white/10">
                                     <span class="font-bold">Text on Primary</span>
@@ -271,6 +271,25 @@
                                     <span class="text-sm text-gray-400">WCAG AAA (Large)</span>
                                     <i class="fa-solid fa-check text-green-500"></i>
                                 </div>
+                            </div>
+
+                            <!-- Colorblind Simulator -->
+                            <div class="widget-card" data-aos="fade-up" data-aos-delay="100">
+                                <h3 class="font-bold text-lg mb-4">Colorblind Simulation</h3>
+                                <select class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-sm mb-4 outline-none focus:border-primary text-gray-900 dark:text-white">
+                                    <option>Normal Vision</option>
+                                    <option>Protanopia (Red-Blind)</option>
+                                    <option>Deuteranopia (Green-Blind)</option>
+                                    <option>Tritanopia (Blue-Blind)</option>
+                                    <option>Achromatopsia (Monochromacy)</option>
+                                </select>
+                                <div class="flex h-12 rounded overflow-hidden">
+                                    <div class="flex-1 bg-red-500"></div>
+                                    <div class="flex-1 bg-green-500"></div>
+                                    <div class="flex-1 bg-blue-500"></div>
+                                    <div class="flex-1 bg-yellow-500"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2 text-center">Select a profile to simulate palette.</p>
                             </div>
                         </div>
 
@@ -316,33 +335,12 @@
                                 </div>
                             </div>
                             
-                            <!-- Bottom Row: Colorblind Sim & CSS Export -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                
-                                <!-- Colorblind Simulator -->
-                                <div class="widget-card" data-aos="fade-up">
-                                    <h3 class="font-bold text-lg mb-4">Colorblind Simulation</h3>
-                                    <select class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-sm mb-4 outline-none focus:border-primary text-gray-900 dark:text-white">
-                                        <option>Normal Vision</option>
-                                        <option>Protanopia (Red-Blind)</option>
-                                        <option>Deuteranopia (Green-Blind)</option>
-                                        <option>Tritanopia (Blue-Blind)</option>
-                                        <option>Achromatopsia (Monochromacy)</option>
-                                    </select>
-                                    <div class="flex h-12 rounded overflow-hidden">
-                                        <div class="flex-1 bg-red-500"></div>
-                                        <div class="flex-1 bg-green-500"></div>
-                                        <div class="flex-1 bg-blue-500"></div>
-                                        <div class="flex-1 bg-yellow-500"></div>
-                                    </div>
-                                    <p class="text-xs text-gray-500 mt-2 text-center">Select a profile to simulate palette.</p>
-                                </div>
-                                
+                            <!-- Bottom Row: CSS Export -->
+                            <div class="grid grid-cols-1 gap-6">
                                 <!-- CSS Variable Export -->
                                 <div class="widget-card flex flex-col" data-aos="fade-up">
                                     <h3 class="font-bold text-lg mb-4">CSS Export</h3>
                                     <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs text-gray-400 overflow-hidden flex-1 border border-slate-800 mb-3 relative">
-
                                         <div class="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent"></div>
                                     </div>
                                     <div class="flex gap-2 mt-auto">
@@ -350,8 +348,7 @@
                                         <button class="flex-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm py-2 rounded transition-colors border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-white">Download JSON</button>
                                     </div>
                                 </div>
-                                
-                        </div>
+                            </div>
                     </div>
                 </div>
 
@@ -423,12 +420,12 @@
 
                 <!-- New Section 3: Platform Intelligence -->
                 <div class="mt-8 mb-8">
-                    <div class="flex justify-between items-center mb-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-brain text-pink-500"></i>
                             Platform <span class="text-gradient">Intelligence</span>
                         </h3>
-                        <a href="#" class="text-[10px] font-bold text-primary uppercase tracking-widest">Full Analytics <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        <a href="#" class="text-[10px] font-bold text-primary uppercase tracking-widest hover:underline">Full Analytics <i class="fa-solid fa-arrow-right ml-1"></i></a>
                     </div>
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="group cursor-pointer">

@@ -82,7 +82,7 @@
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex space-x-8 items-center">
+                <div class="hidden xl:flex space-x-8 items-center">
                     <a href="index.html" class="hover:text-primary transition-colors">Home</a>
                     <a href="home-2.html" class="font-semibold text-primary">Home 2</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
@@ -107,7 +107,10 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center gap-2 sm:gap-4">
+                <div class="xl:hidden flex items-center gap-2 sm:gap-4">
+                    <button class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-xs font-bold" aria-label="Toggle RTL">
+                        RTL
+                    </button>
                     <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
@@ -120,7 +123,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 dark:border-gray-800">
+        <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
                 <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
                 <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">Home 2</a>
@@ -138,14 +141,14 @@
     <!-- 1. Split Screen Hero -->
     <header class="min-h-screen flex flex-col lg:flex-row">
         <!-- Left Side: Content -->
-        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16 relative overflow-hidden text-center lg:text-left">
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 pt-32 lg:p-16 lg:pt-40 relative overflow-hidden text-center lg:text-left">
             <!-- 4K Background Texture -->
             <div class="absolute inset-0 z-0 opacity-10">
                 <img src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?auto=format&fit=crop&q=80&w=3840" class="w-full h-full object-cover">
             </div>
             <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
             <div class="max-w-xl flex flex-col items-center lg:items-start" data-aos="fade-right">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sky-700 dark:text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                     <i class="fa-solid fa-bolt"></i> Future of Accessibility
                 </div>
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] text-gray-900 dark:text-white">
@@ -156,7 +159,7 @@
                     Crafting cinematic, deep-contrast interfaces that prioritize accessibility without sacrificing premium visual fidelity.
                 </p>
                 <div class="flex gap-4">
-                    <a href="#bento" class="bg-primary text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                    <a href="#bento" class="bg-primary text-slate-900 px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2">
                         View Grid <i class="fa-solid fa-arrow-down"></i>
                     </a>
                 </div>
@@ -223,7 +226,7 @@
             <div class="bento-item p-6 bg-gradient-to-br from-primary/20 to-secondary/20 border-primary/30" data-aos="zoom-in" data-aos-delay="300">
                 <div class="relative z-10 h-full flex flex-col items-center justify-center text-center">
                     <div class="text-5xl font-black text-gray-900 dark:text-white mb-2">4.5:1</div>
-                    <p class="text-xs text-primary font-bold uppercase tracking-widest">Min Contrast Ratio</p>
+                    <p class="text-xs text-sky-700 dark:text-primary font-bold uppercase tracking-widest">Min Contrast Ratio</p>
                 </div>
             </div>
             
@@ -231,14 +234,14 @@
             <div class="bento-item bento-wide p-8 flex flex-col md:flex-row items-center justify-between group overflow-hidden text-center md:text-left gap-6" data-aos="zoom-in" data-aos-delay="400">
                 <div class="relative z-10 max-w-sm flex flex-col items-center md:items-start">
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">WCAG Analyzer</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Real-time code analysis to prevent accessibility regressions.</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">Real-time code analysis to prevent accessibility regressions.</p>
                 </div>
                 <div class="relative z-10 w-32 h-32">
                     <!-- Circular Progress SVG -->
-                    <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90">
+                    <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90 text-slate-900 dark:text-white">
                         <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3" />
                         <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="100, 100" class="animate-pulse" />
-                        <text x="18" y="22" font-family="Outfit" font-size="10" font-weight="bold" fill="white" text-anchor="middle">100%</text>
+                        <text x="18" y="22" font-family="Outfit" font-size="10" font-weight="bold" fill="currentColor" text-anchor="middle">100%</text>
                     </svg>
                 </div>
             </div>
@@ -267,7 +270,7 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-1">Obsidian Void</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Deep blacks tailored for OLED displays.</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Deep blacks tailored for OLED displays.</p>
                     <div class="flex gap-2">
                         <span class="w-4 h-4 rounded-full bg-[#000000] border border-white/20"></span>
                         <span class="w-4 h-4 rounded-full bg-[#111111] border border-white/20"></span>
@@ -286,7 +289,7 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-1">Zinc Violet</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Soft neutral grays with vibrant accents.</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Soft neutral grays with vibrant accents.</p>
                     <div class="flex gap-2">
                         <span class="w-4 h-4 rounded-full bg-[#18181b] border border-white/20"></span>
                         <span class="w-4 h-4 rounded-full bg-[#27272a] border border-white/20"></span>
@@ -305,7 +308,7 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-1">Carbon Neutral</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">High-contrast accessibility-first theme.</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">High-contrast accessibility-first theme.</p>
                     <div class="flex gap-2">
                         <span class="w-4 h-4 rounded-full bg-[#171717] border border-white/20"></span>
                         <span class="w-4 h-4 rounded-full bg-[#262626] border border-white/20"></span>
@@ -332,19 +335,81 @@
             <div class="relative" data-aos="fade-left">
                 <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900"></div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">1. Contrast Auditing</h3>
-                <p class="text-gray-600 dark:text-gray-400">We analyze existing brand colors and mathematically derive accessible dark mode variants that meet WCAG AAA standards.</p>
+                <p class="text-gray-700 dark:text-gray-300">We analyze existing brand colors and mathematically derive accessible dark mode variants that meet WCAG AAA standards.</p>
             </div>
             <!-- Timeline Item 2 -->
             <div class="relative" data-aos="fade-left" data-aos-delay="100">
                 <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-secondary ring-4 ring-white dark:ring-slate-900"></div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">2. Token Architecture</h3>
-                <p class="text-gray-600 dark:text-gray-400">Establishing semantic CSS variables to ensure seamless theming across complex React/Vue/Vanilla ecosystems.</p>
+                <p class="text-gray-700 dark:text-gray-300">Establishing semantic CSS variables to ensure seamless theming across complex React/Vue/Vanilla ecosystems.</p>
             </div>
             <!-- Timeline Item 3 -->
             <div class="relative" data-aos="fade-left" data-aos-delay="200">
                 <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-purple-500 ring-4 ring-white dark:ring-slate-900"></div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">3. Simulator Testing</h3>
                 <p class="text-gray-600 dark:text-gray-400">Running the UI through colorblindness simulators (Protanopia, Deuteranopia) to guarantee universal readability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Logo Cloud Section -->
+    <section class="py-16 bg-white dark:bg-slate-950 border-y border-gray-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500 dark:text-gray-400 text-sm font-bold uppercase tracking-[0.2em] mb-10">Powering Accessibility for</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 dark:opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+                <i class="fa-brands fa-google text-4xl"></i>
+                <i class="fa-brands fa-microsoft text-4xl"></i>
+                <i class="fa-brands fa-amazon text-4xl"></i>
+                <i class="fa-brands fa-apple text-4xl"></i>
+                <i class="fa-brands fa-stripe text-4xl"></i>
+                <i class="fa-brands fa-slack text-4xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Testimonials Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Testimonials</h2>
+                <h3 class="heading-lg mb-4 text-gray-900 dark:text-white">What Our Clients Say</h3>
+                <p class="text-gray-600 dark:text-gray-400">Join 2,000+ companies that have transformed their user experience with our accessibility-first approach.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 group hover:bg-primary/5 transition-colors duration-500" data-aos="fade-right">
+                    <div class="flex gap-1 text-primary mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 font-medium">
+                        "The bento-grid layout they designed for our analytics platform is not only beautiful but fully keyboard accessible. A rare combination in modern design."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=4" alt="Client" class="w-14 h-14 rounded-2xl object-cover border-2 border-primary/20">
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">David Miller</h4>
+                            <p class="text-sm text-gray-500">Product Manager, DataVibe</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 group hover:bg-secondary/5 transition-colors duration-500" data-aos="fade-left">
+                    <div class="flex gap-1 text-secondary mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 font-medium">
+                        "Implementing their theme architecture saved our engineering team months of work. The dark mode is pixel-perfect and hits all contrast targets."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=5" alt="Client" class="w-14 h-14 rounded-2xl object-cover border-2 border-secondary/20">
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Sophia Williams</h4>
+                            <p class="text-sm text-gray-500">VP Engineering, SaaSify</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

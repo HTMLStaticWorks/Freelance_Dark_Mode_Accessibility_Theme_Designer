@@ -31,7 +31,7 @@
 </head>
 <body class="transition-colors duration-300">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass transition-all duration-300">
+    <nav class="fixed top-0 left-0 w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
@@ -44,7 +44,7 @@
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex space-x-8 items-center">
+                <div class="hidden xl:flex space-x-8 items-center">
                     <a href="index.html" class="font-semibold text-primary">Home</a>
                     <a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a>
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
@@ -69,7 +69,10 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center gap-2 sm:gap-4">
+                <div class="xl:hidden flex items-center gap-2 sm:gap-4">
+                    <button class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-xs font-bold" aria-label="Toggle RTL">
+                        RTL
+                    </button>
                     <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
                         <i class="fa-solid fa-moon dark:hidden"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
@@ -82,7 +85,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 dark:border-gray-800">
+        <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
                 <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">Home</a>
                 <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home 2</a>
@@ -98,7 +101,7 @@
     </nav>
 
     <!-- 1. Premium Hero Section -->
-    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <header class="relative min-h-screen flex items-center pt-32 lg:pt-48 overflow-hidden">
         <!-- 4K Animated Background Elements -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=3840&ixlib=rb-4.0.3" alt="Abstract 4K Background" class="w-full h-full object-cover opacity-10 dark:opacity-20 animate-pulse">
@@ -435,6 +438,138 @@
                         <div class="text-4xl font-black mb-2 counter">250+</div>
                         <div class="text-sm text-indigo-100">Accessible Themes Delivered</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Testimonials Section -->
+    <section class="py-24 relative overflow-hidden bg-white dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Social Proof</h2>
+                <h3 class="heading-lg mb-4">Trusted by Industry Leaders</h3>
+                <p class="text-gray-600 dark:text-gray-400">Hear from the product owners and designers we've helped to reach global accessibility standards.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 italic mb-8">
+                        "The transition to an accessible dark mode was seamless. Our user engagement increased by 40% after implementing AuraDesign's theme architecture."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=1" alt="Client" class="w-12 h-12 rounded-full border-2 border-primary">
+                        <div>
+                            <h4 class="font-bold text-sm">Sarah Jenkins</h4>
+                            <p class="text-xs text-gray-500">CTO, FinFlow</p>
+                        </div>
+                    </div>
+                    <div class="absolute top-8 right-8 opacity-5">
+                        <i class="fa-solid fa-quote-right text-6xl"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 relative border-primary/30 shadow-primary/10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 italic mb-8">
+                        "AuraDesign is the only studio that understands both the aesthetics of high-end SaaS and the technical rigors of WCAG compliance."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=2" alt="Client" class="w-12 h-12 rounded-full border-2 border-primary">
+                        <div>
+                            <h4 class="font-bold text-sm">Marcus Chen</h4>
+                            <p class="text-xs text-gray-500">Design Lead, CloudScale</p>
+                        </div>
+                    </div>
+                    <div class="absolute top-8 right-8 opacity-5">
+                        <i class="fa-solid fa-quote-right text-6xl"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 italic mb-8">
+                        "Our accessibility score went from 65 to 99 in just two weeks. The semantic CSS tokens they provided are a lifesaver for our dev team."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?u=3" alt="Client" class="w-12 h-12 rounded-full border-2 border-primary">
+                        <div>
+                            <h4 class="font-bold text-sm">Elena Rodriguez</h4>
+                            <p class="text-xs text-gray-500">Senior Dev, InnovateX</p>
+                        </div>
+                    </div>
+                    <div class="absolute top-8 right-8 opacity-5">
+                        <i class="fa-solid fa-quote-right text-6xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Pricing Summary Section -->
+    <section class="py-24 bg-gray-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Pricing</h2>
+                <h3 class="heading-lg mb-4">Investment in Inclusivity</h3>
+                <p class="text-gray-600 dark:text-gray-400">Choose the right level of support for your product's accessibility journey.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-end">
+                <!-- Plan 1 -->
+                <div class="glass-card p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-xl font-bold mb-2">Starter Audit</h4>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-4xl font-black">$499</span>
+                        <span class="text-gray-500">/project</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-2 text-sm"><i class="fa-solid fa-circle-check text-green-500"></i> Home Page Audit</li>
+                        <li class="flex items-center gap-2 text-sm"><i class="fa-solid fa-circle-check text-green-500"></i> Basic Color Analysis</li>
+                        <li class="flex items-center gap-2 text-sm"><i class="fa-solid fa-circle-check text-green-500"></i> PDF Report</li>
+                    </ul>
+                    <a href="pricing.html" class="btn-secondary w-full text-center py-3">Get Started</a>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="glass-card p-8 border-2 border-primary flex flex-col h-full relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest">Most Popular</div>
+                    <h4 class="text-xl font-bold mb-2">Theme Architecture</h4>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-4xl font-black">$1,299</span>
+                        <span class="text-gray-500">/project</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white"><i class="fa-solid fa-circle-check text-primary"></i> Full Site Audit</li>
+                        <li class="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white"><i class="fa-solid fa-circle-check text-primary"></i> CSS Variable System</li>
+                        <li class="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white"><i class="fa-solid fa-circle-check text-primary"></i> Dark Mode Optimization</li>
+                        <li class="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white"><i class="fa-solid fa-circle-check text-primary"></i> React/Vue Support</li>
+                    </ul>
+                    <a href="pricing.html" class="btn-primary w-full text-center py-4 text-lg">Select Plan</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="glass-card p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-bold mb-2">Enterprise Lab</h4>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-4xl font-black">Custom</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-2 text-sm"><i class="fa-solid fa-circle-check text-green-500"></i> Ongoing Compliance</li>
+                        <li class="flex items-center gap-2 text-sm"><i class="fa-solid fa-circle-check text-green-500"></i> Team Training</li>
+                        <li class="flex items-center gap-2 text-sm"><i class="fa-solid fa-circle-check text-green-500"></i> Custom Simulator UI</li>
+                    </ul>
+                    <a href="contact.html" class="btn-secondary w-full text-center py-3">Contact Us</a>
                 </div>
             </div>
         </div>
