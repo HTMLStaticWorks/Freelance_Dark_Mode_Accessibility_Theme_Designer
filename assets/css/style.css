@@ -30,6 +30,10 @@ html[data-theme="dark"] {
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--bg-primary);
@@ -106,6 +110,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg {
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: white;
+  border: 1px solid transparent;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -129,6 +134,10 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg {
   border-radius: 0.5rem;
   font-weight: 500;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 .btn-secondary:hover {
   background: var(--bg-secondary);
