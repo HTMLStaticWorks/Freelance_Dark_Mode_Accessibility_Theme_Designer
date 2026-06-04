@@ -103,6 +103,14 @@
         [dir="rtl"] .nav-item:hover, [dir="rtl"] .nav-item.active { border-right-color: #6366f1; }
         [dir="rtl"] .topbar { flex-direction: row-reverse; }
         [dir="rtl"] .flex-row-reverse-rtl { flex-direction: row-reverse; }
+
+        /* Typography Weight Hierarchy Limits */
+        h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg {
+            font-weight: 500 !important;
+        }
+        .font-bold, .font-semibold, .font-extrabold, .font-black, strong {
+            font-weight: 500 !important;
+        }
     </style>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
@@ -110,12 +118,17 @@
     <div class="dashboard-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
-            <a href="index.html" class="h-[70px] flex items-center px-6 border-b border-slate-200 dark:border-white/5 hover:opacity-80 transition-opacity">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg mr-3 flex-shrink-0">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-                <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight text-gray-900 dark:text-white">AuraDesign</span>
-            </a>
+            <div class="h-[70px] flex items-center justify-between px-6 border-b border-slate-200 dark:border-white/5">
+                <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg mr-3 flex-shrink-0">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight text-gray-900 dark:text-white">Aura</span>
+                </a>
+                <button id="sidebarClose" class="xl:hidden text-gray-400 hover:text-gray-600 dark:hover:text-white text-xl focus:outline-none" aria-label="Close Sidebar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
             
             <div class="py-4 flex-1 overflow-y-auto">
                 <div class="px-6 mb-2 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Main</div>
@@ -149,7 +162,7 @@
                         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg flex-shrink-0">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-base sm:text-lg tracking-tight">AuraDesign</span>
+                        <span class="font-bold text-base sm:text-lg tracking-tight">Aura</span>
                     </div>
                     <div class="h-6 w-px bg-slate-700 mx-2 xl:hidden hidden sm:block"></div>
                     <h1 class="text-xl font-bold hidden sm:block">Theme Overview</h1>
@@ -172,10 +185,10 @@
 
             <!-- Dashboard Content Area -->
             <div class="content-area" id="mainScroll">
-                <div class="max-w-7xl mx-auto">
+                <div class="max-w-7xl mx-auto space-y-8 pb-8">
                     
                     <!-- Welcome Header -->
-                    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-6 text-center sm:text-left gap-4" data-aos="fade-in">
+                    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end text-center sm:text-left gap-4" data-aos="fade-in">
                         <div>
                             <h2 class="text-3xl font-bold mb-1">Welcome back, Designer</h2>
                             <p class="text-gray-400">Here's the accessibility status of your current project.</p>
@@ -186,7 +199,7 @@
                     </div>
 
                     <!-- Top Analytics Row -->
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                         <div class="widget-card" data-aos="fade-up" data-aos-delay="50">
                             <div class="flex justify-between items-start mb-4">
                                 <div class="w-10 h-10 rounded-lg bg-green-500/20 text-green-500 flex items-center justify-center"><i class="fa-solid fa-check-double"></i></div>
@@ -223,7 +236,7 @@
                     </div>
 
                     <!-- Complex Layout Grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         
                         <!-- Col 1: Brand Colors & Contrast -->
                         <div class="lg:col-span-1 space-y-6">
@@ -347,8 +360,26 @@
                                 <!-- CSS Variable Export -->
                                 <div class="widget-card flex flex-col" data-aos="fade-up">
                                     <h3 class="font-bold text-lg mb-4">CSS Export</h3>
-                                    <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs text-gray-400 overflow-hidden flex-1 border border-slate-800 mb-3 relative">
-                                        <div class="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent"></div>
+                                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-xs text-indigo-300 h-40 overflow-y-auto border border-slate-800 mb-3 relative">
+                                        <pre class="text-[11px] leading-relaxed text-indigo-300"><code>/* Semantic Color Tokens */
+:root {
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --bg-color: #f1f5f9;
+  --text-color: #1e293b;
+  --sidebar-bg: #ffffff;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+[data-theme="dark"] {
+  --bg-color: #020617;
+  --text-color: #f8fafc;
+  --sidebar-bg: #0f172a;
+  --card-bg: #1e293b;
+  --border-color: rgba(255,255,255,0.1);
+}</code></pre>
+                                        <div class="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none"></div>
                                     </div>
                                     <div class="flex gap-2 mt-auto">
                                         <button class="flex-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm py-2 rounded transition-colors border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-white">Copy CSS</button>
@@ -360,7 +391,7 @@
                 </div>
 
                 <!-- New Section 1: System Health -->
-                <div class="mt-8">
+                <div>
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i class="fa-solid fa-heart-pulse text-primary"></i>
                         System <span class="text-gradient">Integrity</span>
@@ -390,7 +421,7 @@
                 </div>
 
                 <!-- New Section 2: User Activity -->
-                <div class="mt-8">
+                <div>
                     <div class="grid lg:grid-cols-2 gap-12 items-center">
                         <div data-aos="fade-right">
                             <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
@@ -426,7 +457,7 @@
                 </div>
 
                 <!-- New Section 3: Platform Intelligence -->
-                <div class="mt-8 mb-8">
+                <div>
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-brain text-pink-500"></i>
@@ -471,9 +502,13 @@
             offset: 50
         });
         
-        // Simple sidebar toggle
+        // Simple sidebar toggle controls
+        const sidebarEl = document.getElementById('sidebar');
         document.getElementById('menuToggle').addEventListener('click', () => {
-            document.getElementById('sidebar').classList.toggle('open');
+            sidebarEl.classList.add('open');
+        });
+        document.getElementById('sidebarClose').addEventListener('click', () => {
+            sidebarEl.classList.remove('open');
         });
     </script>
     <script src="assets/js/main.js"></script>

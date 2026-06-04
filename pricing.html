@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - Accessibility Solutions</title>
+    <title>Pricing - Alex Rivera | Theme Design Pricing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6', darkCard: '#1e293b' } } } }</script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 
 <body class="transition-colors duration-300">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass transition-all duration-300">
+    <nav class="fixed top-0 left-0 w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
@@ -24,7 +24,7 @@
                             class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
+                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">Aura</span>
                     </a>
                 </div>
 
@@ -35,7 +35,7 @@
                     <a href="about.html" class="hover:text-primary transition-colors">About</a>
                     <a href="services.html" class="hover:text-primary transition-colors">Services</a>
                     <a href="pricing.html" class="font-semibold text-primary">Pricing</a>
-                    <a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a>
+                    <a href="case-studies.html" class="hover:text-primary transition-colors">Case Studies</a>
                     <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
 
                     <div class="flex items-center gap-4 border-l border-gray-300 dark:border-gray-700 pl-4">
@@ -54,7 +54,7 @@
                             <span>Dashboard</span>
                         </a>
                         <a href="signup.html"
-                            class="btn-secondary px-6 py-2 rounded-lg font-bold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign
+                            class="btn-secondary px-6 py-3 rounded-lg font-bold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign
                             Up</a>
                     </div>
                 </div>
@@ -92,8 +92,8 @@
                     class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
                 <a href="pricing.html"
                     class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">Pricing</a>
-                <a href="portfolio.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
+                <a href="case-studies.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Case Studies</a>
                 <a href="contact.html"
                     class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
                 <a href="dashboard.html"
@@ -129,7 +129,7 @@
                 <div class="glass-card p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform h-full"
                     data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-2">Audit Only</h3>
-                    <p class="text-gray-500 text-sm mb-6">For teams who implement their own fixes.</p>
+                    <p class="text-gray-500 text-sm mb-6">For clients who implement their own fixes.</p>
                     <div class="text-4xl font-black mb-6">$999<span
                             class="text-sm font-normal text-gray-500">/project</span></div>
                     <ul class="space-y-4 text-sm mb-8 flex-1 text-left w-full">
@@ -172,11 +172,10 @@
                     <ul class="space-y-4 text-sm mb-8 flex-1 text-left w-full">
                         <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Dedicated Accessibility Engineer</li>
                         <li><i class="fa-solid fa-check text-green-500 mr-2"></i> CI/CD Pipeline Integration</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Team Training</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Developer Hand-off</li>
                     </ul>
                     <a href="contact.html"
-                        class="btn-secondary w-full h-12 flex items-center justify-center whitespace-nowrap">Contact
-                        Sales</a>
+                        class="btn-secondary w-full h-12 flex items-center justify-center whitespace-nowrap">Contact Me</a>
                 </div>
 
             </div>
@@ -189,14 +188,14 @@
         <div class="space-y-4">
             <details class="glass-card p-4 cursor-pointer" open>
                 <summary class="font-bold text-lg outline-none">What standards do you audit against?</summary>
-                <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">We strictly follow WCAG 2.1 and WCAG 2.2
+                <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">I strictly follow WCAG 2.1 and WCAG 2.2
                     guidelines, targeting Level AA as standard and Level AAA for critical typography and contrast
                     elements.</p>
             </details>
             <details class="glass-card p-4 cursor-pointer">
                 <summary class="font-bold text-lg outline-none">Do you implement the fixes?</summary>
                 <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">Yes! While the Audit Only plan just provides a
-                    report, our Theme Architecture plan includes us pushing PRs directly to your codebase to fix CSS and
+                    report, my Theme Architecture plan includes me pushing PRs directly to your codebase to fix CSS and
                     HTML structural issues.</p>
             </details>
             <details class="glass-card p-4 cursor-pointer">
@@ -207,8 +206,8 @@
             </details>
             <details class="glass-card p-4 cursor-pointer">
                 <summary class="font-bold text-lg outline-none">Is there a discount for annual billing?</summary>
-                <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">Yes, we offer a 20% discount on all plans when
-                    billed annually. This allows for continuous accessibility monitoring and theme maintenance at a
+                <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">Yes, I offer a 20% discount on all packages when
+                    booked on a recurring retainer. This allows for continuous accessibility monitoring and theme maintenance at a
                     reduced cost.</p>
             </details>
         </div>
@@ -221,7 +220,7 @@
                 <div class="text-center lg:text-left" data-aos="fade-right">
                     <h2 class="heading-lg mb-6">Investment. <br><span class="text-gradient">With Returns.</span></h2>
                     <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-                        Our pricing plans are designed to scale with your project needs, ensuring that accessibility
+                        My pricing packages are designed to scale with your project needs, ensuring that accessibility
                         becomes a value-add rather than a cost center.
                     </p>
                     <div class="grid grid-cols-2 gap-8 max-w-md mx-auto lg:mx-0">
@@ -258,7 +257,7 @@
                     <img src="https://i.pravatar.cc/150?u=21"
                         class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
                     <p class="italic text-gray-600 dark:text-gray-400 mb-6">"The ROI was immediate. Within 3 months of
-                        implementing their accessibility suggestions, our mobile conversion increased by 22%."</p>
+                        implementing Alex's accessibility suggestions, our mobile conversion increased by 22%."</p>
                     <div class="mt-auto">
                         <h4 class="font-bold text-gray-900 dark:text-white">David Chen</h4>
                         <span class="text-xs text-primary font-bold uppercase tracking-wider">VP of Product,
@@ -360,7 +359,7 @@
                             class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
                             <i class="fa-solid fa-eye"></i>
                         </div>
-                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">AuraDesign</span>
+                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">Aura</span>
                     </div>
                     <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
                         Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
@@ -382,8 +381,8 @@
                     <h4 class="font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
                         <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
-                        <li><a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Me</a></li>
+                        <li><a href="case-studies.html" class="hover:text-primary transition-colors">Case Studies</a></li>
                         <li><a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a></li>
                         <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
                     </ul>
@@ -423,12 +422,12 @@
 
             <div
                 class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 AuraDesign Accessibility Studio. All
+                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 Alex Rivera. All
                     rights reserved.</p>
                 <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400">
                     <button class="theme-toggle hover:text-primary transition-colors">Toggle Theme</button>
                     <a href="#" class="hover:text-primary">Privacy Policy</a>
-                    <a href="index.html" class="hover:text-primary">AuraDesign</a>
+                    <a href="index.html" class="hover:text-primary">Alex Rivera</a>
                 </div>
             </div>
         </div>
