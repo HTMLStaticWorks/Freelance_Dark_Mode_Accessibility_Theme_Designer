@@ -74,15 +74,25 @@ html[data-theme="dark"] .glass {
 /* Typography Classes */
 .heading-xl {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 .heading-lg {
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
+}
+
+/* Typography Weight Hierarchy Limits */
+h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg {
+  font-weight: 500 !important;
+}
+
+/* Limit paragraph and inline text bold classes to 500 */
+.font-bold, .font-semibold, .font-extrabold, .font-black, strong {
+  font-weight: 500 !important;
 }
 
 .text-gradient {
@@ -98,7 +108,7 @@ html[data-theme="dark"] .glass {
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  font-weight: 600;
+  font-weight: 500;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -117,7 +127,7 @@ html[data-theme="dark"] .glass {
   border: 1px solid var(--border-color);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  font-weight: 600;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 .btn-secondary:hover {
@@ -171,6 +181,28 @@ footer .flex.gap-4 a:hover {
 }
 [dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
 [dir="rtl"] .pr-4 { padding-right: 0; padding-left: 1rem; }
+
+/* RTL Navigation Menu Spacing Mirroring */
+[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0 !important;
+  margin-right: 1.5rem !important;
+}
+
+[dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0 !important;
+  margin-right: 2rem !important;
+}
+
+[dir="rtl"] .-space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0 !important;
+  margin-right: -1rem !important;
+}
+
+[dir="rtl"] nav .border-l {
+  border-left-width: 0 !important;
+  border-right-width: 1px !important;
+  border-right-style: solid !important;
+}
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
