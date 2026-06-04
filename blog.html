@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browser extension development tips, Chrome Web Store optimization, Firefox publishing, permissions, privacy, and performance tutorials." />
+    <title>Blog | Alex Rivers</title>
+    <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+      <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <div class="fixed left-0 top-0 z-[90] h-1 bg-gradient-to-r from-primary to-secondary" data-reading-progress></div>
+    <div id="site-header"></div>
+    <main>
+      <section class="hero-section hero-bg-blog">
+        <div class="container-wide hero-grid">
+          <div class="reveal">
+            <span class="section-kicker"><i data-lucide="newspaper" class="h-4 w-4"></i> Developer blog</span>
+            <h1 class="hero-title soft-glow">Browser Extension Guides for <span class="gradient-text">Product Teams</span></h1>
+            <p class="hero-copy mt-6">Practical notes on Chrome Web Store optimization, Firefox Add-on publishing, permissions, privacy, analytics, and performance.</p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row"><a href="contact.html" class="btn btn-primary"><i data-lucide="rocket" class="h-4 w-4"></i>Build My Extension</a><a href="dashboard.html" class="btn btn-ghost"><i data-lucide="monitor-dot" class="h-4 w-4"></i>View Live Demo</a></div>
+          </div>
+          <div class="browser-frame reveal float-card"><div class="browser-topbar"><span class="window-dots"><span></span><span></span><span></span></span><span class="browser-address">blog/extension-playbook</span></div><div class="p-6"><h2 class="font-heading text-2xl font-extrabold">Publishing playbook</h2><div class="mt-6 grid gap-4"><div class="progress-track"><div class="progress-bar" style="width: 94%"></div></div><div class="progress-track"><div class="progress-bar" style="width: 81%"></div></div><div class="progress-track"><div class="progress-bar" style="width: 72%"></div></div></div><canvas class="chart-canvas mt-5" data-chart="reviews" data-chart-height="180"></canvas></div></div>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="container-wide">
+          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div class="reveal">
+              <span class="section-kicker"><i data-lucide="star" class="h-4 w-4"></i> Featured article</span>
+              <h2 class="section-title">How to prepare a Chrome extension for store review.</h2>
+              <p class="section-copy mt-5">A practical path through permissions, screenshots, privacy copy, testing notes, analytics definitions, and launch-day monitoring.</p>
+              <div class="mt-8 flex justify-center lg:justify-start">
+                <a class="btn btn-primary" href="#articles"><i data-lucide="book-open" class="h-4 w-4"></i>Read Guides</a>
+              </div>
+            </div>
+            <div class="visual-grid">
+              <div class="visual-tile reveal"><p class="font-heading text-xl font-extrabold">Permission map</p><p class="mt-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Map each API to feature value and review copy.</p></div>
+              <div class="visual-tile reveal"><p class="font-heading text-xl font-extrabold">Store assets</p><div class="mt-4 mini-chart"></div></div>
+              <div class="visual-tile reveal"><p class="font-heading text-xl font-extrabold">Launch report</p><canvas class="chart-canvas" data-chart="growth" data-chart-height="145"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white/55 dark:bg-slate-950/30" id="articles">
+        <div class="container-wide">
+          <div class="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div class="reveal"><span class="section-kicker"><i data-lucide="folder-kanban" class="h-4 w-4"></i> Blog categories</span><h2 class="section-title">Filter development articles by topic.</h2></div>
+            <div class="flex flex-wrap gap-3 reveal">
+              <button class="btn btn-primary" data-blog-filter="all">All</button>
+              <button class="btn btn-ghost" data-blog-filter="publishing">Publishing</button>
+              <button class="btn btn-ghost" data-blog-filter="permissions">Permissions</button>
+              <button class="btn btn-ghost" data-blog-filter="performance">Performance</button>
+            </div>
+          </div>
+          <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <article class="article-card saas-card reveal" data-article-category="publishing" id="publishing">
+              <img src="assets/img/blog_chrome_checklist_1778687398402.png" alt="Chrome checklist" class="mb-5 h-40 w-full rounded-xl object-cover shadow-md">
+              <span class="platform-chip">Publishing</span>
+              <h3 class="mt-5 font-heading text-xl font-extrabold">Chrome Web Store listing checklist</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Screenshots, descriptions, data usage notes, and review preparation.</p>
+              <div class="mt-5 progress-track"><div class="progress-bar" style="width: 68%"></div></div>
+              <div class="mt-4 flex justify-end">
+                <a href="#" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">Read More <i data-lucide="arrow-right" class="ml-1 h-3.5 w-3.5"></i></a>
+              </div>
+            </article>
+            <article class="article-card saas-card reveal" data-article-category="publishing">
+              <img src="assets/img/blog_firefox_notes_1778687416357.png" alt="Firefox notes" class="mb-5 h-40 w-full rounded-xl object-cover shadow-md">
+              <span class="platform-chip">Firefox</span>
+              <h3 class="mt-5 font-heading text-xl font-extrabold">Firefox Add-on publishing notes</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Compatibility, options pages, review context, and release assets.</p>
+              <div class="mt-5 progress-track"><div class="progress-bar" style="width: 54%"></div></div>
+              <div class="mt-4 flex justify-end">
+                <a href="#" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">Learn More <i data-lucide="arrow-right" class="ml-1 h-3.5 w-3.5"></i></a>
+              </div>
+            </article>
+            <article class="article-card saas-card reveal" data-article-category="permissions" id="permissions">
+              <img src="assets/img/blog_permissions_1778687431356.png" alt="Permission explanations" class="mb-5 h-40 w-full rounded-xl object-cover shadow-md">
+              <span class="platform-chip">Permissions</span>
+              <h3 class="mt-5 font-heading text-xl font-extrabold">Writing permission explanations users trust</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Make sensitive browser APIs understandable and feature-linked.</p>
+              <div class="mt-5 progress-track"><div class="progress-bar" style="width: 82%"></div></div>
+              <div class="mt-4 flex justify-end">
+                <a href="#" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">Read More <i data-lucide="arrow-right" class="ml-1 h-3.5 w-3.5"></i></a>
+              </div>
+            </article>
+            <article class="article-card saas-card reveal" data-article-category="performance">
+              <img src="assets/img/blog_performance_1778687449646.png" alt="Service worker performance" class="mb-5 h-40 w-full rounded-xl object-cover shadow-md">
+              <span class="platform-chip">Performance</span>
+              <h3 class="mt-5 font-heading text-xl font-extrabold">Keeping service workers responsive</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Event-driven logic, caching, message handling, and crash reduction.</p>
+              <div class="mt-5 progress-track"><div class="progress-bar" style="width: 76%"></div></div>
+              <div class="mt-4 flex justify-end">
+                <a href="#" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">Learn More <i data-lucide="arrow-right" class="ml-1 h-3.5 w-3.5"></i></a>
+              </div>
+            </article>
+            <article class="article-card saas-card reveal" data-article-category="permissions">
+              <img src="assets/img/blog_privacy_1778687469432.png" alt="Analytics privacy" class="mb-5 h-40 w-full rounded-xl object-cover shadow-md">
+              <span class="platform-chip">Privacy</span>
+              <h3 class="mt-5 font-heading text-xl font-extrabold">Data minimization for extension analytics</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Track product decisions without collecting unnecessary data.</p>
+              <div class="mt-5 progress-track"><div class="progress-bar" style="width: 61%"></div></div>
+              <div class="mt-4 flex justify-end">
+                <a href="#" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">Read More <i data-lucide="arrow-right" class="ml-1 h-3.5 w-3.5"></i></a>
+              </div>
+            </article>
+            <article class="article-card saas-card reveal" data-article-category="performance">
+              <img src="assets/img/popup_ux_1778686680423.png" alt="Popup UI optimization" class="mb-5 h-40 w-full rounded-xl object-cover shadow-md">
+              <span class="platform-chip">Optimization</span>
+              <h3 class="mt-5 font-heading text-xl font-extrabold">Popup UI speed patterns</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Render lightweight browser surfaces that feel instant.</p>
+              <div class="mt-5 progress-track"><div class="progress-bar" style="width: 88%"></div></div>
+              <div class="mt-4 flex justify-end">
+                <a href="#" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">Learn More <i data-lucide="arrow-right" class="ml-1 h-3.5 w-3.5"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="container-wide">
+          <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div class="reveal"><span class="section-kicker"><i data-lucide="code-2" class="h-4 w-4"></i> Coding tips carousel</span><h2 class="section-title">Small engineering notes for better extensions.</h2></div>
+            <div class="visual-panel p-6 reveal">
+              <article class="tip-slide active" data-tip-slide><h3 class="font-heading text-2xl font-extrabold">Keep content scripts narrow.</h3><p class="mt-4 text-slate-500 dark:text-slate-400">Inject only where the feature requires it, and keep site-specific behavior isolated.</p></article>
+              <article class="tip-slide" data-tip-slide><h3 class="font-heading text-2xl font-extrabold">Treat permissions as product copy.</h3><p class="mt-4 text-slate-500 dark:text-slate-400">A permission exists to support a clear user outcome, not as a vague technical convenience.</p></article>
+              <article class="tip-slide" data-tip-slide><h3 class="font-heading text-2xl font-extrabold">Measure activation, not just installs.</h3><p class="mt-4 text-slate-500 dark:text-slate-400">Install counts are useful, but activation tells the team if the extension solves a real workflow.</p></article>
+              <div class="mt-6 flex gap-3"><button class="icon-btn" data-tip-prev aria-label="Previous tip"><i data-lucide="arrow-left" class="h-4 w-4"></i></button><button class="icon-btn" data-tip-next aria-label="Next tip"><i data-lucide="arrow-right" class="h-4 w-4"></i></button></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad bg-white/55 dark:bg-slate-950/30">
+        <div class="container-wide">
+          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div class="reveal"><span class="section-kicker"><i data-lucide="mail" class="h-4 w-4"></i> Newsletter subscription</span><h2 class="section-title">Get browser extension launch notes in your inbox.</h2><p class="section-copy mt-5">Short, practical updates on store policy, extension performance, and dashboard-driven product delivery.</p></div>
+            <form class="visual-panel grid gap-4 p-6 reveal" data-demo-form>
+              <label class="grid gap-2 text-sm font-bold">Work email<input class="form-field" type="email" placeholder="team@company.com" required /></label>
+              <button class="btn btn-primary" type="submit"><i data-lucide="send" class="h-4 w-4"></i>Subscribe</button>
+              <p class="text-sm font-semibold text-primary" data-form-status></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="container-wide border-y border-slate-200 py-12 dark:border-slate-800">
+          <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center"><div class="reveal"><span class="section-kicker"><i data-lucide="send" class="h-4 w-4"></i> Need implementation help?</span><h2 class="section-title">Turn the guides into a working extension.</h2></div><div class="flex flex-col gap-3 sm:flex-row reveal"><a class="btn btn-primary" href="contact.html"><i data-lucide="calendar-check" class="h-4 w-4"></i>Book Consultation</a><a class="btn btn-ghost" href="services.html"><i data-lucide="wrench" class="h-4 w-4"></i>View Services</a></div></div>
+        </div>
+      </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

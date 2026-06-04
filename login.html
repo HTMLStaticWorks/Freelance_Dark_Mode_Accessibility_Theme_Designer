@@ -1,94 +1,74 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Aura Dashboard</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Log in to the Alex Rivers browser extension client dashboard." />
+    <title>Login | Alex Rivers</title>
+    <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6', darkBg: '#0f172a', darkCard: '#1e293b' } } } }</script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-</head>
-<body class="transition-colors duration-300">
-    <div class="min-h-screen flex">
-
-
-        <!-- Main Form -->
-        <div class="w-full flex items-center justify-center p-8 sm:p-12 relative">
-            <div class="absolute top-4 right-4 sm:top-8 sm:right-8 flex gap-2 sm:gap-3 z-50">
-                <button class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-xs font-bold text-gray-700 dark:text-gray-300" aria-label="Toggle RTL">
-                    RTL
-                </button>
-                <button class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-gray-600 dark:text-gray-400" aria-label="Toggle Theme">
-                    <i class="fa-solid fa-moon dark:hidden"></i>
-                    <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
-                </button>
-            </div>
-            
-            <div class="w-full max-w-md pt-12 sm:pt-0" data-aos="fade-up">
-                <div class="mb-10 text-center">
-                    <a href="index.html" class="inline-flex items-center gap-3 mb-8">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">Aura</span>
-                    </a>
-                    <h2 class="text-3xl font-bold mb-2">Welcome Back</h2>
-                    <p class="text-gray-500">Don't have an account? <a href="signup.html" class="text-primary hover:underline">Sign up</a></p>
-                </div>
-                
-                <!-- Social Auth -->
-                <div class="space-y-3 mb-8">
-                    <button class="w-full flex items-center justify-center gap-3 bg-white text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-sm border border-gray-100" aria-label="Log in with Google">
-                        <i class="fa-brands fa-google text-red-500"></i> Continue with Google
-                    </button>
-                    <button class="w-full flex items-center justify-center gap-3 bg-[#171515] text-white py-3 rounded-lg font-bold hover:bg-black transition-colors shadow-sm" aria-label="Log in with GitHub">
-                        <i class="fa-brands fa-github"></i> Continue with GitHub
-                    </button>
-                </div>
-                
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="h-px bg-gray-200 dark:bg-slate-700 flex-1"></div>
-                    <span class="text-sm text-gray-500">or log in with email</span>
-                    <div class="h-px bg-gray-200 dark:bg-slate-700 flex-1"></div>
-                </div>
-                
-                <form class="space-y-5">
-                    <div class="space-y-1">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="email">Email</label>
-                        <input type="email" id="email" class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400" placeholder="you@company.com" required aria-required="true">
-                    </div>
-                    
-                    <div class="space-y-1 relative">
-                        <div class="flex justify-between items-center">
-                            <label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="password">Password</label>
-                        </div>
-                        <input type="password" id="password" class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all pr-10 placeholder:text-gray-400" placeholder="••••••••" required aria-required="true">
-                        <button type="button" class="absolute right-3 top-9 text-gray-400 hover:text-white" aria-label="Toggle password visibility"><i class="fa-solid fa-eye-slash"></i></button>
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" id="remember" class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary">
-                            <label for="remember" class="text-sm text-gray-600 dark:text-gray-400">Remember me</label>
-                        </div>
-                        <a href="#" class="text-xs text-primary hover:underline">Forgot password?</a>
-                    </div>
-                    
-                    <button type="submit" class="w-full btn-primary py-3 rounded-lg mt-4 shadow-lg shadow-primary/20">Log In</button>
-                </form>
-                
-                <p class="text-xs text-gray-500 mt-8 text-center">Protected by reCAPTCHA. <a href="#" class="text-primary hover:underline focus:outline-primary">Privacy</a> and <a href="#" class="text-primary hover:underline focus:outline-primary">Terms</a> apply.</p>
-            </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+      <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <main class="signup-shell">
+      <div class="absolute right-4 top-4 z-50 flex gap-2">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+        <button class="text-btn" type="button" data-rtl-toggle aria-label="Toggle RTL">RTL</button>
+      </div>
+      <section class="auth-card p-6 sm:p-8">
+        <div class="mb-8 text-center">
+          <a href="index.html" class="mb-6 inline-flex items-center gap-3 text-left">
+            <span class="brand-mark">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                <path d="M3 6h18"></path>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </span>
+            <span class="block truncate font-heading text-xl font-extrabold">Alex Rivers</span>
+          </a>
+          <h1 class="font-heading text-3xl font-extrabold">Welcome back</h1>
+          <p class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">Log in to your secure developer dashboard.</p>
         </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 600, once: true });
-    </script>
+        <div class="grid gap-3 sm:grid-cols-3">
+          <button class="btn btn-ghost px-2" type="button">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span class="text-xs sm:text-sm">Google</span>
+          </button>
+          <button class="btn btn-ghost px-2" type="button">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+            <span class="text-xs sm:text-sm">GitHub</span>
+          </button>
+          <button class="btn btn-ghost px-2" type="button">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.32c-.08-2.73 2.24-4.04 2.35-4.11-1.28-1.87-3.23-2.12-3.92-2.14-1.67-.17-3.27 1-4.12 1-1.12 0-2.33-1.01-3.83-1.01-1.99.01-3.81 1.17-4.82 2.94-2.07 3.59-.53 8.79 1.43 11.66.95 1.37 2.08 2.91 3.57 2.85 1.44-.06 1.99-.93 3.73-.93 1.74 0 2.25.93 3.75.89 1.53-.04 2.52-1.37 3.46-2.72 1.09-1.57 1.54-3.1 1.56-3.18-.04-.02-2.99-1.14-3.08-4.46zM13.56 5.37c.75-.91 1.25-2.18 1.11-3.44-1.07.04-2.37.71-3.13 1.62-.69.81-1.27 2.08-1.11 3.32 1.21.09 2.41-.6 3.13-1.5z"/></svg>
+            <span class="text-xs sm:text-sm">Apple</span>
+          </button>
+        </div>
+        <div class="my-6 flex items-center gap-3 text-xs font-black uppercase text-slate-500 dark:text-slate-400"><span class="h-px flex-1 bg-slate-200 dark:bg-slate-800"></span>or use email<span class="h-px flex-1 bg-slate-200 dark:bg-slate-800"></span></div>
+        <form class="grid gap-4" action="dashboard.html" data-demo-form>
+          <label class="grid gap-2 text-left text-sm font-bold">Email<input class="form-field text-left" type="email" required placeholder="you@company.com" /></label>
+          <div class="grid gap-2">
+            <label class="text-left text-sm font-bold" for="login-password">Password</label>
+            <span class="relative"><input id="login-password" class="form-field pr-12 text-left" type="password" required placeholder="Enter password" /><button class="icon-btn absolute right-1 top-1 h-10 w-10" type="button" data-password-toggle="login-password" aria-label="Show password"><i data-lucide="eye" class="h-4 w-4"></i></button></span>
+            <div class="text-right">
+              <a class="text-xs font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline" href="#">Forgot password?</a>
+            </div>
+          </div>
+          <button class="btn btn-primary mt-2" type="submit">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+            Log In
+          </button>
+          <p class="text-center text-sm font-semibold text-primary" data-form-status></p>
+        </form>
+        <p class="mt-6 text-center text-sm font-semibold text-slate-500 dark:text-slate-400">Don't have access? <a class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline" href="signup.html">Create client access</a></p>
+      </section>
+    </main>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>

@@ -1,516 +1,205 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Accessibility Theme Designer</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Secure browser extension client dashboard for specs, beta versions, store listings, analytics, reviews, updates, reports, messages, and billing." />
+    <title>Dashboard | Alex Rivers</title>
+    <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Immediate Theme Detection
-        const savedTheme = localStorage.getItem('theme') || 'system';
-        const root = document.documentElement;
-        if (savedTheme === 'dark' || (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            root.classList.add('dark');
-            root.setAttribute('data-theme', 'dark');
-        } else {
-            root.classList.remove('dark');
-            root.setAttribute('data-theme', 'light');
-        }
-
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        sidebar: '#1e293b',
-                        panel: '#0f172a'
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #f1f5f9;
-            --text-color: #1e293b;
-            --sidebar-bg: #ffffff;
-            --topbar-bg: rgba(255, 255, 255, 0.9);
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --nav-text: #64748b;
-        }
-
-        .dark {
-            --bg-color: #020617;
-            --text-color: #f8fafc;
-            --sidebar-bg: #0f172a;
-            --topbar-bg: rgba(15, 23, 42, 0.8);
-            --card-bg: #1e293b;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --nav-text: #94a3b8;
-        }
-
-        body { background-color: var(--bg-color); color: var(--text-color); overflow: hidden; font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
-        .dashboard-layout { display: flex; height: 100vh; }
-        .sidebar { width: 280px; background-color: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; z-index: 50; transition: transform 0.3s ease, background-color 0.3s; }
-        .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; background-color: var(--bg-color); }
-        .topbar { height: 70px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: var(--topbar-bg); backdrop-filter: blur(10px); transition: background-color 0.3s; }
-        .content-area { flex: 1; overflow-y: auto; padding: 1.5rem; }
-        
-        @media (max-width: 640px) {
-            .topbar { padding: 0 1rem; }
-            .content-area { padding: 1rem; }
-            .topbar h1 { font-size: 1rem; }
-        }
-        
-        .nav-item { padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 1rem; color: var(--nav-text); transition: all 0.2s; border-left: 3px solid transparent; cursor: pointer; }
-        .nav-item:hover, .nav-item.active { background: rgba(99,102,241,0.1); color: #6366f1; border-left-color: #6366f1; }
-        .dark .nav-item:hover, .dark .nav-item.active { color: #fff; }
-        
-        .widget-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 1rem; padding: 1.5rem; transition: background-color 0.3s; }
-        
-        /* Utility Classes for Appended Sections */
-        .glass-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 1rem; transition: all 0.3s ease; }
-        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1); }
-        .dark .glass-card:hover { box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5); }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Custom Scrollbar for content */
-        .content-area::-webkit-scrollbar { width: 6px; }
-        .content-area::-webkit-scrollbar-track { background: transparent; }
-        .content-area::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-
-        @media (max-width: 1279px) {
-            .sidebar { position: absolute; height: 100%; transform: translateX(-100%); }
-            .sidebar.open { transform: translateX(0); }
-            [dir="rtl"] .sidebar { transform: translateX(100%); }
-            [dir="rtl"] .sidebar.open { transform: translateX(0); }
-        }
-
-        /* RTL Specific Adjustments */
-        [dir="rtl"] .sidebar { border-right: none; border-left: 1px solid var(--border-color); }
-        [dir="rtl"] .nav-item { border-left: none; border-right: 3px solid transparent; flex-direction: row-reverse; text-align: right; }
-        [dir="rtl"] .nav-item:hover, [dir="rtl"] .nav-item.active { border-right-color: #6366f1; }
-        [dir="rtl"] .topbar { flex-direction: row-reverse; }
-        [dir="rtl"] .flex-row-reverse-rtl { flex-direction: row-reverse; }
-
-        /* Typography Weight Hierarchy Limits */
-        h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg {
-            font-weight: 500 !important;
-        }
-        .font-bold, .font-semibold, .font-extrabold, .font-black, strong {
-            font-weight: 500 !important;
-        }
-    </style>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-</head>
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar" id="sidebar">
-            <div class="h-[70px] flex items-center justify-between px-6 border-b border-slate-200 dark:border-white/5">
-                <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg mr-3 flex-shrink-0">
-                        <i class="fa-solid fa-eye"></i>
-                    </div>
-                    <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight text-gray-900 dark:text-white">Aura</span>
-                </a>
-                <button id="sidebarClose" class="xl:hidden text-gray-400 hover:text-gray-600 dark:hover:text-white text-xl focus:outline-none" aria-label="Close Sidebar">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            
-            <div class="py-4 flex-1 overflow-y-auto">
-                <div class="px-6 mb-2 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Main</div>
-                <div class="nav-item active"><i class="fa-solid fa-house w-5"></i> Overview</div>
-                <div class="nav-item"><i class="fa-solid fa-palette w-5"></i> Brand Colors</div>
-                <div class="nav-item"><i class="fa-solid fa-wand-magic-sparkles w-5"></i> Theme Generator</div>
-                
-                <div class="px-6 mb-2 mt-6 text-xs font-bold text-gray-500 uppercase tracking-widest">Tools</div>
-                <div class="nav-item"><i class="fa-solid fa-circle-half-stroke w-5"></i> Contrast Checker</div>
-                <div class="nav-item"><i class="fa-solid fa-eye-low-vision w-5"></i> Colorblind Sim</div>
-                <div class="nav-item"><i class="fa-solid fa-clipboard-check w-5"></i> WCAG Analyzer</div>
-                
-                <div class="px-6 mb-2 mt-6 text-xs font-bold text-gray-500 uppercase tracking-widest">Export</div>
-                <div class="nav-item"><i class="fa-brands fa-css3-alt w-5"></i> CSS Export</div>
-                <div class="nav-item"><i class="fa-solid fa-download w-5"></i> Downloads</div>
-            </div>
-            
-            <div class="p-4 border-t border-white/5">
-                <div class="nav-item rounded-lg"><i class="fa-solid fa-gear w-5"></i> Settings</div>
-                <a href="index.html" class="nav-item rounded-lg text-red-400 hover:text-red-300 hover:bg-red-900/20"><i class="fa-solid fa-arrow-right-from-bracket w-5"></i> Exit to Site</a>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <header class="topbar sticky top-0 z-40">
-                <div class="flex items-center gap-4">
-                    <button class="text-gray-400 hover:text-white xl:hidden" id="menuToggle"><i class="fa-solid fa-bars text-xl"></i></button>
-                    <div class="flex items-center gap-2 xl:hidden">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg flex-shrink-0">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <span class="font-bold text-base sm:text-lg tracking-tight">Aura</span>
-                    </div>
-                    <div class="h-6 w-px bg-slate-700 mx-2 xl:hidden hidden sm:block"></div>
-                    <h1 class="text-xl font-bold hidden sm:block">Theme Overview</h1>
-                </div>
-                
-                <div class="flex items-center gap-3">
-                    <button class="rtl-toggle px-3 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors text-xs font-bold" aria-label="Toggle RTL">
-                        RTL
-                    </button>
-                    <button class="theme-toggle w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors" aria-label="Toggle Theme">
-                        <i class="fa-solid fa-moon dark:hidden"></i>
-                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
-                    </button>
-
-                    <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary text-primary flex items-center justify-center font-bold cursor-pointer">
-                        AD
-                    </div>
-                </div>
-            </header>
-
-            <!-- Dashboard Content Area -->
-            <div class="content-area" id="mainScroll">
-                <div class="max-w-7xl mx-auto space-y-8 pb-8">
-                    
-                    <!-- Welcome Header -->
-                    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end text-center sm:text-left gap-4" data-aos="fade-in">
-                        <div>
-                            <h2 class="text-3xl font-bold mb-1">Welcome back, Designer</h2>
-                            <p class="text-gray-400">Here's the accessibility status of your current project.</p>
-                        </div>
-                        <button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-600 transition-colors shadow-lg shadow-primary/20 w-full sm:w-auto">
-                            <i class="fa-solid fa-file-export mr-2"></i> Export Theme
-                        </button>
-                    </div>
-
-                    <!-- Top Analytics Row -->
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div class="widget-card" data-aos="fade-up" data-aos-delay="50">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-green-500/20 text-green-500 flex items-center justify-center"><i class="fa-solid fa-check-double"></i></div>
-                                <span class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded">Pass</span>
-                            </div>
-                            <h3 class="text-3xl font-black mb-1">98/100</h3>
-                            <p class="text-sm text-gray-400">WCAG Score (AA)</p>
-                        </div>
-                        
-                        <div class="widget-card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-500 flex items-center justify-center"><i class="fa-solid fa-droplet"></i></div>
-                            </div>
-                            <h3 class="text-3xl font-black mb-1">7.2:1</h3>
-                            <p class="text-sm text-gray-400">Avg. Contrast Ratio</p>
-                        </div>
-                        
-                        <div class="widget-card" data-aos="fade-up" data-aos-delay="150">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-500 flex items-center justify-center"><i class="fa-solid fa-eye-low-vision"></i></div>
-                                <span class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded">Safe</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-1 mt-2">Verified</h3>
-                            <p class="text-sm text-gray-400">Colorblind Safe</p>
-                        </div>
-                        
-                        <div class="widget-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-orange-500/20 text-orange-500 flex items-center justify-center"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                            </div>
-                            <h3 class="text-3xl font-black mb-1 text-orange-400">2</h3>
-                            <p class="text-sm text-gray-400">Minor Warnings</p>
-                        </div>
-                    </div>
-
-                    <!-- Complex Layout Grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        
-                        <!-- Col 1: Brand Colors & Contrast -->
-                        <div class="lg:col-span-1 space-y-6">
-                            <!-- Brand Colors Submission Tool -->
-                            <div class="widget-card" data-aos="fade-up">
-                                <h3 class="font-bold text-lg mb-4 flex items-center justify-between">
-                                    Base Colors <button class="text-primary font-bold text-sm hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors px-2 py-0.5 hover:bg-primary/5 dark:hover:bg-primary/10 rounded">Edit</button>
-                                </h3>
-                                <div class="space-y-3">
-                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                                        <div class="w-8 h-8 rounded-full bg-[#6366f1] shadow-inner border border-white/10"></div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-bold">Primary</div>
-                                            <div class="text-xs text-gray-500">#6366f1</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                                        <div class="w-8 h-8 rounded-full bg-[#0f172a] shadow-inner border border-white/10"></div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-bold">Background</div>
-                                            <div class="text-xs text-gray-500">#0f172a</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center gap-3 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                                        <div class="w-8 h-8 rounded-full bg-[#f8fafc] shadow-inner border border-white/10"></div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-bold">Text Base</div>
-                                            <div class="text-xs text-gray-500">#f8fafc</div>
-                                        </div>
-                                    </div>
-                                    <button class="w-full py-2 border border-dashed border-slate-300 dark:border-slate-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white hover:border-primary transition-all">
-                                        <i class="fa-solid fa-plus mr-1"></i> Add Color
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Contrast Checker -->
-                            <div class="widget-card" data-aos="fade-up" data-aos-delay="50">
-                                <h3 class="font-bold text-lg mb-4">Live Contrast Checker</h3>
-                                <div class="p-4 rounded-lg bg-[#6366f1] text-[#f8fafc] mb-4 text-center border border-white/10">
-                                    <span class="font-bold">Text on Primary</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm text-gray-400">Ratio</span>
-                                    <span class="font-bold text-green-400">4.8:1</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm text-gray-400">WCAG AA (Normal)</span>
-                                    <i class="fa-solid fa-check text-green-500"></i>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-400">WCAG AAA (Large)</span>
-                                    <i class="fa-solid fa-check text-green-500"></i>
-                                </div>
-                            </div>
-
-                            <!-- Colorblind Simulator -->
-                            <div class="widget-card" data-aos="fade-up" data-aos-delay="100">
-                                <h3 class="font-bold text-lg mb-4">Colorblind Simulation</h3>
-                                <select class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-sm mb-4 outline-none focus:border-primary text-gray-900 dark:text-white">
-                                    <option>Normal Vision</option>
-                                    <option>Protanopia (Red-Blind)</option>
-                                    <option>Deuteranopia (Green-Blind)</option>
-                                    <option>Tritanopia (Blue-Blind)</option>
-                                    <option>Achromatopsia (Monochromacy)</option>
-                                </select>
-                                <div class="flex h-12 rounded overflow-hidden">
-                                    <div class="flex-1 bg-red-500"></div>
-                                    <div class="flex-1 bg-green-500"></div>
-                                    <div class="flex-1 bg-blue-500"></div>
-                                    <div class="flex-1 bg-yellow-500"></div>
-                                </div>
-                                <p class="text-xs text-gray-500 mt-2 text-center">Select a profile to simulate palette.</p>
-                            </div>
-                        </div>
-
-                        <!-- Col 2 & 3: Theme Preview & Simulator -->
-                        <div class="lg:col-span-2 space-y-6">
-                            
-                            <!-- Theme Preview Engine -->
-                            <div class="widget-card h-auto" data-aos="fade-up">
-                                <div class="flex justify-between items-center mb-6">
-                                    <h3 class="font-bold text-lg">Theme Preview Engine</h3>
-                                    <div class="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
-                                        <button class="px-3 py-1 rounded text-sm bg-white dark:bg-slate-700 shadow font-medium text-gray-900 dark:text-white">Dark</button>
-                                        <button class="px-3 py-1 rounded text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Light</button>
-                                    </div>
-                                </div>
-                                
-                                <div class="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-[#0f172a] shadow-inner p-6 h-64 relative flex flex-col justify-between">
-                                    <!-- Preview UI Mockup -->
-                                    <nav class="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
-                                        <div class="w-24 h-6 bg-white/10 rounded"></div>
-                                        <div class="flex gap-2">
-                                            <div class="w-8 h-8 rounded bg-primary text-white flex items-center justify-center text-xs"><i class="fa-solid fa-user"></i></div>
-                                        </div>
-                                    </nav>
-                                    
-                                    <div class="flex-1">
-                                        <h1 class="text-2xl font-bold text-gray-900 dark:text-[#f8fafc] mb-2">Dashboard Settings</h1>
-                                        <p class="text-gray-500 dark:text-[#94a3b8] text-sm mb-6">Manage your account settings and preferences.</p>
-                                        
-                                        <div class="grid grid-cols-2 gap-4">
-                                            <div class="bg-slate-50 dark:bg-[#1e293b] p-4 rounded-lg border border-slate-200 dark:border-white/5">
-                                                <div class="w-1/2 h-4 bg-gray-200 dark:bg-white/20 rounded mb-2"></div>
-                                                <div class="w-3/4 h-3 bg-gray-100 dark:bg-white/10 rounded"></div>
-                                            </div>
-                                            <div class="bg-slate-50 dark:bg-[#1e293b] p-4 rounded-lg border border-primary/30">
-                                                <div class="w-1/2 h-4 bg-primary/80 rounded mb-2"></div>
-                                                <div class="w-3/4 h-3 bg-gray-100 dark:bg-white/10 rounded"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="absolute bottom-4 right-4 bg-slate-100 dark:bg-slate-800 text-xs px-2 py-1 rounded border border-slate-200 dark:border-slate-600 font-mono text-gray-600 dark:text-gray-300">Preview Mode Active</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Bottom Row: CSS Export -->
-                            <div class="grid grid-cols-1 gap-6">
-                                <!-- CSS Variable Export -->
-                                <div class="widget-card flex flex-col" data-aos="fade-up">
-                                    <h3 class="font-bold text-lg mb-4">CSS Export</h3>
-                                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-xs text-indigo-300 h-40 overflow-y-auto border border-slate-800 mb-3 relative">
-                                        <pre class="text-[11px] leading-relaxed text-indigo-300"><code>/* Semantic Color Tokens */
-:root {
-  --primary: #6366f1;
-  --secondary: #8b5cf6;
-  --bg-color: #f1f5f9;
-  --text-color: #1e293b;
-  --sidebar-bg: #ffffff;
-  --card-bg: #ffffff;
-  --border-color: #e2e8f0;
-}
-
-[data-theme="dark"] {
-  --bg-color: #020617;
-  --text-color: #f8fafc;
-  --sidebar-bg: #0f172a;
-  --card-bg: #1e293b;
-  --border-color: rgba(255,255,255,0.1);
-}</code></pre>
-                                        <div class="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none"></div>
-                                    </div>
-                                    <div class="flex gap-2 mt-auto">
-                                        <button class="flex-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm py-2 rounded transition-colors border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-white">Copy CSS</button>
-                                        <button class="flex-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm py-2 rounded transition-colors border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-white">Download JSON</button>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-
-                <!-- New Section 1: System Health -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-heart-pulse text-primary"></i>
-                        System <span class="text-gradient">Integrity</span>
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div class="glass-card p-4 border-l-4 border-green-500">
-                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">API Status</div>
-                            <div class="text-lg font-black">Operational</div>
-                            <div class="text-[10px] text-green-500 font-bold">99.99% Uptime</div>
-                        </div>
-                        <div class="glass-card p-4 border-l-4 border-primary">
-                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Compute Load</div>
-                            <div class="text-lg font-black">24%</div>
-                            <div class="text-[10px] text-primary font-bold">Stable Architecture</div>
-                        </div>
-                        <div class="glass-card p-4 border-l-4 border-secondary">
-                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Audit Queue</div>
-                            <div class="text-lg font-black">Empty</div>
-                            <div class="text-[10px] text-secondary font-bold">Real-time Processing</div>
-                        </div>
-                        <div class="glass-card p-4 border-l-4 border-orange-500">
-                            <div class="text-[10px] font-bold text-gray-500 uppercase mb-1">Global Latency</div>
-                            <div class="text-lg font-black">42ms</div>
-                            <div class="text-[10px] text-orange-500 font-bold">Optimized CDN</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- New Section 2: User Activity -->
-                <div>
-                    <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <div data-aos="fade-right">
-                            <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
-                                <i class="fa-solid fa-users text-secondary"></i>
-                                Collaborative <span class="text-gradient">Insights</span>
-                            </h3>
-                            <p class="text-gray-500 text-sm mb-6">Connect with other designers and accessibility experts directly from your dashboard to share patterns and compliance strategies.</p>
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-slate-800/50 shadow-sm border border-slate-200 dark:border-slate-700">
-                                    <img src="https://i.pravatar.cc/150?u=81" class="w-8 h-8 rounded-full">
-                                    <div>
-                                        <div class="text-xs font-bold text-gray-900 dark:text-white">Alex Rivera <span class="text-[10px] font-normal text-gray-500 dark:text-gray-400">just published a new palette</span></div>
-                                        <div class="text-[10px] text-primary font-bold">"High Contrast Ocean"</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-slate-800/50 shadow-sm border border-slate-200 dark:border-slate-700">
-                                    <img src="https://i.pravatar.cc/150?u=82" class="w-8 h-8 rounded-full">
-                                    <div>
-                                        <div class="text-xs font-bold text-gray-900 dark:text-white">Sarah Kong <span class="text-[10px] font-normal text-gray-500 dark:text-gray-400">verified a new RTL component</span></div>
-                                        <div class="text-[10px] text-secondary font-bold">"Mirror Navigation v2.1"</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative" data-aos="zoom-in">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" class="rounded-2xl shadow-2xl border border-slate-700 grayscale hover:grayscale-0 transition-all duration-700">
-                            <div class="absolute -bottom-4 -right-4 glass-card p-3 animate-pulse border-primary">
-                                <div class="text-[10px] font-bold text-primary">Live Activity</div>
-                                <div class="text-[10px] text-gray-500">124 Users Online</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- New Section 3: Platform Intelligence -->
-                <div>
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
-                        <h3 class="text-xl font-bold flex items-center gap-2">
-                            <i class="fa-solid fa-brain text-pink-500"></i>
-                            Platform <span class="text-gradient">Intelligence</span>
-                        </h3>
-                        <a href="#" class="text-[10px] font-bold text-primary uppercase tracking-widest hover:underline">Full Analytics <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="group cursor-pointer">
-                            <div class="aspect-video rounded-xl overflow-hidden mb-3 border border-slate-200 dark:border-slate-800">
-                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 dark:opacity-60 group-hover:opacity-100">
-                            </div>
-                            <h4 class="font-bold text-xs mb-1 text-gray-900 dark:text-white">Optimizing Render Performance</h4>
-                            <p class="text-[10px] text-gray-500">How to maintain 60fps while applying complex SVG filters.</p>
-                        </div>
-                        <div class="group cursor-pointer">
-                            <div class="aspect-video rounded-xl overflow-hidden mb-3 border border-slate-200 dark:border-slate-800">
-                                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 dark:opacity-60 group-hover:opacity-100">
-                            </div>
-                            <h4 class="font-bold text-xs mb-1 text-gray-900 dark:text-white">Security in Theme Generation</h4>
-                            <p class="text-[10px] text-gray-500">Protecting your design tokens from CSS injection.</p>
-                        </div>
-                        <div class="group cursor-pointer">
-                            <div class="aspect-video rounded-xl overflow-hidden mb-3 border border-slate-200 dark:border-slate-800">
-                                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 dark:opacity-60 group-hover:opacity-100">
-                            </div>
-                            <h4 class="font-bold text-xs mb-1 text-gray-900 dark:text-white">User Feedback Loops</h4>
-                            <p class="text-[10px] text-gray-500">Integrating direct feedback into automated pipelines.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+      <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <div class="dashboard-shell" data-dashboard>
+      <aside class="dashboard-sidebar p-4" data-dashboard-sidebar>
+        <div class="flex items-center justify-between gap-3">
+          <a href="index.html" class="flex min-w-0 items-center gap-3">
+            <span class="brand-mark"><i data-lucide="blocks" class="h-5 w-5"></i></span>
+            <span class="dashboard-brand-text min-w-0">
+              <span class="block truncate font-heading text-lg font-extrabold">Alex Rivers</span>
+            </span>
+          </a>
+          <button class="icon-btn" type="button" data-sidebar-collapse aria-label="Collapse sidebar"><i data-lucide="panel-left-close" class="h-4 w-4"></i></button>
         </div>
-    </main>
-</div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ 
-            duration: 600, 
-            once: true,
-            offset: 50
-        });
-        
-        // Simple sidebar toggle controls
-        const sidebarEl = document.getElementById('sidebar');
-        document.getElementById('menuToggle').addEventListener('click', () => {
-            sidebarEl.classList.add('open');
-        });
-        document.getElementById('sidebarClose').addEventListener('click', () => {
-            sidebarEl.classList.remove('open');
-        });
-    </script>
+        <nav class="mt-8 grid gap-1" aria-label="Dashboard navigation">
+          <button class="dashboard-nav-item active" type="button" data-dashboard-tab="overview"><i data-lucide="layout-dashboard" class="h-4 w-4"></i><span class="sidebar-label">Dashboard Overview</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="specs"><i data-lucide="file-text" class="h-4 w-4"></i><span class="sidebar-label">Extension Specs</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="beta"><i data-lucide="package-open" class="h-4 w-4"></i><span class="sidebar-label">Beta Versions</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="listings"><i data-lucide="store" class="h-4 w-4"></i><span class="sidebar-label">Store Listings</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="analytics"><i data-lucide="bar-chart-3" class="h-4 w-4"></i><span class="sidebar-label">Usage Analytics</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="reviews"><i data-lucide="message-square-reply" class="h-4 w-4"></i><span class="sidebar-label">User Reviews</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="updates"><i data-lucide="refresh-cw" class="h-4 w-4"></i><span class="sidebar-label">Update Management</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="reports"><i data-lucide="file-down" class="h-4 w-4"></i><span class="sidebar-label">Reports</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="messages"><i data-lucide="messages-square" class="h-4 w-4"></i><span class="sidebar-label">Messages</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="billing"><i data-lucide="credit-card" class="h-4 w-4"></i><span class="sidebar-label">Billing</span></button>
+          <button class="dashboard-nav-item" type="button" data-dashboard-tab="settings"><i data-lucide="settings" class="h-4 w-4"></i><span class="sidebar-label">Settings</span></button>
+          <a class="dashboard-nav-item" href="signup.html"><i data-lucide="log-out" class="h-4 w-4"></i><span class="sidebar-label">Logout</span></a>
+        </nav>
+
+        <div class="sidebar-meta mt-8 rounded-lg border border-slate-200 p-4 text-sm dark:border-slate-800">
+          <p class="font-heading font-extrabold">Extension Suite</p>
+          <p class="mt-1 font-semibold text-slate-500 dark:text-slate-400">Professional plan active</p>
+          <div class="mt-4 progress-track"><div class="progress-bar" style="width: 74%"></div></div>
+        </div>
+      </aside>
+
+      <div class="mobile-backdrop" data-dashboard-backdrop></div>
+
+      <main class="dashboard-main">
+        <header class="sticky top-0 z-40 px-4 py-4 lg:px-8">
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+            <div class="flex flex-1 items-center gap-3 min-w-0">
+              <button class="icon-btn mobile-only shrink-0" type="button" data-sidebar-open aria-label="Open dashboard sidebar"><i data-lucide="menu" class="h-5 w-5"></i></button>
+              <div class="min-w-0">
+                <p class="hidden text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider sm:block">Secure developer dashboard</p>
+                <h1 class="truncate font-heading text-lg font-extrabold sm:text-xl">Extension delivery command center</h1>
+              </div>
+            </div>
+
+            <label class="order-last w-full md:order-none md:block md:w-auto md:flex-1 md:max-w-md">
+              <span class="sr-only">Search dashboard</span>
+              <input class="form-field" placeholder="Search specs, reports, messages" />
+            </label>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <div class="relative">
+                <button class="icon-btn" type="button" data-notification-toggle aria-label="Open notifications"><i data-lucide="bell" class="h-4 w-4"></i></button>
+                <div class="notification-menu p-4" data-notification-menu>
+                  <h2 class="font-heading text-lg font-extrabold">Notifications</h2>
+                  <div class="mt-4 grid gap-3 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                    <p>Chrome listing SEO score moved to 92.</p>
+                    <p>Beta v2.4 changelog is ready for approval.</p>
+                    <p>Two reviews need response samples.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+              <button class="text-btn" type="button" data-rtl-toggle aria-label="Toggle RTL">RTL</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="px-4 py-8 lg:px-8">
+          <section class="dashboard-panel active" data-dashboard-panel="overview">
+            <div class="dashboard-hero reveal">
+              <div class="relative z-10 max-w-3xl">
+                <span class="section-kicker"><i data-lucide="activity" class="h-4 w-4"></i> Dashboard overview</span>
+                <h2 class="font-heading text-4xl font-extrabold md:text-5xl">Welcome back, client team.</h2>
+                <p class="mt-4 max-w-2xl font-semibold text-slate-600 dark:text-slate-300">Monitor active extensions, store ratings, retention, beta builds, and review queues from one secure workspace.</p>
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              <div class="metric-card reveal"><p class="text-sm font-black text-slate-500 dark:text-slate-400">Active Extensions</p><p class="mt-2 font-heading text-4xl font-extrabold" data-counter="12">0</p></div>
+              <div class="metric-card reveal"><p class="text-sm font-black text-slate-500 dark:text-slate-400">Total Installs</p><p class="mt-2 font-heading text-4xl font-extrabold" data-counter="148320">0</p></div>
+              <div class="metric-card reveal"><p class="text-sm font-black text-slate-500 dark:text-slate-400">User Retention</p><p class="mt-2 font-heading text-4xl font-extrabold" data-counter="78" data-suffix="%">0</p></div>
+              <div class="metric-card reveal"><p class="text-sm font-black text-slate-500 dark:text-slate-400">Store Ratings</p><p class="mt-2 font-heading text-4xl font-extrabold" data-counter="48" data-prefix="4." data-suffix="/5">0</p></div>
+            </div>
+
+            <div class="mt-6 grid gap-5 xl:grid-cols-[1.15fr_0.85fr]">
+              <div class="visual-panel p-5 reveal"><div class="mb-4 flex items-center justify-between gap-3"><h3 class="font-heading text-2xl font-extrabold">Install chart</h3><span class="platform-chip">+31%</span></div><canvas class="chart-canvas" data-chart="installs"></canvas></div>
+              <div class="visual-panel p-5 reveal"><h3 class="font-heading text-2xl font-extrabold">Extension filters</h3><div class="mt-4 flex flex-wrap gap-3"><button class="btn btn-primary" data-dashboard-filter="all">All</button><button class="btn btn-ghost" data-dashboard-filter="active">Active</button><button class="btn btn-ghost" data-dashboard-filter="review">In review</button></div><div class="mt-5 grid gap-3"><div class="metric-card" data-filter-card="active"><p class="font-bold">Inbox Automator</p><p class="text-sm text-slate-500 dark:text-slate-400">Chrome and Firefox live</p></div><div class="metric-card" data-filter-card="review"><p class="font-bold">Price Tracker</p><p class="text-sm text-slate-500 dark:text-slate-400">Chrome review pending</p></div><div class="metric-card" data-filter-card="active"><p class="font-bold">Tab CRM Helper</p><p class="text-sm text-slate-500 dark:text-slate-400">Beta testers active</p></div></div></div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="specs">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="file-text" class="h-4 w-4"></i> Extension specs</span><h2 class="section-title">Feature documentation, compatibility, and API integrations.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-3">
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">Feature documentation</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Popup actions, content scripts, background events, and settings flows.</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 86%"></div></div></div>
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">Browser compatibility</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Chrome MV3, Firefox Add-ons, permissions, APIs, and fallback behavior.</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 78%"></div></div></div>
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">API integrations</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">OAuth, SaaS APIs, webhook events, storage strategy, and analytics endpoints.</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 91%"></div></div></div>
+            </div>
+            <div class="mt-6 browser-frame reveal"><div class="browser-topbar"><span class="window-dots"><span></span><span></span><span></span></span><span class="browser-address">specs/permissions-guide</span></div><div class="grid gap-5 p-6 md:grid-cols-3"><div><h3 class="font-heading text-xl font-extrabold">Permissions</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">storage, tabs, scripting, alarms, notifications</p></div><div><h3 class="font-heading text-xl font-extrabold">Data</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Local state, opt-in analytics, no unnecessary collection</p></div><div><h3 class="font-heading text-xl font-extrabold">Review notes</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Human-readable explanations for store reviewers</p></div></div></div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="beta" id="beta">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="package-open" class="h-4 w-4"></i> Beta versions</span><h2 class="section-title">Download beta builds, preview changelogs, and review version history.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+              <label class="upload-zone reveal" for="beta-upload"><input id="beta-upload" class="sr-only" type="file" data-upload-input /><span><i data-lucide="upload-cloud" class="mx-auto mb-4 h-9 w-9 text-primary"></i><strong data-upload-label="beta-upload">Drop a beta build or select a file</strong><span class="mt-2 block text-sm text-slate-500 dark:text-slate-400">ZIP, CRX, XPI, or release notes package</span></span></label>
+              <div class="grid gap-4">
+                <div class="metric-card reveal"><div class="flex items-center justify-between gap-3"><h3 class="font-heading text-xl font-extrabold">v2.4.0 beta</h3><a class="btn btn-ghost" href="#"><i data-lucide="download" class="h-4 w-4"></i>Download</a></div><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Adds review response shortcuts and crash report filters.</p></div>
+                <div class="metric-card reveal"><div class="flex items-center justify-between gap-3"><h3 class="font-heading text-xl font-extrabold">v2.3.2 stable</h3><a class="btn btn-ghost" href="#"><i data-lucide="download" class="h-4 w-4"></i>Download</a></div><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Store listing updates and Firefox compatibility patch.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="listings">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="store" class="h-4 w-4"></i> Store listings</span><h2 class="section-title">Chrome Web Store and Firefox Add-ons previews with SEO metrics.</h2></div>
+            <div class="grid gap-5 xl:grid-cols-2">
+              <div class="browser-frame reveal"><div class="browser-topbar"><span class="window-dots"><span></span><span></span><span></span></span><span class="browser-address">chrome.google.com/webstore/detail/preview</span></div><div class="p-6"><h3 class="font-heading text-2xl font-extrabold">Chrome Web Store preview</h3><p class="mt-3 text-slate-500 dark:text-slate-400">Productivity extension with analytics screenshot set and scoped permission copy.</p><canvas class="chart-canvas mt-5" data-chart="growth" data-chart-height="190"></canvas></div></div>
+              <div class="browser-frame reveal"><div class="browser-topbar"><span class="window-dots"><span></span><span></span><span></span></span><span class="browser-address">addons.mozilla.org/firefox/addon/preview</span></div><div class="p-6"><h3 class="font-heading text-2xl font-extrabold">Firefox Add-ons preview</h3><p class="mt-3 text-slate-500 dark:text-slate-400">Compatibility notes, add-on screenshots, and reviewer-friendly privacy summary.</p><canvas class="chart-canvas mt-5" data-chart="retention" data-chart-height="190"></canvas></div></div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="analytics">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="bar-chart-3" class="h-4 w-4"></i> Usage analytics</span><h2 class="section-title">Install charts, active users, crash reports, and retention analytics.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
+              <div class="visual-panel p-5 reveal xl:col-span-2"><h3 class="font-heading text-xl font-extrabold">Active users</h3><canvas class="chart-canvas" data-chart="installs"></canvas></div>
+              <div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold">Crash reports</h3><canvas class="chart-canvas" data-chart="crash" data-chart-height="210"></canvas></div>
+              <div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold">Retention</h3><canvas class="chart-canvas" data-chart="retention" data-chart-height="210"></canvas></div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="reviews">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="message-square-reply" class="h-4 w-4"></i> User reviews</span><h2 class="section-title">Manage ratings, review responses, and sentiment patterns.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+              <div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold">Rating breakdown</h3><canvas class="chart-canvas" data-chart="ratings" data-chart-height="230"></canvas></div>
+              <div class="grid gap-4">
+                <div class="metric-card reveal"><p class="font-heading text-xl font-extrabold">Response sample: privacy question</p><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Thanks for asking. The extension uses storage only for local preferences and does not sell or share usage data.</p></div>
+                <div class="metric-card reveal"><p class="font-heading text-xl font-extrabold">Response sample: feature request</p><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Great suggestion. I am reviewing this for the next beta release and will update the changelog.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="updates">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="refresh-cw" class="h-4 w-4"></i> Update management</span><h2 class="section-title">Release scheduling, rollout tracking, and notifications.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-3">
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">v2.4 release</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Scheduled after beta approval and store listing copy lock.</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 72%"></div></div></div>
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">Feature rollout</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Response shortcuts enabled for 40% of beta testers.</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 40%"></div></div></div>
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">Notifications</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Client alerts active for review status, beta uploads, and crash spikes.</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 93%"></div></div></div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="reports" id="reports">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="file-down" class="h-4 w-4"></i> Reports</span><h2 class="section-title">Download analytics reports and export dashboard summaries.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-3">
+              <div class="saas-card reveal"><i data-lucide="file-spreadsheet" class="mb-4 h-7 w-7 text-primary"></i><h3 class="font-heading text-xl font-extrabold">Analytics CSV</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Installs, retention, ratings, and active extension totals.</p><button class="btn btn-primary mt-6 w-full" data-download-report data-file-name="extension-analytics-report.csv"><i data-lucide="download" class="h-4 w-4"></i>Download CSV</button></div>
+              <div class="saas-card reveal"><i data-lucide="file-text" class="mb-4 h-7 w-7 text-secondary"></i><h3 class="font-heading text-xl font-extrabold">Launch report</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Store listing score, beta status, and release notes.</p><button class="btn btn-ghost mt-6 w-full" data-download-report data-file-name="extension-launch-report.csv"><i data-lucide="download" class="h-4 w-4"></i>Download Report</button></div>
+              <div class="saas-card reveal"><i data-lucide="printer" class="mb-4 h-7 w-7 text-primary"></i><h3 class="font-heading text-xl font-extrabold">PDF export</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Open the dashboard summary in the browser print flow.</p><button class="btn btn-ghost mt-6 w-full" data-print-report><i data-lucide="file-down" class="h-4 w-4"></i>Export PDF</button></div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="messages">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="messages-square" class="h-4 w-4"></i> Messages</span><h2 class="section-title">Secure client communication UI.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+              <div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold">Threads</h3><div class="mt-4 grid gap-3"><button class="dashboard-nav-item active" type="button"><i data-lucide="message-circle" class="h-4 w-4"></i>Beta feedback</button><button class="dashboard-nav-item" type="button"><i data-lucide="message-circle" class="h-4 w-4"></i>Store review</button><button class="dashboard-nav-item" type="button"><i data-lucide="message-circle" class="h-4 w-4"></i>Analytics report</button></div></div>
+              <div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold">Beta feedback</h3><div class="mt-5 grid gap-4"><p class="max-w-xl rounded-lg bg-blue-600/10 p-4 font-semibold">The Firefox build passed the options page test. Can we add one more screenshot to the store listing?</p><p class="ml-auto max-w-xl rounded-lg bg-orange-500/10 p-4 font-semibold">Yes. I will add the analytics dashboard frame and update the listing score.</p></div><label class="mt-5 grid gap-2 text-sm font-bold">Reply<textarea class="form-field min-h-28" placeholder="Write a secure message"></textarea></label></div>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="billing">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="credit-card" class="h-4 w-4"></i> Billing</span><h2 class="section-title">Plan, invoices, and service coverage.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-3"><div class="saas-card reveal"><span class="platform-chip">Active</span><h3 class="mt-5 font-heading text-2xl font-extrabold">Professional Extension</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Chrome and Firefox support, analytics, publishing, beta dashboard, and maintenance updates.</p></div><div class="visual-panel p-5 reveal lg:col-span-2"><h3 class="font-heading text-xl font-extrabold">Billing usage</h3><canvas class="chart-canvas" data-chart="revenue" data-chart-height="220"></canvas></div></div>
+          </section>
+
+          <section class="dashboard-panel" data-dashboard-panel="settings">
+            <div class="mb-8 reveal"><span class="section-kicker"><i data-lucide="settings" class="h-4 w-4"></i> Settings</span><h2 class="section-title">Workspace preferences and dashboard controls.</h2></div>
+            <div class="grid gap-5 lg:grid-cols-3">
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">Notification settings</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Store review, beta upload, crash spikes, and report availability.</p></div>
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">Security</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Client access, session controls, and project visibility.</p></div>
+              <div class="saas-card reveal"><h3 class="font-heading text-xl font-extrabold">Localization</h3><p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Use the global RTL toggle to preview right-to-left layouts.</p></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>

@@ -1,540 +1,144 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Premium Accessibility Design</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chrome extension development, Firefox add-on development, analytics, store optimization, and maintenance services." />
+    <title>Services | Alex Rivers</title>
+    <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/tailwind.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1', secondary: '#8b5cf6', darkCard: '#1e293b' } } } }</script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-</head>
-
-<body class="transition-colors duration-300">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 glass transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <a href="index.html" class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">Aura</span>
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden xl:flex space-x-6 items-center">
-                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
-                    <a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a>
-                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
-                    <a href="services.html" class="font-semibold text-primary">Services</a>
-                    <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
-                    <a href="case-studies.html" class="hover:text-primary transition-colors">Case Studies</a>
-                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
-
-                    <div class="flex items-center gap-4 border-l border-gray-300 dark:border-gray-700 pl-4">
-                        <button
-                            class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-sm font-bold"
-                            aria-label="Toggle RTL">
-                            RTL
-                        </button>
-                        <button
-                            class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-                            aria-label="Toggle Theme">
-                            <i class="fa-solid fa-moon dark:hidden"></i>
-                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
-                        </button>
-                        <a href="dashboard.html" class="btn-primary">
-                            <span>Dashboard</span>
-                        </a>
-                        <a href="signup.html"
-                            class="btn-secondary px-6 py-3 rounded-lg font-bold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign
-                            Up</a>
-                    </div>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="xl:hidden flex items-center gap-2 sm:gap-4">
-                    <button
-                        class="rtl-toggle px-3 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-xs font-bold"
-                        aria-label="Toggle RTL">
-                        RTL
-                    </button>
-                    <button
-                        class="theme-toggle w-10 h-10 rounded-full bg-gray-100 dark:bg-darkCard flex items-center justify-center">
-                        <i class="fa-solid fa-moon dark:hidden"></i>
-                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="text-2xl focus:outline-none">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                </div>
-            </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+      <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+    <main>
+      <section class="hero-section hero-bg-services flex items-center py-24 lg:py-32">
+        <div class="container-wide">
+          <div class="mx-auto max-w-4xl text-center reveal">
+            <span class="section-kicker justify-center"><i data-lucide="wrench" class="h-4 w-4"></i> Services</span>
+            <h1 class="hero-title soft-glow mx-auto">Powerful Extensions With <span class="gradient-text">Analytics &amp; Distribution Support</span></h1>
+            <p class="hero-copy mt-6 mx-auto">From first browser API sketch to store launch and ongoing maintenance, every service is designed for product teams that need polished extension delivery.</p>
+            <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"><a href="contact.html" class="btn btn-primary"><i data-lucide="rocket" class="h-4 w-4"></i>Build My Extension</a><a href="dashboard.html" class="btn btn-ghost"><i data-lucide="monitor-dot" class="h-4 w-4"></i>View Live Demo</a></div>
+            <div class="browser-frame mt-12 mx-auto max-w-3xl float-card"><div class="browser-topbar"><span class="window-dots"><span></span><span></span><span></span></span><span class="browser-address">services/delivery-map</span></div><div class="p-6"><div class="grid gap-4 sm:grid-cols-2"><div class="visual-tile"><p class="font-heading text-xl font-extrabold">Build</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 94%"></div></div></div><div class="visual-tile"><p class="font-heading text-xl font-extrabold">Publish</p><div class="mt-5 progress-track"><div class="progress-bar" style="width: 87%"></div></div></div></div><canvas class="chart-canvas mt-5" data-chart="growth" data-chart-height="190"></canvas></div></div>
+          </div>
         </div>
+      </section>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden xl:hidden glass border-t border-gray-200 dark:border-gray-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
-                <a href="index.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
-                <a href="home-2.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Home
-                    2</a>
-                <a href="about.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
-                <a href="services.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50 dark:bg-gray-800">Services</a>
-                <a href="pricing.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
-                <a href="case-studies.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Case Studies</a>
-                <a href="contact.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
-                <a href="dashboard.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4 text-center">Dashboard</a>
-                <a href="signup.html"
-                    class="block px-3 py-2 rounded-md text-base font-medium border border-primary text-primary mt-2 text-center">Sign
-                    Up</a>
-            </div>
+      <section class="section-pad" id="chrome">
+        <div class="container-wide">
+          <div class="mb-12 text-center mx-auto max-w-3xl reveal">
+            <span class="section-kicker"><i data-lucide="globe-2" class="h-4 w-4"></i> Chrome extension development</span>
+            <h2 class="section-title">Manifest V3 builds for modern Chrome workflows.</h2>
+            <p class="section-copy mt-5 mx-auto">Popup UI, side panels, content scripts, service workers, storage, permissions, OAuth, and release packaging are built with store review in mind.</p>
+          </div>
+            <div class="visual-grid"><div class="visual-tile reveal"><p class="font-heading text-xl font-extrabold">Popup UI</p><div class="mt-4 mini-chart"></div></div><div class="visual-tile reveal"><p class="font-heading text-xl font-extrabold">Service worker</p><div class="mt-4 progress-track"><div class="progress-bar" style="width: 90%"></div></div></div><div class="visual-tile reveal"><p class="font-heading text-xl font-extrabold">Store package</p><div class="mt-4 progress-track"><div class="progress-bar" style="width: 84%"></div></div></div></div>
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <header class="pt-28 pb-12 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 text-center" data-aos="fade-up">
-            <h1 class="heading-xl mb-6">Expert <span class="text-gradient">Capabilities.</span></h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Comprehensive design and engineering
-                services to make your digital products universally accessible.</p>
+      <section class="section-pad bg-white/55 dark:bg-slate-950/30" id="firefox">
+        <div class="container-wide">
+          <div class="mb-12 text-center mx-auto max-w-3xl reveal">
+            <span class="section-kicker"><i data-lucide="shield" class="h-4 w-4"></i> Firefox add-on development</span>
+            <h2 class="section-title">Firefox-ready extensions without duplicate product logic.</h2>
+            <p class="section-copy mt-5 mx-auto">Cross-browser behavior is checked against add-on review expectations, options pages, compatibility differences, and user trust signals.</p>
+          </div>
         </div>
-    </header>
+      </section>
 
-    <section class="py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Service 1 -->
-                <div class="glass-card p-8 group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full items-center text-center lg:items-start lg:text-left"
-                    data-aos="fade-up" data-aos-delay="0">
-                    <div
-                        class="w-full h-48 rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-500 shadow-lg">
-                        <img src="assets/images/services/dark_mode.png" alt="Dark Mode Systems"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Dark Mode Systems</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">I don't just invert colors. I build
-                        semantic, perceptual dark themes that reduce eye strain while preserving brand hierarchy.</p>
-                    <ul class="text-sm space-y-2 text-gray-500 font-medium mt-auto">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> OLED Pure Black support</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Elevation shadows mapping</li>
-                    </ul>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="glass-card p-8 group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full items-center text-center lg:items-start lg:text-left"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="w-full h-48 rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-500 shadow-lg">
-                        <img src="assets/images/services/wcag.png" alt="WCAG Accessibility Audits"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">WCAG Accessibility Audits</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Rigorous manual and automated testing
-                        against WCAG 2.1/2.2 AA and AAA criteria to protect your business and serve all users.</p>
-                    <ul class="text-sm space-y-2 text-gray-500 font-medium mt-auto">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Screen reader optimization</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Keyboard trap analysis</li>
-                    </ul>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="glass-card p-8 group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full items-center text-center lg:items-start lg:text-left"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="w-full h-48 rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-500 shadow-lg">
-                        <img src="assets/images/services/css_arch.png" alt="CSS Variable Architecture"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">CSS Variable Architecture</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Refactoring massive legacy codebases into
-                        clean, scalable CSS Custom Properties for instant theming.</p>
-                    <ul class="text-sm space-y-2 text-gray-500 font-medium mt-auto">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Tailwind Config generation</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Dynamic HSL tokens</li>
-                    </ul>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="glass-card p-8 group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full items-center text-center lg:items-start lg:text-left"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="w-full h-48 rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-500 shadow-lg">
-                        <img src="assets/images/services/rtl.png" alt="RTL Interface Optimization"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">RTL Interface Optimization</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Ensuring your layout perfectly mirrors for
-                        Arabic, Hebrew, and Persian users without layout breaks.</p>
-                    <ul class="text-sm space-y-2 text-gray-500 font-medium mt-auto">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Dynamic Mirroring</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Font-swap automation</li>
-                    </ul>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="glass-card p-8 group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full items-center text-center lg:items-start lg:text-left"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <div
-                        class="w-full h-48 rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-500 shadow-lg">
-                        <img src="assets/images/services/figma_tokens.png" alt="Figma Design Tokens Integration"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Figma Design Tokens Integration</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Automating the bridge between design system styles and production code using semantic, accessible design token structures.</p>
-                    <ul class="text-sm space-y-2 text-gray-500 font-medium mt-auto">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Figma-to-CSS automation</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Custom-tailored theme variables</li>
-                    </ul>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="glass-card p-8 group hover:-translate-y-2 transition-all duration-300 flex flex-col h-full items-center text-center lg:items-start lg:text-left"
-                    data-aos="fade-up" data-aos-delay="500">
-                    <div
-                        class="w-full h-48 rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-500 shadow-lg">
-                        <img src="assets/images/services/focus_management.png" alt="Interaction & Focus Management"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Interaction & Focus Management</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">Designing and implementing logical keyboard tab flows, skip-links, screen-reader focus traps, and custom focus indicators.</p>
-                    <ul class="text-sm space-y-2 text-gray-500 font-medium mt-auto">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Accessible focus rings & skip links</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Advanced modal focus traps</li>
-                    </ul>
-                </div>
-
+      <section class="section-pad" id="store">
+        <div class="container-wide">
+          <div class="mx-auto mb-12 max-w-3xl text-center reveal">
+            <span class="section-kicker justify-center"><i data-lucide="store" class="h-4 w-4"></i> Store listing optimization</span>
+            <h2 class="section-title mx-auto">Store assets that explain value fast and pass review cleanly.</h2>
+          </div>
+          <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div class="saas-card flex flex-col items-center text-center reveal">
+              <div class="service-img-wrapper mb-6">
+                <img src="assets/img/screenshot-strategy.png" alt="Screenshot strategy" class="service-img">
+              </div>
+              <h3 class="font-heading text-xl font-extrabold">Screenshot strategy</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Dashboard-driven frames that show product outcomes.</p>
             </div>
+            <div class="saas-card flex flex-col items-center text-center reveal">
+              <div class="service-img-wrapper mb-6">
+                <img src="assets/img/listing-copy.png" alt="Listing copy" class="service-img">
+              </div>
+              <h3 class="font-heading text-xl font-extrabold">Listing copy</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Feature descriptions aligned to store search and reviewer clarity.</p>
+            </div>
+            <div class="saas-card flex flex-col items-center text-center reveal md:col-span-2 md:mx-auto md:max-w-[calc(50%-10px)] lg:col-span-1 lg:mx-0 lg:max-w-none">
+              <div class="service-img-wrapper mb-6">
+                <img src="assets/img/review-responses.png" alt="Review response samples" class="service-img">
+              </div>
+              <h3 class="font-heading text-xl font-extrabold">Review response samples</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Support-ready templates for bugs, privacy, and feature asks.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Comparison Table Preview -->
-    <section class="py-16 bg-gray-50 dark:bg-slate-900/50">
-        <div class="max-w-5xl mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-center heading-lg mb-12">Why Specialized Auditing?</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-gray-200 dark:border-slate-700">
-                            <th class="p-4 font-bold text-lg">Feature</th>
-                            <th class="p-4 font-bold text-lg text-gray-500 text-center">Standard Agencies</th>
-                            <th class="p-4 font-bold text-lg text-primary text-center">Alex Rivera (Aura)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm">
-                        <tr class="border-b border-gray-200 dark:border-slate-800">
-                            <td class="p-4 font-medium">Automated Scans</td>
-                            <td class="p-4 text-center"><i class="fa-solid fa-check text-green-500"></i></td>
-                            <td class="p-4 text-center"><i class="fa-solid fa-check text-green-500"></i></td>
-                        </tr>
-                        <tr class="border-b border-gray-200 dark:border-slate-800">
-                            <td class="p-4 font-medium">Manual Screen Reader Testing</td>
-                            <td class="p-4 text-center"><i class="fa-solid fa-xmark text-red-500"></i></td>
-                            <td class="p-4 text-center"><i class="fa-solid fa-check text-green-500"></i></td>
-                        </tr>
-                        <tr class="border-b border-gray-200 dark:border-slate-800">
-                            <td class="p-4 font-medium">CSS Architecture Refactoring</td>
-                            <td class="p-4 text-center"><i class="fa-solid fa-xmark text-red-500"></i></td>
-                            <td class="p-4 text-center"><i class="fa-solid fa-check text-green-500"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="text-center mt-12">
-                <a href="pricing.html" class="btn-primary">View Pricing Packages</a>
-            </div>
-    </section>
-
-    <!-- New Section 1: Global Impact -->
-    <section class="py-16 relative overflow-hidden bg-white dark:bg-[#020617]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="text-center lg:text-left" data-aos="fade-right">
-                    <h2 class="heading-lg mb-6">Service Impact. <br><span class="text-gradient">By the Numbers.</span>
-                    </h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-                        My services have helped organizations reduce legal risks and improve user engagement by over
-                        40% across all digital touchpoints.
-                    </p>
-                    <div class="grid grid-cols-2 gap-8 max-w-md mx-auto lg:mx-0">
-                        <div>
-                            <div class="text-4xl font-black text-primary mb-1">150+</div>
-                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Audits Completed</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-black text-secondary mb-1">10M+</div>
-                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wider">Lines of Code
-                                Optimized</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative" data-aos="zoom-in">
-                    <div
-                        class="glass-card p-2 rounded-3xl rotate-[-2deg] hover:rotate-0 transition-transform duration-700">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-                            alt="Data Analytics" class="rounded-2xl w-full h-[400px] object-cover">
-                    </div>
-                </div>
-            </div>
+      <section class="section-pad bg-white/55 dark:bg-slate-950/30" id="analytics">
+        <div class="container-wide">
+          <div class="mx-auto mb-12 max-w-3xl text-center reveal">
+            <span class="section-kicker justify-center"><i data-lucide="bar-chart-3" class="h-4 w-4"></i> Analytics and tracking integration</span>
+            <h2 class="section-title mx-auto">Know what happens after users install.</h2>
+            <p class="section-copy mt-5 mx-auto">Instrument activation, feature usage, retention, crash reports, review changes, and store performance in a dashboard clients can actually read.</p>
+          </div>
+          <div class="grid gap-5 lg:grid-cols-3"><div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold text-center">Installs</h3><canvas class="chart-canvas" data-chart="installs" data-chart-height="190"></canvas></div><div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold text-center">Retention</h3><canvas class="chart-canvas" data-chart="retention" data-chart-height="190"></canvas></div><div class="visual-panel p-5 reveal"><h3 class="font-heading text-xl font-extrabold text-center">Crashes</h3><canvas class="chart-canvas" data-chart="crash" data-chart-height="190"></canvas></div></div>
         </div>
-    </section>
+      </section>
 
-    <!-- Philosophy, Tools & Methodology Section -->
-    <section class="py-20 relative overflow-hidden bg-gray-50 dark:bg-slate-900/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">My Methodology</h2>
-                <h3 class="heading-lg mb-4">Philosophy, Tools & Architecture</h3>
-                <p class="text-gray-600 dark:text-gray-400">Understanding why dark mode and accessibility matter, the tools used to test them, and my custom implementation process.</p>
+      <section class="section-pad">
+        <div class="container-wide">
+          <div class="mx-auto mb-12 max-w-3xl text-center reveal">
+            <span class="section-kicker justify-center"><i data-lucide="refresh-cw" class="h-4 w-4"></i> Maintenance and updates</span>
+            <h2 class="section-title mx-auto">Keep extensions healthy after launch.</h2>
+          </div>
+          <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div class="saas-card flex flex-col items-center text-center reveal">
+              <div class="service-img-wrapper mb-6">
+                <img src="assets/img/release-scheduling.png" alt="Release scheduling" class="service-img">
+              </div>
+              <h3 class="font-heading text-xl font-extrabold">Release scheduling</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Plan patch windows, rollout notes, and reviewer updates.</p>
             </div>
-
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Why Specialization Matters -->
-                <div class="glass-card p-8 flex flex-col h-full bg-white dark:bg-slate-800" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white mb-6 text-xl shadow-lg">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Why Specialization Exists</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                        Over 2.2 billion people globally live with vision impairment. Generic plugins or auto-inverts break essential contrast ratios and ignore color blindness (deuteranopia/protanopia) nuances. Custom theme engineering ensures safety, aesthetic coherence, and full legal WCAG compliance.
-                    </p>
-                </div>
-
-                <!-- Professional Testing Toolkit -->
-                <div class="glass-card p-8 flex flex-col h-full bg-white dark:bg-slate-800" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white mb-6 text-xl shadow-lg">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">The Testing Toolkit</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                        To guarantee perfect compliant standards, my testing workflow relies on industry-standard tools:
-                    </p>
-                    <ul class="text-sm space-y-2 text-gray-500 font-medium">
-                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> VoiceOver & NVDA Screen Readers</li>
-                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> Axe DevTools Auditing Engines</li>
-                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> APCA Contrast Modeling</li>
-                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> Sim Daltonism Blindness Simulator</li>
-                    </ul>
-                </div>
-
-                <!-- How Themes Are Created -->
-                <div class="glass-card p-8 flex flex-col h-full bg-white dark:bg-slate-800" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white mb-6 text-xl shadow-lg">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">How I Architect Themes</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                        I build themes utilizing contextual tokens mapped to scalable CSS Custom Properties. I dynamically validate designs using diverse, physical testing panels in the Accessibility Lab to ensure perfect keyboard focus paths and flawless responsive performance.
-                    </p>
-                </div>
+            <div class="saas-card flex flex-col items-center text-center reveal">
+              <div class="service-img-wrapper mb-6">
+                <img src="assets/img/notifications.png" alt="Notifications" class="service-img">
+              </div>
+              <h3 class="font-heading text-xl font-extrabold">Notifications</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Client alerts for store status, beta changes, and review activity.</p>
             </div>
+            <div class="saas-card flex flex-col items-center text-center reveal md:col-span-2 md:mx-auto md:max-w-[calc(50%-10px)] lg:col-span-1 lg:mx-0 lg:max-w-none">
+              <div class="service-img-wrapper mb-6">
+                <img src="assets/img/reports.png" alt="Reports" class="service-img">
+              </div>
+              <h3 class="font-heading text-xl font-extrabold">Reports</h3>
+              <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Downloadable launch, analytics, and update summaries.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- New Section 2: Premium Testimonials -->
-    <section class="py-16 bg-gray-50 dark:bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="heading-lg mb-16" data-aos="fade-up">Trusted by <span class="text-gradient">Industry
-                    Leaders.</span></h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                <!-- Testimonial 1 -->
-                <div class="glass-card p-8 flex flex-col items-center text-center h-full" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <img src="https://i.pravatar.cc/150?u=11"
-                        class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
-                    <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Alex's RTL optimization was seamless.
-                        He understood the cultural nuances of the layout mirroring perfectly."</p>
-                    <div class="mt-auto">
-                        <h4 class="font-bold text-gray-900 dark:text-white">Ahmed Al-Sayed</h4>
-                        <span class="text-xs text-primary font-bold uppercase tracking-wider">Engineering Lead, MENA
-                            Tech</span>
-                    </div>
-                </div>
-                <!-- Testimonial 2 (Featured) -->
-                <div class="glass-card p-8 flex flex-col items-center text-center h-full scale-105 border-primary bg-white/5 z-10 shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://i.pravatar.cc/150?u=12"
-                        class="w-20 h-20 rounded-full mb-6 border-4 border-secondary/20 p-1">
-                    <p class="italic text-gray-600 dark:text-gray-400 mb-6">"The dark mode system he built is
-                        incredibly robust. It handled our complex data visualizations without a single contrast error."
-                    </p>
-                    <div class="mt-auto">
-                        <h4 class="font-bold text-gray-900 dark:text-white">Julianne Vose</h4>
-                        <span class="text-xs text-secondary font-bold uppercase tracking-wider">Head of Design,
-                            DataFlow</span>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="glass-card p-8 flex flex-col items-center text-center h-full md:col-span-2 lg:col-span-1 md:max-w-md lg:max-w-none mx-auto lg:mx-0"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://i.pravatar.cc/150?u=13"
-                        class="w-20 h-20 rounded-full mb-6 border-4 border-primary/20 p-1">
-                    <p class="italic text-gray-600 dark:text-gray-400 mb-6">"Their WCAG 2.2 audit was the most thorough
-                        we've ever seen. He didn't just find issues; he provided the exact code to fix them."</p>
-                    <div class="mt-auto">
-                        <h4 class="font-bold text-gray-900 dark:text-white">Thomas Wright</h4>
-                        <span class="text-xs text-primary font-bold uppercase tracking-wider">Compliance Officer,
-                            EduLearn</span>
-                    </div>
-                </div>
-            </div>
+        <div class="container-wide border-y border-slate-200 py-12 dark:border-slate-800 text-center mx-auto max-w-4xl">
+          <div class="reveal">
+            <span class="section-kicker justify-center"><i data-lucide="send" class="h-4 w-4"></i> Choose a service lane</span>
+            <h2 class="section-title mx-auto">Start with build, publish, analytics, or maintenance.</h2>
+          </div>
+          <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row reveal">
+            <a class="btn btn-primary" href="contact.html"><i data-lucide="rocket" class="h-4 w-4"></i>Plan Project</a>
+            <a class="btn btn-ghost" href="pricing.html"><i data-lucide="badge-dollar-sign" class="h-4 w-4"></i>View Pricing</a>
+          </div>
         </div>
-    </section>
-
-    <!-- New Section 3: Featured Insights -->
-    <section class="py-16 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row justify-between items-center mb-16 gap-6 text-center lg:text-left">
-                <div class="flex flex-col items-center lg:items-start">
-                    <h2 class="heading-lg mb-2">Service <span class="text-gradient">Insights.</span></h2>
-                    <p class="text-gray-500">How to leverage accessibility for business growth.</p>
-                </div>
-                <a href="#" class="btn-secondary">View All Insights</a>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group cursor-pointer" data-aos="fade-up">
-                    <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <span
-                            class="absolute bottom-4 left-4 text-xs font-bold bg-primary px-2 py-1 rounded text-white uppercase">Strategy</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Accessibility as a ROI
-                        Multiplier</h3>
-                    <p class="text-sm text-gray-500">Why inclusive design is your best marketing strategy in 2026.</p>
-                </div>
-                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
-                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <span
-                            class="absolute bottom-4 left-4 text-xs font-bold bg-secondary px-2 py-1 rounded text-white uppercase">Development</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors">Automating WCAG 2.2
-                        Compliance</h3>
-                    <p class="text-sm text-gray-500">Best practices for integrating accessibility into your CI/CD
-                        pipeline.</p>
-                </div>
-                <div class="group cursor-pointer md:col-span-2 lg:col-span-1 md:max-w-md lg:max-w-none mx-auto lg:mx-0"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
-                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&q=80&w=800"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <span
-                            class="absolute bottom-4 left-4 text-xs font-bold bg-pink-500 px-2 py-1 rounded text-white uppercase">UI/UX</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-pink-500 transition-colors">Designing for
-                        Neurodiversity</h3>
-                    <p class="text-sm text-gray-500">Going beyond visual impairments to support all cognitive abilities.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-1">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <span class="font-bold text-lg sm:text-xl lg:text-2xl tracking-tight">Aura</span>
-                    </div>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
-                        Crafting premium, accessible, and beautiful dark mode experiences for modern digital products.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i
-                                class="fa-brands fa-twitter"></i></a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i
-                                class="fa-brands fa-dribbble"></i></a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"><i
-                                class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
-                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="about.html" class="hover:text-primary transition-colors">About Me</a></li>
-                        <li><a href="case-studies.html" class="hover:text-primary transition-colors">Case Studies</a></li>
-                        <li><a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a></li>
-                        <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-6">Services</h4>
-                    <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
-                        <li><a href="services.html" class="hover:text-primary transition-colors">Dark Mode Systems</a>
-                        </li>
-                        <li><a href="services.html" class="hover:text-primary transition-colors">WCAG Audits</a></li>
-                        <li><a href="accessibility-lab.html" class="hover:text-primary transition-colors">Accessibility
-                                Lab</a></li>
-                        <li><a href="services.html" class="hover:text-primary transition-colors">Testing Services</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-6">Newsletter</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                        Get the latest accessibility tips.
-                    </p>
-                    <form class="flex gap-2">
-                        <input type="email" placeholder="Email"
-                            class="bg-gray-100 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-1 focus:ring-primary outline-none">
-                        <button
-                            class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold hover:bg-secondary hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-300"
-                            aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
-                    </form>
-                    <div
-                        class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold border border-green-200 dark:border-green-800/50">
-                        <i class="fa-solid fa-check-circle"></i> WCAG 2.2 AAA Validated
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="border-t border-gray-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2026 Alex Rivera. All
-                    rights reserved.</p>
-                <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400">
-                    <button class="theme-toggle hover:text-primary transition-colors">Toggle Theme</button>
-                    <a href="#" class="hover:text-primary">Privacy Policy</a>
-                    <a href="index.html" class="hover:text-primary">Alex Rivera</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    </main>
+    <div id="site-footer"></div>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="assets/js/main.js"></script>
-</body>
-
+  </body>
 </html>
