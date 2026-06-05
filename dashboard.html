@@ -59,7 +59,7 @@
         .sidebar { width: 280px; background-color: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; z-index: 50; transition: transform 0.3s ease, background-color 0.3s; }
         .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; background-color: var(--bg-color); }
         .topbar { height: 70px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: var(--topbar-bg); backdrop-filter: blur(10px); transition: background-color 0.3s; }
-        .content-area { flex: 1; overflow-y: auto; padding: 1.5rem; }
+        .content-area { flex: 1; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; }
         
         @media (max-width: 640px) {
             .topbar { padding: 0 1rem; }
@@ -185,10 +185,10 @@
 
             <!-- Dashboard Content Area -->
             <div class="content-area" id="mainScroll">
-                <div class="max-w-7xl mx-auto space-y-3 pb-6">
+                <div class="max-w-7xl w-full mx-auto space-y-6 pb-6 flex-1 flex flex-col">
                     
                     <!-- Welcome Header -->
-                    <div id="overview-header" class="flex flex-col sm:flex-row justify-between items-center sm:items-end text-center sm:text-left gap-4" data-aos="fade-in">
+                    <div id="overview-header" class="flex flex-col sm:flex-row justify-between items-center sm:items-end text-center sm:text-left gap-4">
                         <div>
                             <h2 class="text-3xl font-bold mb-1">Welcome back, Designer</h2>
                             <p class="text-gray-400">Here's the accessibility status of your current project.</p>
@@ -200,7 +200,7 @@
 
                     <!-- Top Analytics Row -->
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div id="wcag-analyzer-widget" class="widget-card" data-aos="fade-up" data-aos-delay="50">
+                        <div id="wcag-analyzer-widget" class="widget-card">
                             <div class="flex justify-between items-start mb-4">
                                 <div class="w-10 h-10 rounded-lg bg-green-500/20 text-green-500 flex items-center justify-center"><i class="fa-solid fa-check-double"></i></div>
                                 <span class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded">Pass</span>
@@ -209,7 +209,7 @@
                             <p class="text-sm text-gray-400">WCAG Score (AA)</p>
                         </div>
                         
-                        <div class="widget-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="widget-card">
                             <div class="flex justify-between items-start mb-4">
                                 <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-500 flex items-center justify-center"><i class="fa-solid fa-droplet"></i></div>
                             </div>
@@ -217,7 +217,7 @@
                             <p class="text-sm text-gray-400">Avg. Contrast Ratio</p>
                         </div>
                         
-                        <div class="widget-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="widget-card">
                             <div class="flex justify-between items-start mb-4">
                                 <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-500 flex items-center justify-center"><i class="fa-solid fa-eye-low-vision"></i></div>
                                 <span class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded">Safe</span>
@@ -226,7 +226,7 @@
                             <p class="text-sm text-gray-400">Colorblind Safe</p>
                         </div>
                         
-                        <div class="widget-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="widget-card">
                             <div class="flex justify-between items-start mb-4">
                                 <div class="w-10 h-10 rounded-lg bg-orange-500/20 text-orange-500 flex items-center justify-center"><i class="fa-solid fa-triangle-exclamation"></i></div>
                             </div>
@@ -236,12 +236,12 @@
                     </div>
 
                     <!-- Complex Layout Grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1">
                         
                         <!-- Col 1: Brand Colors & Contrast -->
-                        <div class="lg:col-span-1 space-y-6">
+                        <div class="lg:col-span-1 space-y-6 flex flex-col">
                             <!-- Brand Colors Submission Tool -->
-                            <div id="brand-colors-widget" class="widget-card" data-aos="fade-up">
+                            <div id="brand-colors-widget" class="widget-card flex-1 flex flex-col justify-between">
                                 <h3 class="font-bold text-lg mb-4 flex items-center justify-between">
                                     Base Colors <button class="text-primary font-bold text-sm hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors px-2 py-0.5 hover:bg-primary/5 dark:hover:bg-primary/10 rounded">Edit</button>
                                 </h3>
@@ -274,7 +274,7 @@
                             </div>
                             
                             <!-- Contrast Checker -->
-                            <div id="contrast-checker-widget" class="widget-card" data-aos="fade-up" data-aos-delay="50">
+                            <div id="contrast-checker-widget" class="widget-card flex-1 flex flex-col justify-between">
                                 <h3 class="font-bold text-lg mb-4">Live Contrast Checker</h3>
                                 <div class="p-4 rounded-lg bg-[#6366f1] text-[#f8fafc] mb-4 text-center border border-white/10">
                                     <span class="font-bold">Text on Primary</span>
@@ -294,7 +294,7 @@
                             </div>
 
                             <!-- Colorblind Simulator -->
-                            <div id="colorblind-sim-widget" class="widget-card" data-aos="fade-up" data-aos-delay="100">
+                            <div id="colorblind-sim-widget" class="widget-card flex-1 flex flex-col justify-between">
                                 <h3 class="font-bold text-lg mb-4">Colorblind Simulation</h3>
                                 <select class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-sm mb-4 outline-none focus:border-primary text-gray-900 dark:text-white">
                                     <option>Normal Vision</option>
@@ -314,10 +314,10 @@
                         </div>
 
                         <!-- Col 2 & 3: Theme Preview & Simulator -->
-                        <div class="lg:col-span-2 space-y-6">
+                        <div class="lg:col-span-2 space-y-6 flex flex-col">
                             
                             <!-- Theme Preview Engine -->
-                            <div id="theme-generator-widget" class="widget-card h-auto" data-aos="fade-up">
+                            <div id="theme-generator-widget" class="widget-card flex-1 flex flex-col">
                                 <div class="flex justify-between items-center mb-4">
                                     <h3 class="font-bold text-lg">Theme Preview Engine</h3>
                                     <div class="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
@@ -326,7 +326,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-[#0f172a] shadow-inner p-6 h-64 relative flex flex-col justify-between">
+                                <div class="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-[#0f172a] shadow-inner p-6 flex-1 min-h-[16rem] relative flex flex-col justify-between">
                                     <!-- Preview UI Mockup -->
                                     <nav class="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
                                         <div class="w-24 h-6 bg-white/10 rounded"></div>
@@ -356,11 +356,11 @@
                             </div>
                             
                             <!-- Bottom Row: CSS Export -->
-                            <div class="grid grid-cols-1 gap-6">
+                            <div class="grid grid-cols-1 gap-6 flex-1 flex flex-col">
                                 <!-- CSS Variable Export -->
-                                <div id="css-export-widget" class="widget-card flex flex-col" data-aos="fade-up">
+                                <div id="css-export-widget" class="widget-card flex-1 flex flex-col">
                                     <h3 class="font-bold text-lg mb-4">CSS Export</h3>
-                                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-xs text-indigo-300 h-40 overflow-y-auto border border-slate-800 mb-3 relative">
+                                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-xs text-indigo-300 flex-1 min-h-[10rem] overflow-y-auto border border-slate-800 mb-3 relative">
                                         <pre class="text-[11px] leading-relaxed text-indigo-300"><code>/* Semantic Color Tokens */
 :root {
   --primary: #6366f1;
@@ -389,11 +389,6 @@
                             </div>
                     </div>
                 </div>
-
-                
-
-               
-               
             </div>
         </div>
     </main>
